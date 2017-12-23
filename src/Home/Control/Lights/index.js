@@ -11,7 +11,7 @@ const List = styled.ul`
 
 const Lights = ({ data }) => {
   const renderers = {
-    'Light/Switch': props => <LightSwitch key={props.id} {...props} />
+    switch: props => <LightSwitch key={props.id} {...props} />
   }
   return (
     <List>
@@ -19,7 +19,7 @@ const Lights = ({ data }) => {
       {data.lights &&
         data.lights.map(x => {
           const renderLight = renderers[x.type]
-
+          console.log(x.type)
           return renderLight(x)
         })}
     </List>

@@ -9,6 +9,7 @@ const Wrapper = styled.li`
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: 8px;
 
   svg {
     opacity: ${({ theme, isOn }) => (isOn ? 1 : 0.65)};
