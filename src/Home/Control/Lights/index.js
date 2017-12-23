@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import LightSwitch from './LightSwitch'
+import Loader from 'ui/Loader'
 
 const List = styled.ul`
   padding: 24px;
@@ -15,7 +16,7 @@ const Lights = ({ data }) => {
   }
   return (
     <List>
-      {data.loading && <div>Loader...</div>}
+      {data.loading && <Loader />}
       {data.lights &&
         data.lights.map(x => {
           const renderLight = renderers[x.type]

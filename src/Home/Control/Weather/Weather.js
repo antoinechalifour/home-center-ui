@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import Loader from 'ui/Loader'
 import WindSpeedIcon from 'react-icons/lib/ti/weather-windy'
 import ThermometerIcon from 'react-icons/lib/ti/thermometer'
 import ClearIcon from 'react-icons/lib/ti/weather-partly-sunny'
@@ -50,7 +51,7 @@ const KindToIcon = {
 
 const Weather = ({ latitude, longitude, data }) => {
   if (data.loading) {
-    return <div>Loading data...</div>
+    return <Loader />
   }
 
   const weather = data.weather
