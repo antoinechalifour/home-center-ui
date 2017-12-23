@@ -3,7 +3,7 @@ export default {
     dark: '#373d3f',
     primary: '#f7f7f9',
     accent: '#ffeb3b',
-    background: '#474350',
+    background: '#212227',
     text: '#fff',
     light: 'rgba(255, 255, 255, .15)'
   },
