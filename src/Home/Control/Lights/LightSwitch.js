@@ -8,10 +8,11 @@ import LightIcon from 'react-icons/lib/md/lightbulb-outline'
 const Wrapper = styled.li`
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   svg {
-    opacity: ${({ isOn }) => (isOn ? 1 : 0.5)};
-    color: ${({ isOn }) => (isOn ? 'green' : 'inherit')};
+    opacity: ${({ theme, isOn }) => (isOn ? 1 : 0.65)};
+    color: ${({ theme, isOn }) => (isOn ? theme.colors.accent : theme.colors.text)};
     font-size: 54px;
   }
 `

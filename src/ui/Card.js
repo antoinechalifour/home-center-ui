@@ -9,4 +9,5 @@ export default Card
 
 export const Content = styled.div`
   padding: 12px;
+  color: ${({ theme }) => theme.colors.dark};
 `
