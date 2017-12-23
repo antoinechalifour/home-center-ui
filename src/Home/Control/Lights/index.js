@@ -42,7 +42,7 @@ Lights.propTypes = {
 
 export default graphql(
   gql`
-    query LightsQuery {
+    query LightsQuerry {
       lights {
         id,
         name,

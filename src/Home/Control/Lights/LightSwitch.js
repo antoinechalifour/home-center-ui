@@ -64,7 +64,7 @@ export default graphql(
 `,
   {
     options: {
-      refetchQueries: ['LightsQuery']
+      refetchQueries: ['LightsQuerry']
     }
   }
 )(LightSwitch)

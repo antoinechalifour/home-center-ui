@@ -15,3 +15,9 @@ export const Content = styled.div`
   height: 100%;
   overflow-y: auto;
 `
+
+export const Divider = styled.div`
+  height: 1px;
+  background: ${({ theme }) => theme.colors.light};
+  margin: 16px auto;
+`
