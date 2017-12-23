@@ -78,9 +78,9 @@ export default graphql(
   gql`
   query RssQuery {
     feed {
-      title
-      link
-      date
+      title,
+      link,
+      date,
       source
     }
   }

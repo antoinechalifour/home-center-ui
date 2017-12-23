@@ -1,12 +1,16 @@
 import React from 'react'
-import SectionTitle from 'Home/SectionTitle'
+import Section, * as section from 'Home/Section'
+import Lights from './Lights'
 
 const Control = () => (
-  <div>
-    <SectionTitle>
+  <Section>
+    <section.Title>
       Home
-    </SectionTitle>
-  </div>
+    </section.Title>
+    <section.Content>
+      <Lights />
+    </section.Content>
+  </Section>
 )
 
 export default Control
