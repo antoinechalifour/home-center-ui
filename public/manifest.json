@@ -1,15 +1,13 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    }
-  ],
+  "short_name": "Home Center",
+  "name": "Home Center",
+  "icons": {
+    "16": "icon16.ico",
+    "48": "icon48.ico",
+    "128": "icon128.ico"
+  },
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#212227",
+  "background_color": "#212227"
 }
