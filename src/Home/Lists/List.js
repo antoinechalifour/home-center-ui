@@ -4,13 +4,11 @@ import styled from 'styled-components'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import DeleteIcon from 'react-icons/lib/md/clear'
+import Card from 'ui/Card'
 import Item from './Item'
 import NewItem from './NewItem'
 
-const Wrapper = styled.div`
-  background: #fff;
-  color: #373d3f;
-
+const Wrapper = styled(Card)`
   & + & {
     margin-top: 12px;
   }

@@ -1,10 +1,11 @@
 export default {
   colors: {
-    dark: '#373d3f',
-    primary: '#f7f7f9',
-    accent: '#ffeb3b',
     background: '#212227',
-    text: '#fff',
+    backgroundInverse: '#ffffff',
+    text: '#ffffff',
+    textInverse: '#373d3f',
+    primary: '#ff003c',
+    accent: '#ffeb3b',
     light: 'rgba(255, 255, 255, .15)'
   },
   font: {

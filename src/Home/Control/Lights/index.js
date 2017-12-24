@@ -20,7 +20,6 @@ const Lights = ({ data }) => {
       {data.lights &&
         data.lights.map(x => {
           const renderLight = renderers[x.type]
-          console.log(x.type)
           return renderLight(x)
         })}
     </List>

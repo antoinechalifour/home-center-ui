@@ -58,7 +58,6 @@ const Weather = ({ latitude, longitude, data }) => {
   }
 
   const weather = data.weather
-  console.log(weather.kind)
   const WeatherIcon = KindToIcon[weather.kind]
 
   return (
