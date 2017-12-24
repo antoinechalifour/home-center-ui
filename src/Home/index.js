@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Search from 'Home/Search'
 import Control from 'Home/Control'
 import Rss from 'Home/Rss'
-import Todos from 'Home/Todos'
+import Lists from 'Home/Lists'
 
 const Grid = styled.div`
   height: 100vh;
@@ -47,7 +47,7 @@ const Home = ({ name }) => (
             <Control />
           </Col1>
           <Col2>
-            <Todos />
+            <Lists />
           </Col2>
           <Col3>
             <Rss />
