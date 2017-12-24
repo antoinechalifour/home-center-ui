@@ -8,6 +8,7 @@ import WindSpeedIcon from 'react-icons/lib/ti/weather-windy'
 import ThermometerIcon from 'react-icons/lib/ti/thermometer'
 import ClearIcon from 'react-icons/lib/ti/weather-partly-sunny'
 import CloudsIcon from 'react-icons/lib/ti/weather-cloudy'
+import MistIcon from 'react-icons/lib/ti/waves'
 
 const Wrapper = styled.div`
   display: flex;
@@ -46,7 +47,8 @@ const Info = styled.div`
 
 const KindToIcon = {
   clear: ClearIcon,
-  clouds: CloudsIcon
+  clouds: CloudsIcon,
+  mist: MistIcon
 }
 
 const Weather = ({ latitude, longitude, data }) => {
