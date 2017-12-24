@@ -7,13 +7,21 @@ import Rss from 'Home/Rss'
 import Lists from 'Home/Lists'
 
 const Grid = styled.div`
-  height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "header header header"
-    "col1 col2 col3";
+    "header"
+    "col1"
+    "col2"
+    "col3";
+
+  @media (min-width: 860px) {
+    height: 100vh;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "header header header"
+      "col1 col2 col3";
+  }
 `
 
 const Header = styled.div`

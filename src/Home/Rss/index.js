@@ -8,11 +8,27 @@ import Section, * as section from 'Home/Section'
 
 const Feed = styled.ul`
   padding: 12px;
+  display: flex;
+
+  @media (min-width: 860px) {
+    flex-direction: column;
+  }
 `
 
 const Item = styled.li`
+  flex: 0 0 90%;
+
   & + & {
-    margin-top: 8px;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  @media (min-width: 860px) {
+    & + & {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 8px;
+    }
   }
 `
 
