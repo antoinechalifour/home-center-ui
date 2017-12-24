@@ -48,7 +48,8 @@ const Info = styled.div`
 const KindToIcon = {
   clear: ClearIcon,
   clouds: CloudsIcon,
-  mist: MistIcon
+  mist: MistIcon,
+  fog: MistIcon
 }
 
 const Weather = ({ latitude, longitude, data }) => {
@@ -57,6 +58,7 @@ const Weather = ({ latitude, longitude, data }) => {
   }
 
   const weather = data.weather
+  console.log(weather.kind)
   const WeatherIcon = KindToIcon[weather.kind]
 
   return (
