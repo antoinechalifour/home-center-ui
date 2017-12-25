@@ -4,10 +4,9 @@ import styled from 'styled-components'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Card, * as card from 'ui/Card'
-import Section, * as section from 'Home/Section'
+import Loader from 'ui/Loader'
 
 const Feed = styled.ul`
-  padding: 12px;
   display: flex;
 
   @media (min-width: 860px) {
@@ -52,27 +51,24 @@ const ItemMeta = styled.span`
 
 const Rss = ({ data }) => {
   return (
-    <Section>
-      <section.Title>News</section.Title>
-      <section.Content>
-        {data.loading && <section.Loader />}
-        {data.feed &&
-          <Feed>
-            {data.feed.map(({ title, link, date, source }) => (
-              <Item key={title}>
-                <Card>
-                  <card.Content>
-                    <ItemLink href={link} target='_blank' rel='noopener'>
-                      <ItemTitle>{title}</ItemTitle>
-                      <ItemMeta>{source}</ItemMeta>
-                    </ItemLink>
-                  </card.Content>
-                </Card>
-              </Item>
-            ))}
-          </Feed>}
-      </section.Content>
-    </Section>
+    <div>
+      {data.loading && <Loader />}
+      {data.feed &&
+        <Feed>
+          {data.feed.map(({ title, link, date, source }) => (
+            <Item key={title}>
+              <Card>
+                <card.Content>
+                  <ItemLink href={link} target='_blank' rel='noopener'>
+                    <ItemTitle>{title}</ItemTitle>
+                    <ItemMeta>{source}</ItemMeta>
+                  </ItemLink>
+                </card.Content>
+              </Card>
+            </Item>
+          ))}
+        </Feed>}
+    </div>
   )
 }
 

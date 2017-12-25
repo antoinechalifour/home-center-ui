@@ -76,4 +76,16 @@ const Cube4 = Cube1.extend`
   }
 `
 
-export default FoldingCubeLoader
+const LoaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+`
+
+export const Loader = () => (
+  <LoaderWrapper>
+    <FoldingCubeLoader />
+  </LoaderWrapper>
+)
+
+export default Loader

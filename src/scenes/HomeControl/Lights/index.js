@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import LightSwitch from './LightSwitch'
 import Loader from 'ui/Loader'
+import LightSwitch from './LightSwitch'
+import LightDimmer from './LightDimmer'
 
 const List = styled.ul`
   padding: 24px;
@@ -12,7 +13,8 @@ const List = styled.ul`
 
 const Lights = ({ data }) => {
   const renderers = {
-    switch: props => <LightSwitch key={props.id} {...props} />
+    switch: props => <LightSwitch key={props.id} {...props} />,
+    dimmer: props => <LightDimmer key={props.id} {...props} />
   }
   return (
     <List>
