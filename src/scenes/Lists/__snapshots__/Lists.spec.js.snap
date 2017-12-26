@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scenes/Lists Should render a list of Lists otherwise 1`] = `
+<div>
+  <List
+    id={1}
+    name="List #1"
+  />
+  <List
+    id={2}
+    name="List #2"
+  />
+  <NewList />
+</div>
+`;
+
+exports[`scenes/Lists Should render a loader when the data is fetching 1`] = `
+<div>
+  <Loader />
+  <NewList />
+</div>
+`;

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scenes/Lists/List Should render correctly 1`] = `
+.c0 + .c0 {
+  margin-top: 12px;
+}
+
+.c1 {
+  text-transform: uppercase;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,.13);
+  position: relative;
+}
+
+.c1 svg {
+  opacity: .54;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+<Card
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <span>
+      My todo list
+    </span>
+    <DeleteIcon
+      onClick={[Function]}
+    />
+  </div>
+  <ul>
+    <Item
+      done={false}
+      id={1}
+      text="Item #1"
+    />
+    <Item
+      done={true}
+      id={2}
+      text="Item #2"
+    />
+    <Item
+      done={false}
+      id={3}
+      text="Item #3"
+    />
+  </ul>
+  <NewItem
+    listId={4}
+  />
+</Card>
+`;
+
+exports[`scenes/Lists/List Should render null when the data is loading 1`] = `null`;

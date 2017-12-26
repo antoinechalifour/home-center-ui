@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scenes/Lists/NewList Should render correctly 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 16px auto;
+  background: rgba(0,0,0,.8);
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #fff;
+  outline: none;
+}
+
+<form
+  onSubmit={[Function]}
+>
+  <input
+    className="c0"
+    onChange={[Function]}
+    placeholder="New list?"
+    value="my new list!"
+  />
+</form>
+`;

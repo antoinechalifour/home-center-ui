@@ -6,29 +6,6 @@ import Card from 'ui/Card'
 import Item from './Item'
 import NewItem from './NewItem'
 
-const Wrapper = styled(Card)`
-  & + & {
-    margin-top: 12px;
-  }
-`
-
-const Name = styled.div`
-  text-transform: uppercase;
-  padding: 12px;
-  text-align: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
-  position: relative;
-
-  svg {
-    opacity: .54;
-    cursor: pointer;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-`
-
 export default function List ({ id, name, data, mutate }) {
   const isLoading = data.loading
 
@@ -67,3 +44,26 @@ List.propTypes = {
   }).isRequired,
   mutate: PropTypes.func.isRequired
 }
+
+const Wrapper = styled(Card)`
+  & + & {
+    margin-top: 12px;
+  }
+`
+
+const Name = styled.div`
+  text-transform: uppercase;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+  position: relative;
+
+  svg {
+    opacity: .54;
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+`

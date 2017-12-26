@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scenes/Lists/List/Item Should render a checked icon when the item is done 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.c0 svg {
+  margin-right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.c0 span {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-decoration: line-through;
+  opacity: .54;
+}
+
+.c0 span + svg {
+  margin-right: 0;
+  opacity: .54;
+}
+
+.c0 + li {
+  border-top: 1px solid rgba(0,0,0,.15);
+}
+
+<li
+  checked={true}
+  className="c0"
+>
+  <CheckedIcon
+    onClick={[Function]}
+  />
+  <span>
+    This is an item
+  </span>
+  <DeleteIcon
+    onClick={[Function]}
+  />
+</li>
+`;
+
+exports[`scenes/Lists/List/Item Should render a unchecked icon when the item is not done 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.c0 svg {
+  margin-right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.c0 span {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c0 span + svg {
+  margin-right: 0;
+  opacity: .54;
+}
+
+.c0 + li {
+  border-top: 1px solid rgba(0,0,0,.15);
+}
+
+<li
+  checked={false}
+  className="c0"
+>
+  <UncheckedIcon
+    onClick={[Function]}
+  />
+  <span>
+    This is an item
+  </span>
+  <DeleteIcon
+    onClick={[Function]}
+  />
+</li>
+`;

@@ -2,31 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Form = styled.form`
-  display: flex;
-  background: #fff;
-  border-top: 1px solid rgba(0, 0, 0, .15);
-
-  button {
-    border: none;
-    text-transform: uppercase;
-    padding: 12px;
-  }
-`
-
-const Input = styled.input`
-  box-sizing: border-box;
-  outline: none;
-  display: block;
-  width: 100%;
-  flex: 1;
-  font-size: inherit;
-  font-family: inherit;
-  border: none;
-  background: none;
-  padding: 12px 16px;
-`
-
 export default class NewItem extends Component {
   static ppropTypes = {
     listId: PropTypes.number.isRequired,
@@ -61,3 +36,28 @@ export default class NewItem extends Component {
     )
   }
 }
+
+const Form = styled.form`
+  display: flex;
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, .15);
+
+  button {
+    border: none;
+    text-transform: uppercase;
+    padding: 12px;
+  }
+`
+
+const Input = styled.input`
+  box-sizing: border-box;
+  outline: none;
+  display: block;
+  width: 100%;
+  flex: 1;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  background: none;
+  padding: 12px 16px;
+`
