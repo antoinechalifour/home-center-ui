@@ -30,17 +30,11 @@ const Grid = styled.div`
 const Home = ({ name }) => (
   <Grid>
     <Pane area='weather'>
-      <pane.Title>
-        Weather
-      </pane.Title>
       <pane.Content>
         <Weather />
       </pane.Content>
     </Pane>
     <Pane area='home-control'>
-      <pane.Title>
-        Home
-      </pane.Title>
       <pane.Content>
         <HomeControl />
       </pane.Content>

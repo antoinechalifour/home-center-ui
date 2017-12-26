@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type clear 1`] = `<clear />`;
+
+exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type clouds 1`] = `<clouds />`;
+
+exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type cool 1`] = `null`;
+
+exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type fog 1`] = `<mist />`;
+
+exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type mist 1`] = `<mist />`;
+
+exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type rain 1`] = `<rain />`;

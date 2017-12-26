@@ -1,29 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import Loader from 'ui/Loader'
+import GetPosition from './GetPosition'
 import Weather from './Weather'
 
-class GetPosition extends Component {
-  state = { position: null }
+export default function WeatherWidget () {
+  return (
+    <GetPosition
+      render={({ err, position }) => {
+        const isLoading = !err && !position
 
-  componentDidMount () {
-    navigator.geolocation.getCurrentPosition(this.onPosition, this.onError)
-  }
-
-  onPosition = data => {
-    const coords = data.coords
-    const { latitude, longitude } = coords
-
-    this.setState({
-      position: { latitude, longitude }
-    })
-  }
-
-  onError = err => {
-    console.log(err)
-  }
-
-  render () {
-    return this.state.position ? <Weather {...this.state.position} /> : null
-  }
+        if (isLoading) {
+          return <Loader />
+        } else if (err) {
+          return <div>Error !</div>
+        } else {
+          return <Weather {...position} />
+        }
+      }}
+    />
+  )
 }
-
-export default GetPosition
