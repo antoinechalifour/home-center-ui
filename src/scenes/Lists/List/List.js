@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { graphql, compose } from 'react-apollo'
-import gql from 'graphql-tag'
 import DeleteIcon from 'react-icons/lib/md/clear'
 import Card from 'ui/Card'
 import Item from './Item'
@@ -31,7 +29,7 @@ const Name = styled.div`
   }
 `
 
-const List = ({ id, name, data, mutate }) => {
+export default function List ({ id, name, data, mutate }) {
   const isLoading = data.loading
 
   if (isLoading) {
@@ -69,38 +67,3 @@ List.propTypes = {
   }).isRequired,
   mutate: PropTypes.func.isRequired
 }
-
-export default compose(
-  graphql(
-    gql`
-      query ListQuery ($id: Int) {
-        list (id: $id) {
-          items {
-            id,
-            text,
-            done
-          }
-        }
-      }
-  `,
-    {
-      options: ({ id }) => ({
-        variables: { id }
-      })
-    }
-  ),
-  graphql(
-    gql`
-      mutation deleteList($id: Int) {
-        deleteList(id: $id) {
-          id
-        }
-      }
-    `,
-    {
-      options: {
-        refetchQueries: ['ListsQuery']
-      }
-    }
-  )
-)(List)

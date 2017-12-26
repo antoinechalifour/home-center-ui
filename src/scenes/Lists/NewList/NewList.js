@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
 
 const Input = styled.input`
   box-sizing: border-box;
@@ -19,7 +17,7 @@ const Input = styled.input`
   outline: none;
 `
 
-class NewList extends Component {
+export default class NewList extends Component {
   static propTypes = {
     mutate: PropTypes.func.isRequired
   }
@@ -49,18 +47,3 @@ class NewList extends Component {
     )
   }
 }
-
-export default graphql(
-  gql`
-    mutation createList($name: String) {
-      createList(name: $name) {
-        id
-      }
-    }
-  `,
-  {
-    options: {
-      refetchQueries: ['ListsQuery']
-    }
-  }
-)(NewList)
