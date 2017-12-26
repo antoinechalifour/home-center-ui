@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`scenes/Rss/Rss Should render a loader when the data is loading 1`] = `
-<Col
+<Flex(column)
   align="center"
   justify="flex-start"
 >
   <Loader />
-</Col>
+</Flex(column)>
 `;
 
 exports[`scenes/Rss/Rss Should render the feed otherwise 1`] = `
-<Col
+<Flex(column)
   align="center"
   justify="flex-start"
 >
@@ -52,5 +52,5 @@ exports[`scenes/Rss/Rss Should render the feed otherwise 1`] = `
       </styled.div>
     </styled.li>
   </styled.ul>
-</Col>
+</Flex(column)>
 `;

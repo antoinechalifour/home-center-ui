@@ -28,6 +28,8 @@ const createFlex = (direction, additionalStyles) => {
     )
   }
 
+  Flex.displayName = `Flex(${direction})`
+
   Flex.propTypes = {
     align: PropTypes.string.isRequired,
     justify: PropTypes.string.isRequired

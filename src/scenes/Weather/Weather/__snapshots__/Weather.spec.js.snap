@@ -3,11 +3,11 @@
 exports[`scenes/Weather/Weather Should render a loader when the data is loading 1`] = `<Loader />`;
 
 exports[`scenes/Weather/Weather Should render the widget otherwise 1`] = `
-<Col
+<Flex(column)
   align="center"
   justify="center"
 >
-  <Styled(Row)
+  <Styled(Flex(row))
     align="center"
   >
     <Icon
@@ -17,8 +17,8 @@ exports[`scenes/Weather/Weather Should render the widget otherwise 1`] = `
       6
       °
     </div>
-  </Styled(Row)>
-  <Styled(Row)
+  </Styled(Flex(row))>
+  <Styled(Flex(row))
     align="center"
   >
     <span>
@@ -41,6 +41,6 @@ exports[`scenes/Weather/Weather Should render the widget otherwise 1`] = `
        
       6
     </span>
-  </Styled(Row)>
-</Col>
+  </Styled(Flex(row))>
+</Flex(column)>
 `;
