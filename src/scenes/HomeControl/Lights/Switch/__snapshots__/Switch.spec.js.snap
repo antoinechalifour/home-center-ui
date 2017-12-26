@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scenes/HomeControl/Lights/Switch Should render correctly (off) 1`] = `
+<Flex(row)
+  align="center"
+  justify="flex-start"
+>
+  <StatusIcon
+    isOn={false}
+    onClick={[Function]}
+  />
+  <div
+    flex={true}
+  >
+    Light #3
+  </div>
+</Flex(row)>
+`;
+
+exports[`scenes/HomeControl/Lights/Switch Should render correctly (on) 1`] = `
+<Flex(row)
+  align="center"
+  justify="flex-start"
+>
+  <StatusIcon
+    isOn={true}
+    onClick={[Function]}
+  />
+  <div
+    flex={true}
+  >
+    Light #3
+  </div>
+</Flex(row)>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scnees/HomeControl/Lights/Dimmer Should render correctly 1`] = `
+<Flex(row)
+  align="center"
+  justify="flex-start"
+>
+  <StatusIcon
+    isOn={true}
+    onClick={[Function]}
+  />
+  <div
+    flex={true}
+  >
+    <styled.div>
+      My light #2
+    </styled.div>
+    <InputRange
+      onChange={[Function]}
+      value={0}
+    />
+  </div>
+</Flex(row)>
+`;

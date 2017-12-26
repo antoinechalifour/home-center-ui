@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui/HomeControl/Lights/StatusIcon Should render correctly (off) 1`] = `
+.c0 {
+  cursor: pointer;
+  font-size: 54px;
+  margin-right: 12px;
+  opacity: 0.65;
+  color: black;
+}
+
+<Icon
+  className="c0"
+  onClick={[Function]}
+/>
+`;
+
+exports[`ui/HomeControl/Lights/StatusIcon Should render correctly (on) 1`] = `
+.c0 {
+  cursor: pointer;
+  font-size: 54px;
+  margin-right: 12px;
+  opacity: 1;
+  color: red;
+}
+
+<Icon
+  className="c0"
+  onClick={[Function]}
+/>
+`;
