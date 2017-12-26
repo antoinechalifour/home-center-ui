@@ -21,8 +21,7 @@ const Row = ({ children, ...props }) => {
 
 Row.propTypes = {
   align: PropTypes.string.isRequired,
-  justify: PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(PropTypes.element).isRequired
+  justify: PropTypes.string.isRequired
 }
 
 Row.defaultProps = {
