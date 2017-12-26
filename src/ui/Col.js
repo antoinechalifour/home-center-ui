@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Col = ({ children, ...props }) => {
   const kids = React.Children.map(children, child => {
-    if (child.props.flex) {
+    if (child && child.props.flex) {
       const flex = typeof child.props.flex === 'number' ? child.props.flex : 1
       const style = child.props.style ? { ...child.props.style } : {}
 
