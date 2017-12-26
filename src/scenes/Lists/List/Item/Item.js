@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import TodoIcon from 'react-icons/lib/md/check-box-outline-blank'
 import DoneIcon from 'react-icons/lib/md/check-box'
 import DeleteIcon from 'react-icons/lib/md/clear'
+import Editable from 'components/Editable'
 
 export default function Item ({
   id,
@@ -15,11 +16,13 @@ export default function Item ({
   const toggleStatus = () =>
     updateListItem({ variables: { id, text, done: !done } })
   const CheckboxIcon = done ? DoneIcon : TodoIcon
+  const updateText = value =>
+    updateListItem({ variables: { id, text: value, done } })
 
   return (
     <Wrapper checked={done}>
       <CheckboxIcon onClick={toggleStatus} />
-      <span>{text}</span>
+      <Editable onChange={updateText}>{text}</Editable>
       <DeleteIcon onClick={() => deleteListItem({ variables: { id } })} />
     </Wrapper>
   )
@@ -31,9 +34,12 @@ const Wrapper = styled.li`
   padding: 12px;
 
   svg {
-    margin-right: 12px;
     font-size: 20px;
     cursor: pointer;
+  }
+
+  svg:first-child {
+    margin-right: 12px;
   }
 
   span {
@@ -42,8 +48,8 @@ const Wrapper = styled.li`
     ${({ checked }) => checked && 'opacity: .54;'}
   }
 
-  span + svg {
-    margin-right: 0;
+  svg:last-child {
+    margin-left: 12px;
     opacity: .54;
   }
 

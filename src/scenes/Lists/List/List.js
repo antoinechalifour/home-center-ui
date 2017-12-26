@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import DeleteIcon from 'react-icons/lib/md/clear'
+import Editable from 'components/Editable'
 import Card from 'ui/Card'
 import Item from './Item'
 import NewItem from './NewItem'
 
-export default function List ({ id, name, data, mutate }) {
+export default function List ({ id, name, data, updateList, deleteList }) {
   const isLoading = data.loading
 
   if (isLoading) {
@@ -16,8 +17,12 @@ export default function List ({ id, name, data, mutate }) {
   return (
     <Wrapper>
       <Name>
-        <span>{name}</span>
-        <DeleteIcon onClick={() => mutate({ variables: { id } })} />
+        <Editable
+          onChange={value => updateList({ variables: { id, name: value } })}
+        >
+          {name}
+        </Editable>
+        <DeleteIcon onClick={() => deleteList({ variables: { id } })} />
       </Name>
       <ul>
         {data.list.items.map(x => <Item key={x.id} {...x} />)}
@@ -42,7 +47,8 @@ List.propTypes = {
       ).isRequired
     })
   }).isRequired,
-  mutate: PropTypes.func.isRequired
+  updateList: PropTypes.func.isRequired,
+  deleteList: PropTypes.func.isRequired
 }
 
 const Wrapper = styled(Card)`

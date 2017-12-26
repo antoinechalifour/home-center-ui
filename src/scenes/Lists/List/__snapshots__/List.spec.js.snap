@@ -3,9 +3,11 @@
 exports[`scenes/Lists/List Should render correctly 1`] = `
 <Styled(styled.div)>
   <styled.div>
-    <span>
+    <Editable
+      onChange={[Function]}
+    >
       My todo list
-    </span>
+    </Editable>
     <MdClear
       onClick={[Function]}
     />

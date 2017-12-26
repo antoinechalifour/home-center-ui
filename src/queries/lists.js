@@ -29,6 +29,14 @@ export const createList = gql`
   }
 `
 
+export const updateList = gql`
+  mutation UpdateList ($id: Int, $name: String) {
+    updateList(id: $id, name: $name) {
+      id
+    }
+  }
+`
+
 export const deleteList = gql`
   mutation DeleteList($id: Int) {
     deleteList(id: $id) {

@@ -7,9 +7,11 @@ exports[`scenes/Lists/List/Item Should render a checked icon when the item is do
   <CheckedIcon
     onClick={[Function]}
   />
-  <span>
+  <Editable
+    onChange={[Function]}
+  >
     This is an item
-  </span>
+  </Editable>
   <DeleteIcon
     onClick={[Function]}
   />
@@ -23,9 +25,11 @@ exports[`scenes/Lists/List/Item Should render a unchecked icon when the item is 
   <UncheckedIcon
     onClick={[Function]}
   />
-  <span>
+  <Editable
+    onChange={[Function]}
+  >
     This is an item
-  </span>
+  </Editable>
   <DeleteIcon
     onClick={[Function]}
   />

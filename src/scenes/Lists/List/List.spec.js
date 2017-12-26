@@ -16,7 +16,8 @@ describe('scenes/Lists/List', () => {
           items: []
         }
       },
-      mutate: jest.fn()
+      updateList: jest.fn(),
+      deleteList: jest.fn()
     }
     const tree = renderer.render(<List {...props} />)
 
@@ -49,7 +50,8 @@ describe('scenes/Lists/List', () => {
           ]
         }
       },
-      mutate: jest.fn()
+      updateList: jest.fn(),
+      deleteList: jest.fn()
     }
     const tree = renderer.render(<List {...props} />)
 
@@ -66,14 +68,15 @@ describe('scenes/Lists/List', () => {
           items: []
         }
       },
-      mutate: jest.fn()
+      updateList: jest.fn(),
+      deleteList: jest.fn()
     }
     const wrapper = shallow(<List {...props} />)
 
     wrapper.find('MdClear').simulate('click')
 
-    expect(props.mutate.mock.calls.length).toEqual(1)
-    expect(props.mutate.mock.calls[0][0]).toEqual({
+    expect(props.deleteList.mock.calls.length).toEqual(1)
+    expect(props.deleteList.mock.calls[0][0]).toEqual({
       variables: { id: 6 }
     })
   })

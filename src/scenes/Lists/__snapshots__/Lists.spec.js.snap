@@ -2,11 +2,11 @@
 
 exports[`scenes/Lists Should render a list of Lists otherwise 1`] = `
 <div>
-  <Apollo(Apollo(List))
+  <Apollo(Apollo(Apollo(List)))
     id={1}
     name="List #1"
   />
-  <Apollo(Apollo(List))
+  <Apollo(Apollo(Apollo(List)))
     id={2}
     name="List #2"
   />

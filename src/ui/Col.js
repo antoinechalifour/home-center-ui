@@ -22,7 +22,10 @@ const Col = ({ children, ...props }) => {
 Col.propTypes = {
   align: PropTypes.string.isRequired,
   justify: PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(PropTypes.element).isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element)
+  ]).isRequired
 }
 
 Col.defaultProps = {
