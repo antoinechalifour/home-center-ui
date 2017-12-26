@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui/Card Should render a card 1`] = `
+.c0 {
+  background: #f7f7f9;
+  color: #373d3f;
+  box-shadow: 0 1px 3px rgba(0,0,0,.24);
+}
+
+.c1 {
+  padding: 12px;
+  color: #373d3f;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    Hello world
+  </div>
+</div>
+`;

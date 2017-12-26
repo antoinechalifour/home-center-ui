@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui/Button Should render a button 1`] = `
+.c0 {
+  font-size: inherit;
+  font-family: inherit;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 90%;
+}
+
+<button
+  className="c0"
+>
+  Add
+</button>
+`;
+
+exports[`ui/Button Should render a primary button 1`] = `
+.c0 {
+  font-size: inherit;
+  font-family: inherit;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 90%;
+  background: blueviolet;
+  color: #fff;
+}
+
+<button
+  className="c0"
+>
+  Add
+</button>
+`;
