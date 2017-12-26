@@ -1,12 +1,8 @@
-jest.mock('react-icons/lib/ti/weather-partly-sunny', () => 'clear')
-jest.mock('react-icons/lib/ti/weather-cloudy', () => 'clouds')
-jest.mock('react-icons/lib/ti/waves', () => 'mist')
-jest.mock('react-icons/lib/ti/weather-shower', () => 'rain')
-
 import React from 'react'
-import renderer from 'react-test-renderer'
+import ShallowRenderer from 'react-test-renderer/shallow'
 import Icon from './Icon'
 
+const renderer = new ShallowRenderer()
 const tests = [
   {
     props: { type: 'clear' }
@@ -31,7 +27,7 @@ const tests = [
 describe('scenes/Weather/Weather/Icon', () => {
   tests.forEach(({ props, expected }) =>
     it(`Should render the correct icon for weather type ${props.type}`, () => {
-      const tree = renderer.create(<Icon {...props} />)
+      const tree = renderer.render(<Icon {...props} />)
       expect(tree).toMatchSnapshot()
     })
   )

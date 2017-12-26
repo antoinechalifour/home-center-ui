@@ -82,10 +82,10 @@ const LoaderWrapper = styled.div`
   height: 100%;
 `
 
-export const Loader = () => (
-  <LoaderWrapper>
-    <FoldingCubeLoader />
-  </LoaderWrapper>
-)
-
-export default Loader
+export default function Loader () {
+  return (
+    <LoaderWrapper>
+      <FoldingCubeLoader />
+    </LoaderWrapper>
+  )
+}

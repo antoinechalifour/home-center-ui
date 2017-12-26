@@ -2,21 +2,21 @@
 
 exports[`scenes/Lists Should render a list of Lists otherwise 1`] = `
 <div>
-  <List
+  <Apollo(Apollo(List))
     id={1}
     name="List #1"
   />
-  <List
+  <Apollo(Apollo(List))
     id={2}
     name="List #2"
   />
-  <NewList />
+  <Apollo(NewList) />
 </div>
 `;
 
 exports[`scenes/Lists Should render a loader when the data is fetching 1`] = `
 <div>
   <Loader />
-  <NewList />
+  <Apollo(NewList) />
 </div>
 `;

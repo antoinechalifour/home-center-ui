@@ -3,65 +3,44 @@
 exports[`scenes/Weather/Weather Should render a loader when the data is loading 1`] = `<Loader />`;
 
 exports[`scenes/Weather/Weather Should render the widget otherwise 1`] = `
-.c0 {
-  font-size: 64px;
-}
-
-.c0 > div:last-child {
-  margin-left: 24px;
-}
-
-.c1 span + span::before {
-  content: '•';
-  margin-left: 12px;
-  margin-right: 12px;
-  opacity: .54;
-}
-
-.c2 {
-  opacity: .54;
-}
-
 <Col
   align="center"
   justify="center"
 >
-  <Row
-    className="c0"
+  <Styled(Row)
+    align="center"
   >
-    <WeatherIcon
+    <Icon
       type="rain"
     />
     <div>
       6
       °
     </div>
-  </Row>
-  <Row
-    className="c1"
+  </Styled(Row)>
+  <Styled(Row)
+    align="center"
   >
     <span>
       Limoges
     </span>
     <span>
-      <WindIcon />
+      <TiWeatherWindy />
        
       7.2
        km/h
     </span>
     <span>
-      <ThermometerIcon />
+      <TiThermometer />
        
-      <span
-        className="c2"
-      >
+      <styled.span>
         6
-      </span>
+      </styled.span>
        
       -
        
       6
     </span>
-  </Row>
+  </Styled(Row)>
 </Col>
 `;

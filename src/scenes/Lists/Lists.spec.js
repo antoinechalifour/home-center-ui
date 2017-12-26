@@ -1,17 +1,15 @@
-jest.mock('ui/Loader', () => 'Loader')
-jest.mock('./NewList', () => 'NewList')
-jest.mock('./List', () => 'List')
-
 import React from 'react'
-import renderer from 'react-test-renderer'
+import ShallowRenderer from 'react-test-renderer/shallow'
 import Lists from './Lists'
+
+const renderer = new ShallowRenderer()
 
 describe('scenes/Lists', () => {
   it('Should render a loader when the data is fetching', () => {
     const props = {
       data: { loading: true }
     }
-    const tree = renderer.create(<Lists {...props} />)
+    const tree = renderer.render(<Lists {...props} />)
 
     expect(tree).toMatchSnapshot()
   })
@@ -32,7 +30,7 @@ describe('scenes/Lists', () => {
         ]
       }
     }
-    const tree = renderer.create(<Lists {...props} />)
+    const tree = renderer.render(<Lists {...props} />)
 
     expect(tree).toMatchSnapshot()
   })

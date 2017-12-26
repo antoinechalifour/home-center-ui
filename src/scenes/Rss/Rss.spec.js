@@ -1,23 +1,13 @@
-jest.mock('ui/Col', () => 'Col')
-jest.mock('ui/Loader', () => 'Loader')
-jest.mock('ui/Card', () => {
-  const Card = ({ children }) => <div className='card'>{children}</div>
-  Card.Content = ({ children }) => (
-    <div className='card-content'>{children}</div>
-  )
-
-  return Card
-})
-
-import 'jest-styled-components'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import ShallowRenderer from 'react-test-renderer/shallow'
 import Rss from './Rss'
+
+const renderer = new ShallowRenderer()
 
 describe('scenes/Rss/Rss', () => {
   it('Should render a loader when the data is loading', () => {
     const props = { data: { loading: true } }
-    const tree = renderer.create(<Rss {...props} />)
+    const tree = renderer.render(<Rss {...props} />)
 
     expect(tree).toMatchSnapshot()
   })
@@ -42,7 +32,7 @@ describe('scenes/Rss/Rss', () => {
         ]
       }
     }
-    const tree = renderer.create(<Rss {...props} />)
+    const tree = renderer.render(<Rss {...props} />)
 
     expect(tree).toMatchSnapshot()
   })

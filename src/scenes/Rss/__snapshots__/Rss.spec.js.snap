@@ -3,78 +3,22 @@
 exports[`scenes/Rss/Rss Should render a loader when the data is loading 1`] = `
 <Col
   align="center"
+  justify="flex-start"
 >
   <Loader />
 </Col>
 `;
 
 exports[`scenes/Rss/Rss Should render the feed otherwise 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c1 {
-  -webkit-flex: 0 0 90%;
-  -ms-flex: 0 0 90%;
-  flex: 0 0 90%;
-}
-
-.c1 + .c1 {
-  margin-left: 12px;
-  margin-right: 12px;
-}
-
-.c2 {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.c2 span {
-  display: block;
-}
-
-.c3 {
-  font-size: 80%;
-  opacity: .54;
-}
-
-@media (min-width:860px) {
-  .c0 {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-}
-
-@media (min-width:860px) {
-  .c1 + .c1 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 8px;
-  }
-}
-
 <Col
   align="center"
+  justify="flex-start"
 >
-  <ul
-    className="c0"
-  >
-    <li
-      className="c1"
-    >
-      <div
-        className="card"
-      >
-        <div
-          className="card-content"
-        >
-          <a
-            className="c2"
+  <styled.ul>
+    <styled.li>
+      <styled.div>
+        <styled.div>
+          <styled.a
             href="http://fizz.buzz"
             rel="noopener"
             target="_blank"
@@ -82,26 +26,17 @@ exports[`scenes/Rss/Rss Should render the feed otherwise 1`] = `
             <span>
               Fizz! Buzz!
             </span>
-            <span
-              className="c3"
-            >
+            <styled.span>
               FizzBuzz Magazine
-            </span>
-          </a>
-        </div>
-      </div>
-    </li>
-    <li
-      className="c1"
-    >
-      <div
-        className="card"
-      >
-        <div
-          className="card-content"
-        >
-          <a
-            className="c2"
+            </styled.span>
+          </styled.a>
+        </styled.div>
+      </styled.div>
+    </styled.li>
+    <styled.li>
+      <styled.div>
+        <styled.div>
+          <styled.a
             href="http://foo.bar"
             rel="noopener"
             target="_blank"
@@ -109,15 +44,13 @@ exports[`scenes/Rss/Rss Should render the feed otherwise 1`] = `
             <span>
               Foo! Bar!
             </span>
-            <span
-              className="c3"
-            >
+            <styled.span>
               FooBar Magazine
-            </span>
-          </a>
-        </div>
-      </div>
-    </li>
-  </ul>
+            </styled.span>
+          </styled.a>
+        </styled.div>
+      </styled.div>
+    </styled.li>
+  </styled.ul>
 </Col>
 `;

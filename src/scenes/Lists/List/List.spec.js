@@ -1,13 +1,9 @@
-jest.mock('react-icons/lib/md/clear', () => 'DeleteIcon')
-jest.mock('ui/Card', () => 'Card')
-jest.mock('./Item', () => 'Item')
-jest.mock('./NewItem', () => 'NewItem')
-
-import 'jest-styled-components'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import ShallowRenderer from 'react-test-renderer/shallow'
 import { shallow } from 'enzyme'
 import List from './List'
+
+const renderer = new ShallowRenderer()
 
 describe('scenes/Lists/List', () => {
   it('Should render null when the data is loading', () => {
@@ -22,7 +18,7 @@ describe('scenes/Lists/List', () => {
       },
       mutate: jest.fn()
     }
-    const tree = renderer.create(<List {...props} />)
+    const tree = renderer.render(<List {...props} />)
 
     expect(tree).toMatchSnapshot()
   })
@@ -55,7 +51,7 @@ describe('scenes/Lists/List', () => {
       },
       mutate: jest.fn()
     }
-    const tree = renderer.create(<List {...props} />)
+    const tree = renderer.render(<List {...props} />)
 
     expect(tree).toMatchSnapshot()
   })
@@ -74,7 +70,7 @@ describe('scenes/Lists/List', () => {
     }
     const wrapper = shallow(<List {...props} />)
 
-    wrapper.find('DeleteIcon').simulate('click')
+    wrapper.find('MdClear').simulate('click')
 
     expect(props.mutate.mock.calls.length).toEqual(1)
     expect(props.mutate.mock.calls[0][0]).toEqual({

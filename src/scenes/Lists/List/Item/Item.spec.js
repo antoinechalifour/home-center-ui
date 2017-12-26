@@ -2,11 +2,12 @@ jest.mock('react-icons/lib/md/check-box-outline-blank', () => 'UncheckedIcon')
 jest.mock('react-icons/lib/md/check-box', () => 'CheckedIcon')
 jest.mock('react-icons/lib/md/clear', () => 'DeleteIcon')
 
-import 'jest-styled-components'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import ShallowRenderer from 'react-test-renderer/shallow'
 import { shallow } from 'enzyme'
 import Item from './Item'
+
+const renderer = new ShallowRenderer()
 
 describe('scenes/Lists/List/Item', () => {
   it('Should render a unchecked icon when the item is not done', () => {
@@ -17,7 +18,7 @@ describe('scenes/Lists/List/Item', () => {
       updateListItem: jest.fn(),
       deleteListItem: jest.fn()
     }
-    const tree = renderer.create(<Item {...props} />)
+    const tree = renderer.render(<Item {...props} />)
 
     expect(tree).toMatchSnapshot()
   })
@@ -30,7 +31,7 @@ describe('scenes/Lists/List/Item', () => {
       updateListItem: jest.fn(),
       deleteListItem: jest.fn()
     }
-    const tree = renderer.create(<Item {...props} />)
+    const tree = renderer.render(<Item {...props} />)
 
     expect(tree).toMatchSnapshot()
   })
