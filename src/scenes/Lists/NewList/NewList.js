@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Card from 'ui/Card'
+
+const Container = styled(Card)`
+
+margin-top: 4px;
+`.withComponent('form')
 
 const Input = styled.input`
   box-sizing: border-box;
   display: block;
   width: 100%;
-  margin: 16px auto;
-  background: rgba(0, 0, 0, .8);
   border: none;
   font-size: inherit;
   font-family: inherit;
   padding: 8px 12px;
-  border-radius: 4px;
-  color: #fff;
   outline: none;
 `
 
@@ -37,13 +39,13 @@ export default class NewList extends Component {
 
   render () {
     return (
-      <form onSubmit={this.onSubmit}>
+      <Container onSubmit={this.onSubmit}>
         <Input
           value={this.state.value}
           onChange={this.onChange}
           placeholder='New list?'
         />
-      </form>
+      </Container>
     )
   }
 }

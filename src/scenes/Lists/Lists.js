@@ -9,7 +9,7 @@ export default function Lists ({ data }) {
     <div>
       {data.loading && <Loader />}
       {data.lists && data.lists.map(x => <List key={x.id} {...x} />)}
-      <NewList />
+      {data.lists && <NewList />}
     </div>
   )
 }

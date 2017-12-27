@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Loader from 'ui/Loader'
+import Card, * as card from 'ui/Card'
 import Switch from './Switch'
 import Dimmer from './Dimmer'
 
@@ -20,7 +21,15 @@ export default function Lights ({ data }) {
       {data.lights &&
         data.lights.map(x => {
           const renderLight = renderers[x.type]
-          return <Li key={x.id}>{renderLight(x)}</Li>
+          return (
+            <Li key={x.id}>
+              <Card>
+                <card.Content>
+                  {renderLight(x)}
+                </card.Content>
+              </Card>
+            </Li>
+          )
         })}
     </List>
   )
@@ -41,9 +50,8 @@ Lights.propTypes = {
 }
 
 const List = styled.ul`
-  padding: 24px;
 `
 
 const Li = styled.li`
-  padding: 12px 0;
+  padding: 2px 0;
 `

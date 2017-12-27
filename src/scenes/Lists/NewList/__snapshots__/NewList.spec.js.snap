@@ -2,25 +2,26 @@
 
 exports[`scenes/Lists/NewList Should render correctly 1`] = `
 .c0 {
+  margin-top: 4px;
+}
+
+.c1 {
   box-sizing: border-box;
   display: block;
   width: 100%;
-  margin: 16px auto;
-  background: rgba(0,0,0,.8);
   border: none;
   font-size: inherit;
   font-family: inherit;
   padding: 8px 12px;
-  border-radius: 4px;
-  color: #fff;
   outline: none;
 }
 
 <form
+  className="c0"
   onSubmit={[Function]}
 >
   <input
-    className="c0"
+    className="c1"
     onChange={[Function]}
     placeholder="New list?"
     value="my new list!"

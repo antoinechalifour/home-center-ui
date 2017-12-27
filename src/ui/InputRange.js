@@ -103,7 +103,7 @@ export default class InputRange extends Component {
 }
 
 const Range = styled.div`
-  width: 100%;
+  width: 95%;
   height: 1rem;
   position: relative;
 `
@@ -125,7 +125,7 @@ const TrackActive = styled.div`
   transform: translateY(-50%);
   height: 0.3rem;
   opacity: .65;
-  background: ${({ theme }) => theme.colors.accent};
+  background: ${({ theme }) => theme.colors.primary};
   
   ${({ animate }) => animate && 'transition: width .2s ease-in;'}
 `
@@ -136,7 +136,7 @@ const Slider = styled.div`
   transform: translateX(-50%) translateY(-50%);
   height: 1.3rem;
   width: 1.3rem;
-  background: ${({ theme }) => theme.colors.accent};
+  background: ${({ theme }) => theme.colors.primary};
   border-radius: 50%;
   cursor: pointer;
   

@@ -17,6 +17,5 @@ exports[`scenes/Lists Should render a list of Lists otherwise 1`] = `
 exports[`scenes/Lists Should render a loader when the data is fetching 1`] = `
 <div>
   <Loader />
-  <Apollo(NewList) />
 </div>
 `;

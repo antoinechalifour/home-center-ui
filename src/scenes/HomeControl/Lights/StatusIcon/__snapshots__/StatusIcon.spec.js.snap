@@ -6,7 +6,6 @@ exports[`ui/HomeControl/Lights/StatusIcon Should render correctly (off) 1`] = `
   font-size: 54px;
   margin-right: 12px;
   opacity: 0.65;
-  color: black;
 }
 
 <Icon
@@ -21,7 +20,6 @@ exports[`ui/HomeControl/Lights/StatusIcon Should render correctly (on) 1`] = `
   font-size: 54px;
   margin-right: 12px;
   opacity: 1;
-  color: red;
 }
 
 <Icon

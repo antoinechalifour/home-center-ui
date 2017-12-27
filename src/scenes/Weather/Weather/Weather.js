@@ -6,6 +6,7 @@ import ThermometerIcon from 'react-icons/lib/ti/thermometer'
 import Loader from 'ui/Loader'
 import Col from 'ui/Col'
 import Row from 'ui/Row'
+import Card, * as card from 'ui/Card'
 import Icon from './Icon'
 
 export default function Weather ({ data }) {
@@ -16,29 +17,33 @@ export default function Weather ({ data }) {
   const weather = data.weather
 
   return (
-    <Col align='center'>
-      <MainRow align='center'>
-        <Icon type={weather.kind} />
-        <div>{weather.temp}°</div>
-      </MainRow>
-      <DetailRow align='center'>
-        <span>
-          {weather.city}
-        </span>
-        <span>
-          <WindSpeedIcon /> {weather.wind_speed} km/h
-        </span>
-        <span>
-          <ThermometerIcon />
-          {' '}
-          <MinTemperature>{weather.temp_min}</MinTemperature>
-          {' '}
-          -
-          {' '}
-          {weather.temp_max}
-        </span>
-      </DetailRow>
-    </Col>
+    <Card>
+      <card.Content>
+        <Col align='center'>
+          <MainRow align='center'>
+            <Icon type={weather.kind} />
+            <div>{weather.temp}°</div>
+          </MainRow>
+          <DetailRow align='center'>
+            <span>
+              {weather.city}
+            </span>
+            <span>
+              <WindSpeedIcon /> {weather.wind_speed} km/h
+            </span>
+            <span>
+              <ThermometerIcon />
+              {' '}
+              <MinTemperature>{weather.temp_min}</MinTemperature>
+              {' '}
+              -
+              {' '}
+              {weather.temp_max}
+            </span>
+          </DetailRow>
+        </Col>
+      </card.Content>
+    </Card>
   )
 }
 
@@ -66,7 +71,7 @@ const MainRow = styled(Row)`
 `
 
 const DetailRow = styled(Row)`
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   
   span + span::before {
     content: '•';

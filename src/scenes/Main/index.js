@@ -11,7 +11,8 @@ const Grid = styled.div`
   min-height: 100vh;
   box-sizing: border-box;
   display: grid;
-  grid-column-gap: 12px;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
   grid-template-areas:
     "weather"
     "home-control"
@@ -36,17 +37,11 @@ const Home = ({ name }) => (
       </pane.Content>
     </Pane>
     <Pane area='home-control'>
-      <pane.Title>
-        My Devices
-      </pane.Title>
       <pane.Content>
         <HomeControl />
       </pane.Content>
     </Pane>
     <Pane area='lists'>
-      <pane.Title>
-        My Lists
-      </pane.Title>
       <pane.Content>
         <Lists />
       </pane.Content>

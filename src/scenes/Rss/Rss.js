@@ -55,15 +55,15 @@ const Item = styled.li`
   flex: 0 0 90%;
 
   & + & {
-    margin-left: 12px;
-    margin-right: 12px;
+    margin-left: 4px;
+    margin-right: 4px;
   }
 
   @media (min-width: 860px) {
     & + & {
       margin-left: 0;
       margin-right: 0;
-      margin-top: 8px;
+      margin-top: 4px;
     }
   }
 `

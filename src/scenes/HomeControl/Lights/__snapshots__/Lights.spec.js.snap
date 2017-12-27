@@ -5,28 +5,40 @@ exports[`scenes/HomeControl/Lights Should render a loader when the data is not f
 exports[`scenes/HomeControl/Lights Should render the list of lights otherwise 1`] = `
 <styled.ul>
   <styled.li>
-    <Apollo(Switch)
-      id="1"
-      name="#1"
-      status="on"
-      type="switch"
-    />
+    <styled.div>
+      <styled.div>
+        <Apollo(Switch)
+          id="1"
+          name="#1"
+          status="on"
+          type="switch"
+        />
+      </styled.div>
+    </styled.div>
   </styled.li>
   <styled.li>
-    <Apollo(Apollo(Dimmer))
-      id="2"
-      name="#2"
-      status="on"
-      type="dimmer"
-    />
+    <styled.div>
+      <styled.div>
+        <Apollo(Apollo(Dimmer))
+          id="2"
+          name="#2"
+          status="on"
+          type="dimmer"
+        />
+      </styled.div>
+    </styled.div>
   </styled.li>
   <styled.li>
-    <Apollo(Switch)
-      id="3"
-      name="#3"
-      status="off"
-      type="switch"
-    />
+    <styled.div>
+      <styled.div>
+        <Apollo(Switch)
+          id="3"
+          name="#3"
+          status="off"
+          type="switch"
+        />
+      </styled.div>
+    </styled.div>
   </styled.li>
 </styled.ul>
 `;
