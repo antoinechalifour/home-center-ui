@@ -51,11 +51,16 @@ const Wrapper = styled(Card)`
 
 const Content = styled(card.Content)`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 
   > div {
     padding: 12px;
+  }
+
+  @media (min-width: 860px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
 `
 

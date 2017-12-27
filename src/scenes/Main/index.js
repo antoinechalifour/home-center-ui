@@ -8,6 +8,7 @@ import Rss from 'scenes/Rss'
 
 const Grid = styled.div`
   padding: 12px;
+  min-height: 100vh;
   box-sizing: border-box;
   display: grid;
   grid-column-gap: 12px;
