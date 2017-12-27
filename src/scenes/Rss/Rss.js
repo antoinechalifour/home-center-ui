@@ -44,6 +44,7 @@ Rss.propTypes = {
 
 const Feed = styled.ul`
   display: flex;
+  width: 100%;
 
   @media (min-width: 860px) {
     flex-direction: column;
