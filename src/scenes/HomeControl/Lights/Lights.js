@@ -11,9 +11,12 @@ export default function Lights ({ data }) {
     dimmer: props => <Dimmer {...props} />
   }
 
+  if (data.loading) {
+    return <Loader />
+  }
+
   return (
     <List>
-      {data.loading && <Loader />}
       {data.lights &&
         data.lights.map(x => {
           const renderLight = renderers[x.type]

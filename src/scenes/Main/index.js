@@ -20,10 +20,10 @@ const Grid = styled.div`
   @media (min-width: 860px) {
     height: 100vh;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
-      "weather lists rss"
-      "home-control lists rss";
+      "weather lists home-control"
+      "rss lists home-control";
   }
 `
 
@@ -35,6 +35,9 @@ const Home = ({ name }) => (
       </pane.Content>
     </Pane>
     <Pane area='home-control'>
+      <pane.Title>
+        My Devices
+      </pane.Title>
       <pane.Content>
         <HomeControl />
       </pane.Content>
@@ -48,9 +51,6 @@ const Home = ({ name }) => (
       </pane.Content>
     </Pane>
     <Pane area='rss'>
-      <pane.Title>
-        News
-      </pane.Title>
       <pane.Content>
         <Rss />
       </pane.Content>

@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`scenes/HomeControl/Lights Should render a loader when the data is not fetched 1`] = `
-<styled.ul>
-  <Loader />
-</styled.ul>
-`;
+exports[`scenes/HomeControl/Lights Should render a loader when the data is not fetched 1`] = `<Loader />`;
 
 exports[`scenes/HomeControl/Lights Should render the list of lights otherwise 1`] = `
 <styled.ul>

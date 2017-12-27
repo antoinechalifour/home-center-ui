@@ -16,7 +16,7 @@ export default function Weather ({ data }) {
   const weather = data.weather
 
   return (
-    <Col justify='center' align='center'>
+    <Col align='center'>
       <MainRow align='center'>
         <Icon type={weather.kind} />
         <div>{weather.temp}°</div>
@@ -66,6 +66,8 @@ const MainRow = styled(Row)`
 `
 
 const DetailRow = styled(Row)`
+  margin-bottom: 24px;
+  
   span + span::before {
     content: '•';
     margin-left: 12px;

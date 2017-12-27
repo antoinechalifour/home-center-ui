@@ -4,6 +4,7 @@ const Pane = styled.div`
   grid-area: ${({ area }) => area};
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 `
 
 export default Pane

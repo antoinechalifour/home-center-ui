@@ -5,7 +5,7 @@ exports[`scenes/Weather/Weather Should render a loader when the data is loading 
 exports[`scenes/Weather/Weather Should render the widget otherwise 1`] = `
 <Flex(column)
   align="center"
-  justify="center"
+  justify="flex-start"
 >
   <Styled(Flex(row))
     align="center"
