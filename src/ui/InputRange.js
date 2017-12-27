@@ -15,11 +15,36 @@ export default class InputRange extends Component {
   componentDidMount () {
     window.addEventListener('mouseup', this.onMouseUp)
     window.addEventListener('mousemove', this.onMouseMove)
+    window.addEventListener('touchmove', this.onTouchMove)
+    window.addEventListener('touchend', this.onTouchEnd)
   }
 
   componentWillUnmount () {
     window.removeEventListener('mouseup', this.onMouseUp)
     window.removeEventListener('mousemove', this.onMouseMove)
+    window.removeEventListener('touchmove', this.onTouchMove)
+    window.removeEventListener('touchend', this.onTouchEnd)
+  }
+
+  onTouchStart = () => {
+    this.setState({ isDragging: true })
+  }
+
+  onTouchMove = e => {
+    if (!this.state.isDragging) {
+      return
+    }
+
+    const [touch] = e.changedTouches
+    const value = this.getEventValue(touch.screenX)
+
+    this.props.onChange(value * 100)
+  }
+
+  onTouchEnd = () => {
+    if (this.state.isDragging) {
+      this.setState({ isDragging: false })
+    }
   }
 
   onMouseDown = () => {
@@ -38,15 +63,20 @@ export default class InputRange extends Component {
       return
     }
 
+    const value = this.getEventValue(e.clientX)
+
+    this.props.onChange(value * 100)
+  }
+
+  getEventValue (positionX) {
     const { left, width } = this.getTrackRect()
     const right = left + width
-    const mouseX = e.clientX
 
-    let value = (mouseX - left) / (right - left)
+    let value = (positionX - left) / (right - left)
     value = Math.max(0, value)
     value = Math.min(value, 1)
 
-    this.props.onChange(value * 100)
+    return value
   }
 
   getTrackRect () {
@@ -59,6 +89,7 @@ export default class InputRange extends Component {
         <Track innerRef={track => (this.track = track)} />
         <TrackActive style={{ width: `${this.props.value}%` }} />
         <Slider
+          onTouchStart={this.onTouchStart}
           onMouseDown={this.onMouseDown}
           style={{ left: `${this.props.value}%` }}
         />
