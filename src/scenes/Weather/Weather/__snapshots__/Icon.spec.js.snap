@@ -11,3 +11,5 @@ exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather 
 exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type mist 1`] = `<TiWaves />`;
 
 exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type rain 1`] = `<TiWeatherShower />`;
+
+exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type snow 1`] = `<TiWeatherSnow />`;

@@ -4,13 +4,15 @@ import ClearIcon from 'react-icons/lib/ti/weather-partly-sunny'
 import CloudsIcon from 'react-icons/lib/ti/weather-cloudy'
 import MistIcon from 'react-icons/lib/ti/waves'
 import RainIcon from 'react-icons/lib/ti/weather-shower'
+import SnowIcon from 'react-icons/lib/ti/weather-snow'
 
 const typeToIcon = {
   clear: ClearIcon,
   clouds: CloudsIcon,
   mist: MistIcon,
   fog: MistIcon,
-  rain: RainIcon
+  rain: RainIcon,
+  snow: SnowIcon
 }
 
 export default function Icon ({ type }) {

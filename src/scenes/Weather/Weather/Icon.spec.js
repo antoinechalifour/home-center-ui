@@ -20,6 +20,9 @@ const tests = [
     props: { type: 'rain' }
   },
   {
+    props: { type: 'snow' }
+  },
+  {
     props: { type: 'cool' }
   }
 ]
