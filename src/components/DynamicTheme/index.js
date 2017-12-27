@@ -36,6 +36,8 @@ const Container = styled.div`
     color: ${({ theme }) => theme.colors.text};
     font-size: 24px;
   }
+
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 `
 
 const Modal = styled.div`

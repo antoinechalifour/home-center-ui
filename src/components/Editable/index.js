@@ -16,12 +16,18 @@ export default class Editable extends Component {
   onKeyUp = e => {
     switch (e.keyCode) {
       case 27: // ESCAPE
-        this.setState({ isEditionMode: false })
+        this.setState({
+          isEditionMode: false,
+          input: ''
+        })
         break
 
       case 13: // ENTER
-        this.setState({ isEditionMode: false })
         this.props.onChange(this.state.input)
+        this.setState({
+          isEditionMode: false,
+          input: ''
+        })
         break
     }
   }
