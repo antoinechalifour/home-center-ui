@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Card, * as card from 'ui/Card'
+import Card from 'ui/Card'
 import Loader from 'ui/Loader'
 import Col from 'ui/Col'
 
@@ -10,20 +10,18 @@ export default function Rss ({ data }) {
     <Col align='center'>
       {data.loading && <Loader />}
       {data.feed &&
-        <Feed>
-          {data.feed.map(({ title, link, date, source }) => (
-            <Item key={title}>
-              <Card>
-                <card.Content>
-                  <ItemLink href={link} target='_blank' rel='noopener'>
-                    <span>{title}</span>
-                    <ItemMeta>{source}</ItemMeta>
-                  </ItemLink>
-                </card.Content>
-              </Card>
-            </Item>
-          ))}
-        </Feed>}
+        <Container>
+          <Feed>
+            {data.feed.map(({ title, link, date, source }) => (
+              <Item key={title}>
+                <ItemLink href={link} target='_blank' rel='noopener'>
+                  <span>{title}</span>
+                  <ItemMeta>{source}</ItemMeta>
+                </ItemLink>
+              </Item>
+            ))}
+          </Feed>
+        </Container>}
     </Col>
   )
 }
@@ -42,28 +40,35 @@ Rss.propTypes = {
   }).isRequired
 }
 
+const Container = styled(Card)`
+  width: 100%;
+`
+
 const Feed = styled.ul`
   display: flex;
-  width: 100%;
+  width: 95%;
+  overflow-x: auto;
 
   @media (min-width: 860px) {
+    width: auto;
     flex-direction: column;
   }
 `
 
 const Item = styled.li`
-  flex: 0 0 90%;
+  flex: 0 0 100%;
+  padding: 12px;
 
   & + & {
-    margin-left: 4px;
-    margin-right: 4px;
+    border-left: 1px solid rgba(0, 0, 0, .05);
   }
 
   @media (min-width: 860px) {
+    flex: 1;
+
     & + & {
-      margin-left: 0;
-      margin-right: 0;
-      margin-top: 4px;
+      border-left: none;
+      border-top: 1px solid rgba(0, 0, 0, .05);
     }
   }
 `

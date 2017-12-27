@@ -14,43 +14,37 @@ exports[`scenes/Rss/Rss Should render the feed otherwise 1`] = `
   align="center"
   justify="flex-start"
 >
-  <styled.ul>
-    <styled.li>
-      <styled.div>
-        <styled.div>
-          <styled.a
-            href="http://fizz.buzz"
-            rel="noopener"
-            target="_blank"
-          >
-            <span>
-              Fizz! Buzz!
-            </span>
-            <styled.span>
-              FizzBuzz Magazine
-            </styled.span>
-          </styled.a>
-        </styled.div>
-      </styled.div>
-    </styled.li>
-    <styled.li>
-      <styled.div>
-        <styled.div>
-          <styled.a
-            href="http://foo.bar"
-            rel="noopener"
-            target="_blank"
-          >
-            <span>
-              Foo! Bar!
-            </span>
-            <styled.span>
-              FooBar Magazine
-            </styled.span>
-          </styled.a>
-        </styled.div>
-      </styled.div>
-    </styled.li>
-  </styled.ul>
+  <Styled(styled.div)>
+    <styled.ul>
+      <styled.li>
+        <styled.a
+          href="http://fizz.buzz"
+          rel="noopener"
+          target="_blank"
+        >
+          <span>
+            Fizz! Buzz!
+          </span>
+          <styled.span>
+            FizzBuzz Magazine
+          </styled.span>
+        </styled.a>
+      </styled.li>
+      <styled.li>
+        <styled.a
+          href="http://foo.bar"
+          rel="noopener"
+          target="_blank"
+        >
+          <span>
+            Foo! Bar!
+          </span>
+          <styled.span>
+            FooBar Magazine
+          </styled.span>
+        </styled.a>
+      </styled.li>
+    </styled.ul>
+  </Styled(styled.div)>
 </Flex(column)>
 `;
