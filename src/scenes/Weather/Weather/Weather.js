@@ -71,7 +71,6 @@ const MainRow = styled(Row)`
 `
 
 const DetailRow = styled(Row)`
-  margin-bottom: 12px;
   opacity: .54;
   
   span + span::before {

@@ -14,7 +14,7 @@ StatusIcon.propTypes = {
 
 const LightBulb = styled(Icon)`
   cursor: pointer;
-  font-size: 54px;
+  font-size: 50px;
   margin-right: 12px;
 
   opacity: ${({ theme, ison }) => (ison ? 1 : 0.24)};

@@ -3,7 +3,7 @@
 exports[`ui/HomeControl/Lights/StatusIcon Should render correctly (off) 1`] = `
 .c0 {
   cursor: pointer;
-  font-size: 54px;
+  font-size: 50px;
   margin-right: 12px;
   opacity: 0.24;
 }
@@ -17,7 +17,7 @@ exports[`ui/HomeControl/Lights/StatusIcon Should render correctly (off) 1`] = `
 exports[`ui/HomeControl/Lights/StatusIcon Should render correctly (on) 1`] = `
 .c0 {
   cursor: pointer;
-  font-size: 54px;
+  font-size: 50px;
   margin-right: 12px;
   opacity: 1;
 }
