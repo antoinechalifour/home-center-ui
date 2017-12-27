@@ -15,7 +15,24 @@ export default class ExpandableMenu extends Component {
     isExpanded: false
   }
 
-  onMenuClick = e => this.setState({ isExpanded: true })
+  componentDidMount () {
+    window.addEventListener('click', this.onWindowClick)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('click', this.onWindowClick)
+  }
+
+  onMenuClick = e => {
+    e.stopPropagation()
+    this.setState(ls => ({ isExpanded: !ls.isExpanded }))
+  }
+
+  onWindowClick = e => {
+    if (this.state.isExpanded) {
+      this.setState({ isExpanded: false })
+    }
+  }
 
   render () {
     return (
@@ -41,7 +58,7 @@ const Menu = styled.div`
 const Items = styled(Card)`
   min-width: 200px;
   position: absolute;
-  right: 24px;
+  right: 30px;
   top: 4px;
 
   &::after {
