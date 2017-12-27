@@ -7,6 +7,7 @@ import Loader from 'ui/Loader'
 import Col from 'ui/Col'
 import Row from 'ui/Row'
 import ExpandableMenu, { MenuItem } from 'ui/ExpandableMenu'
+import Title from './Title'
 
 export default function Rss ({ data, deleteSource }) {
   return (
@@ -15,6 +16,7 @@ export default function Rss ({ data, deleteSource }) {
       {data.feed &&
         <Container>
           <Feed>
+            <Item><Title /></Item>
             {data.feed.map(({ title, link, date, sourceId, source }) => (
               <Item key={title}>
                 <Row>
