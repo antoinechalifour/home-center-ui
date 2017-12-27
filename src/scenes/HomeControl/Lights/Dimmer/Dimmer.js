@@ -11,6 +11,7 @@ export default class Dimmer extends Component {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
+    bri: PropTypes.number.isRequired,
     toggleLight: PropTypes.func.isRequired,
     updateLight: PropTypes.func.isRequired
   }
@@ -19,10 +20,18 @@ export default class Dimmer extends Component {
     super(props)
 
     this.state = {
-      value: 0
+      value: this.props.bri
     }
 
     this.updateLight = debounce(this.updateLight.bind(this), 500)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.bri) {
+      this.setState({
+        value: nextProps.bri
+      })
+    }
   }
 
   onChange = value => {

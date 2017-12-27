@@ -87,8 +87,12 @@ export default class InputRange extends Component {
     return (
       <Range>
         <Track innerRef={track => (this.track = track)} />
-        <TrackActive style={{ width: `${this.props.value}%` }} />
+        <TrackActive
+          animate={!this.state.isDragging}
+          style={{ width: `${this.props.value}%` }}
+        />
         <Slider
+          animate={!this.state.isDragging}
           onTouchStart={this.onTouchStart}
           onMouseDown={this.onMouseDown}
           style={{ left: `${this.props.value}%` }}
@@ -122,15 +126,19 @@ const TrackActive = styled.div`
   height: 0.3rem;
   opacity: .65;
   background: ${({ theme }) => theme.colors.accent};
+  
+  ${({ animate }) => animate && 'transition: width .2s ease-in;'}
 `
 
 const Slider = styled.div`
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
   height: 1.3rem;
   width: 1.3rem;
   background: ${({ theme }) => theme.colors.accent};
   border-radius: 50%;
   cursor: pointer;
+  
+  ${({ animate }) => animate && 'transition: left .2s ease-in;'}
 `

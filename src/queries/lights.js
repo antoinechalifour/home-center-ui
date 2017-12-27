@@ -6,7 +6,8 @@ export const getLights = gql`
       id,
       name,
       type,
-      status
+      status,
+      bri
     }
   }
 `

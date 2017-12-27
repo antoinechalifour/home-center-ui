@@ -14,6 +14,7 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
       id: '2',
       name: 'My light #2',
       status: 'on',
+      bri: 33,
       toggleLight: jest.fn(),
       updateLight: jest.fn()
     }
@@ -27,6 +28,7 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
       id: '3',
       name: 'My light #3',
       status: 'on',
+      bri: 12,
       toggleLight: jest.fn(),
       updateLight: jest.fn()
     }

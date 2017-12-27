@@ -17,7 +17,7 @@ exports[`scnees/HomeControl/Lights/Dimmer Should render correctly 1`] = `
     </styled.div>
     <InputRange
       onChange={[Function]}
-      value={0}
+      value={33}
     />
   </div>
 </Flex(row)>
