@@ -28,16 +28,20 @@ const Container = styled.div`
   line-height: ${({ theme }) => theme.font.lineHeight};
   background: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};
-
-  > svg {
-    position: fixed;
-    left: 24px;
-    bottom: 24px;
-    color: ${({ theme }) => theme.colors.text};
-    font-size: 24px;
-  }
-
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+`
+
+const IconContainer = styled.div`
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  color: inherit;
+  font-size: 16px;
+  padding: 2px 12px;
+  background: rgba(255, 255, 255, .65);
+  color: #373d3f;
+  border-top-left-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .24);
 `
 
 const Modal = styled.div`
@@ -48,6 +52,8 @@ const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform .2s ease-in;
+  transform: ${({ isVisible }) => (isVisible ? 'translateY(0)' : 'translateY(100%)')};
 `
 
 class DynamicTheme extends Component {
@@ -111,17 +117,18 @@ class DynamicTheme extends Component {
         <Container>
           {this.props.children}
 
-          <ColorsIcon onClick={this.toggleModal} />
+          <IconContainer>
+            <ColorsIcon onClick={this.toggleModal} />
+          </IconContainer>
 
-          {this.state.showSettings &&
-            <Modal>
-              <Settings
-                theme={theme}
-                onColorChange={this.onColorChange}
-                onReset={this.onReset}
-                onCommit={this.onCommit}
-              />
-            </Modal>}
+          <Modal isVisible={this.state.showSettings}>
+            <Settings
+              theme={theme}
+              onColorChange={this.onColorChange}
+              onReset={this.onReset}
+              onCommit={this.onCommit}
+            />
+          </Modal>
         </Container>
       </ThemeProvider>
     )
