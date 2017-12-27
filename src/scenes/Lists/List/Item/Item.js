@@ -40,6 +40,8 @@ const Wrapper = styled.li`
 
   svg:first-child {
     margin-right: 12px;
+    opacity: .24;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   span {
@@ -50,11 +52,11 @@ const Wrapper = styled.li`
 
   svg:last-child {
     margin-left: 12px;
-    opacity: .54;
+    opacity: .24;
   }
 
   + li {
-    border-top: 1px solid rgba(0, 0, 0, .15);
+    border-top: 1px solid rgba(0, 0, 0, .05);
   }
 `
 

@@ -72,12 +72,13 @@ const MainRow = styled(Row)`
 
 const DetailRow = styled(Row)`
   margin-bottom: 12px;
+  opacity: .54;
   
   span + span::before {
     content: '•';
     margin-left: 12px;
     margin-right: 12px;
-    opacity: .54;
+    opacity: .5;
   }
 `
 

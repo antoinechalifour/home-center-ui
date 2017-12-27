@@ -61,11 +61,11 @@ const Name = styled.div`
   text-transform: uppercase;
   padding: 12px;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+  border-bottom: 1px solid rgba(0, 0, 0, .15);
   position: relative;
 
   svg {
-    opacity: .54;
+    opacity: .24;
     cursor: pointer;
     position: absolute;
     right: 12px;

@@ -17,6 +17,6 @@ const LightBulb = styled(Icon)`
   font-size: 54px;
   margin-right: 12px;
 
-  opacity: ${({ theme, ison }) => (ison ? 1 : 0.65)};
+  opacity: ${({ theme, ison }) => (ison ? 1 : 0.24)};
   color: ${({ theme, ison }) => (ison ? theme.colors.primary : theme.colors.textInverse)};
 `
