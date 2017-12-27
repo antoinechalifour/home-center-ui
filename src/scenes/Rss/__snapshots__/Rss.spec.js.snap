@@ -17,32 +17,50 @@ exports[`scenes/Rss/Rss Should render the feed otherwise 1`] = `
   <Styled(styled.div)>
     <styled.ul>
       <styled.li>
-        <styled.a
-          href="http://fizz.buzz"
-          rel="noopener"
-          target="_blank"
+        <Flex(row)
+          align="flex-start"
+          justify="flex-start"
         >
-          <span>
-            Fizz! Buzz!
-          </span>
-          <styled.span>
-            FizzBuzz Magazine
-          </styled.span>
-        </styled.a>
+          <styled.a
+            flex={true}
+            href="http://fizz.buzz"
+            rel="noopener"
+            target="_blank"
+          >
+            <span>
+              Fizz! Buzz!
+            </span>
+            <styled.span>
+              FizzBuzz Magazine
+            </styled.span>
+          </styled.a>
+          <Styled(ExpandableMenu)
+            renderItems={[Function]}
+          />
+        </Flex(row)>
       </styled.li>
       <styled.li>
-        <styled.a
-          href="http://foo.bar"
-          rel="noopener"
-          target="_blank"
+        <Flex(row)
+          align="flex-start"
+          justify="flex-start"
         >
-          <span>
-            Foo! Bar!
-          </span>
-          <styled.span>
-            FooBar Magazine
-          </styled.span>
-        </styled.a>
+          <styled.a
+            flex={true}
+            href="http://foo.bar"
+            rel="noopener"
+            target="_blank"
+          >
+            <span>
+              Foo! Bar!
+            </span>
+            <styled.span>
+              FooBar Magazine
+            </styled.span>
+          </styled.a>
+          <Styled(ExpandableMenu)
+            renderItems={[Function]}
+          />
+        </Flex(row)>
       </styled.li>
     </styled.ul>
   </Styled(styled.div)>

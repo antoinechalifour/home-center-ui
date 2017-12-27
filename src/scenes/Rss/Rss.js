@@ -1,23 +1,40 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import DeleteIcon from 'react-icons/lib/md/delete'
 import Card from 'ui/Card'
 import Loader from 'ui/Loader'
 import Col from 'ui/Col'
+import Row from 'ui/Row'
+import ExpandableMenu, { MenuItem } from 'ui/ExpandableMenu'
 
-export default function Rss ({ data }) {
+export default function Rss ({ data, deleteSource }) {
   return (
     <Col align='center'>
       {data.loading && <Loader />}
       {data.feed &&
         <Container>
           <Feed>
-            {data.feed.map(({ title, link, date, source }) => (
+            {data.feed.map(({ title, link, date, sourceId, source }) => (
               <Item key={title}>
-                <ItemLink href={link} target='_blank' rel='noopener'>
-                  <span>{title}</span>
-                  <ItemMeta>{source}</ItemMeta>
-                </ItemLink>
+                <Row>
+                  <ItemLink flex href={link} target='_blank' rel='noopener'>
+                    <span>{title}</span>
+                    <ItemMeta>{source}</ItemMeta>
+                  </ItemLink>
+                  <Menu
+                    renderItems={() => (
+                      <div>
+                        <MenuItem
+                          onClick={() =>
+                            deleteSource({ variables: { id: sourceId } })}
+                        >
+                          <DeleteIcon /><span>Delete source</span>
+                        </MenuItem>
+                      </div>
+                    )}
+                  />
+                </Row>
               </Item>
             ))}
           </Feed>
@@ -37,7 +54,8 @@ Rss.propTypes = {
         source: PropTypes.string.isRequired
       })
     )
-  }).isRequired
+  }).isRequired,
+  deleteSource: PropTypes.func.isRequired
 }
 
 const Container = styled(Card)`
@@ -86,4 +104,10 @@ const ItemLink = styled.a`
 const ItemMeta = styled.span`
   font-size: 80%;
   opacity: .54;
+`
+
+const Menu = styled(ExpandableMenu)`
+  svg {
+    opacity: .54;
+  }
 `

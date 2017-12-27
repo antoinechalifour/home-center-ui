@@ -6,7 +6,14 @@ export const getRssFeed = gql`
       title,
       link,
       date,
-      source
+      source,
+      sourceId
     }
+  }
+`
+
+export const deleteSource = gql`
+  mutation DeleteSource ($id: Int) {
+    deleteSource (id: $id) { id }
   }
 `

@@ -1,5 +1,15 @@
-import { graphql } from 'react-apollo'
-import { getRssFeed } from 'queries/rss'
+import { graphql, compose } from 'react-apollo'
+import { getRssFeed, deleteSource } from 'queries/rss'
 import Rss from './Rss'
 
-export default graphql(getRssFeed)(Rss)
+const deleteSourceOptions = {
+  name: 'deleteSource',
+  options: {
+    refetchQueries: ['GetRssQuery']
+  }
+}
+
+export default compose(
+  graphql(getRssFeed),
+  graphql(deleteSource, deleteSourceOptions)
+)(Rss)
