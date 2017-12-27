@@ -11,8 +11,8 @@ const Grid = styled.div`
   min-height: 100vh;
   box-sizing: border-box;
   display: grid;
-  grid-column-gap: 8px;
-  grid-row-gap: 8px;
+  grid-column-gap: 4px;
+  grid-row-gap: 4px;
   grid-template-areas:
     "weather"
     "home-control"
