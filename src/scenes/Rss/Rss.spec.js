@@ -15,6 +15,19 @@ describe('scenes/Rss/Rss', () => {
     expect(tree).toMatchSnapshot()
   })
 
+  it('Should render an empty message when the feed is empty', () => {
+    const props = {
+      data: {
+        loading: false,
+        feed: []
+      },
+      deleteSource: jest.fn()
+    }
+    const tree = renderer.render(<Rss {...props} />)
+
+    expect(tree).toMatchSnapshot()
+  })
+
   it('Should render the feed otherwise', () => {
     const props = {
       data: {

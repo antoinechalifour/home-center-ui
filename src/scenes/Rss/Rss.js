@@ -7,6 +7,7 @@ import Loader from 'ui/Loader'
 import Col from 'ui/Col'
 import Row from 'ui/Row'
 import ExpandableMenu, { MenuItem } from 'ui/ExpandableMenu'
+import Empty from 'ui/Empty'
 import Title from './Title'
 
 export default function Rss ({ data, deleteSource }) {
@@ -17,6 +18,13 @@ export default function Rss ({ data, deleteSource }) {
         <Container>
           <Feed>
             <Item><Title /></Item>
+            {data.feed.length === 0 &&
+              <Item>
+                <Empty>
+                  <div>No news for ya!</div>
+                  <div>Use the + button to add RSS sources.</div>
+                </Empty>
+              </Item>}
             {data.feed.map(({ title, link, date, sourceId, source }) => (
               <Item key={title}>
                 <Row>
