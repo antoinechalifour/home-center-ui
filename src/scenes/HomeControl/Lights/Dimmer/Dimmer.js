@@ -42,12 +42,6 @@ export default class Dimmer extends Component {
   }
 
   render () {
-    const isOn = this.props.status === 'on'
-    const variables = {
-      lightId: this.props.id,
-      isOn: !isOn
-    }
-
     return (
       <Row align='center'>
         <div flex>

@@ -41,6 +41,11 @@ export default function Welcome ({ name, date }) {
   )
 }
 
+Welcome.proptypes = {
+  name: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired
+}
+
 const Container = styled.div`
   text-align: center;
   font-size: 32px;

@@ -42,8 +42,9 @@ Lights.propTypes = {
       PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        status: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired
+        type: PropTypes.string.isRequired,
+        status: PropTypes.string,
+        bri: PropTypes.number
       })
     )
   }).isRequired

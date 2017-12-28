@@ -14,21 +14,19 @@ export default class Editable extends Component {
   }
 
   onKeyUp = e => {
-    switch (e.keyCode) {
-      case 27: // ESCAPE
-        this.setState({
-          isEditionMode: false,
-          input: ''
-        })
-        break
-
-      case 13: // ENTER
-        this.props.onChange(this.state.input)
-        this.setState({
-          isEditionMode: false,
-          input: ''
-        })
-        break
+    if (e.keyCode === 27) {
+      // ESCAPE
+      this.setState({
+        isEditionMode: false,
+        input: ''
+      })
+    } else if (e.keyCode === 13) {
+      // ENTER
+      this.props.onChange(this.state.input)
+      this.setState({
+        isEditionMode: false,
+        input: ''
+      })
     }
   }
 
