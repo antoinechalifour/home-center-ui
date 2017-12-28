@@ -26,9 +26,9 @@ const Grid = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto 1fr;
     grid-template-areas:
-      "welcome lists home-control"
-      "weather lists home-control"
-      "rss lists home-control";
+      "welcome lists rss"
+      "weather lists rss"
+      "home-control lists rss";
   }
 `
 
