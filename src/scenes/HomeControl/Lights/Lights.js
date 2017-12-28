@@ -54,5 +54,7 @@ const List = styled.ul`
 `
 
 const Li = styled.li`
-  padding: 2px 0;
+  + li {
+    margin-top: 4px;
+  }
 `
