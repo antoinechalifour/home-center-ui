@@ -7,7 +7,7 @@ exports[`scenes/HomeControl/Lights Should render the list of lights otherwise 1`
   <styled.li>
     <styled.div>
       <styled.div>
-        <Apollo(Switch)
+        <Apollo(Apollo(Switch))
           id="1"
           name="#1"
           status="on"
@@ -31,7 +31,7 @@ exports[`scenes/HomeControl/Lights Should render the list of lights otherwise 1`
   <styled.li>
     <styled.div>
       <styled.div>
-        <Apollo(Switch)
+        <Apollo(Apollo(Switch))
           id="3"
           name="#3"
           status="off"

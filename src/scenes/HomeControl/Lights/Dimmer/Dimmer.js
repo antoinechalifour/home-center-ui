@@ -4,6 +4,7 @@ import debounce from 'debounce'
 import styled from 'styled-components'
 import InputRange from 'ui/InputRange'
 import Row from 'ui/Row'
+import Editable from 'components/Editable'
 
 export default class Dimmer extends Component {
   static propTypes = {
@@ -20,7 +21,7 @@ export default class Dimmer extends Component {
       value: this.props.bri
     }
 
-    this.updateLight = debounce(this.updateLight.bind(this), 500)
+    this.updateBrightness = debounce(this.updateBrightness.bind(this), 500)
   }
 
   componentWillReceiveProps (nextProps) {
@@ -31,13 +32,25 @@ export default class Dimmer extends Component {
     }
   }
 
-  onChange = value => {
-    this.setState({ value }, () => this.updateLight())
+  onNameChange = value => {
+    this.props.updateLight({
+      variables: {
+        lightId: this.props.id,
+        name: value
+      }
+    })
   }
 
-  updateLight () {
+  onBrightnessChange = value => {
+    this.setState({ value }, () => this.updateBrightness())
+  }
+
+  updateBrightness () {
     this.props.updateLight({
-      variables: { lightId: this.props.id, bri: Math.round(this.state.value) }
+      variables: {
+        lightId: this.props.id,
+        bri: Math.round(this.state.value)
+      }
     })
   }
 
@@ -45,8 +58,15 @@ export default class Dimmer extends Component {
     return (
       <Row align='center'>
         <div flex>
-          <Name>{this.props.name}</Name>
-          <InputRange value={this.state.value} onChange={this.onChange} />
+          <Name>
+            <Editable onChange={this.onNameChange}>
+              {this.props.name}
+            </Editable>
+          </Name>
+          <InputRange
+            value={this.state.value}
+            onChange={this.onBrightnessChange}
+          />
         </div>
       </Row>
     )

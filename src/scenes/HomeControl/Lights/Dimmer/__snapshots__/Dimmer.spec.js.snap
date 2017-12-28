@@ -9,7 +9,11 @@ exports[`scnees/HomeControl/Lights/Dimmer Should render correctly 1`] = `
     flex={true}
   >
     <styled.div>
-      My light #2
+      <Editable
+        onChange={[Function]}
+      >
+        My light #2
+      </Editable>
     </styled.div>
     <InputRange
       onChange={[Function]}

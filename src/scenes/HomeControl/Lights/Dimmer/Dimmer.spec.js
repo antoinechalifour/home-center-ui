@@ -21,7 +21,7 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('Should update the light when the input changes', () => {
+  it('Should update the brightness when the range input changes', () => {
     const props = {
       id: '3',
       name: 'My light #3',
@@ -30,13 +30,33 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
     }
     const wrapper = shallow(<Dimmer {...props} />)
 
-    wrapper.instance().onChange(33.5)
+    wrapper.instance().onBrightnessChange(33.5)
 
     expect(props.updateLight.mock.calls.length).toBe(1)
     expect(props.updateLight.mock.calls[0][0]).toEqual({
       variables: {
         lightId: '3',
         bri: 34
+      }
+    })
+  })
+
+  it('Should update the name when the input changes', () => {
+    const props = {
+      id: '4',
+      name: 'My light #4',
+      bri: 12,
+      updateLight: jest.fn()
+    }
+    const wrapper = shallow(<Dimmer {...props} />)
+
+    wrapper.instance().onNameChange('Modified name')
+
+    expect(props.updateLight.mock.calls.length).toBe(1)
+    expect(props.updateLight.mock.calls[0][0]).toEqual({
+      variables: {
+        lightId: '4',
+        name: 'Modified name'
       }
     })
   })

@@ -12,7 +12,11 @@ exports[`scenes/HomeControl/Lights/Switch Should render correctly (off) 1`] = `
   <div
     flex={true}
   >
-    Light #3
+    <Editable
+      onChange={[Function]}
+    >
+      Light #3
+    </Editable>
   </div>
 </Flex(row)>
 `;
@@ -29,7 +33,11 @@ exports[`scenes/HomeControl/Lights/Switch Should render correctly (on) 1`] = `
   <div
     flex={true}
   >
-    Light #3
+    <Editable
+      onChange={[Function]}
+    >
+      Light #3
+    </Editable>
   </div>
 </Flex(row)>
 `;

@@ -1,26 +1,49 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Row from 'ui/Row'
+import Editable from 'components/Editable'
 import StatusIcon from '../StatusIcon'
 
-export default function Switch ({ id, name, status, mutate }) {
-  const isOn = status === 'on'
-  const variables = {
-    lightId: id,
-    isOn: !isOn
+export default class Switch extends Component {
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    toggleLight: PropTypes.func.isRequired,
+    updateLight: PropTypes.func.isRequired
   }
 
-  return (
-    <Row align='center'>
-      <StatusIcon isOn={isOn} onClick={() => mutate({ variables })} />
-      <div flex>{name}</div>
-    </Row>
-  )
-}
+  switchLight = () => {
+    const isOn = this.props.status === 'on'
 
-Switch.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  mutate: PropTypes.func.isRequired
+    this.props.toggleLight({
+      variables: {
+        lightId: this.props.id,
+        isOn: !isOn
+      }
+    })
+  }
+
+  updateName = value =>
+    this.props.updateLight({
+      variables: {
+        lightId: this.props.id,
+        name: value
+      }
+    })
+
+  render () {
+    const isOn = this.props.status === 'on'
+
+    return (
+      <Row align='center'>
+        <StatusIcon isOn={isOn} onClick={this.switchLight} />
+        <div flex>
+          <Editable onChange={this.updateName}>
+            {this.props.name}
+          </Editable>
+        </div>
+      </Row>
+    )
+  }
 }
