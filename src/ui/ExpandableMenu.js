@@ -82,6 +82,7 @@ const Items = styled(Card)`
 export const MenuItem = styled(Row)`
   align-items: center;
   padding: 12px;
+  cursor: pointer;
 
   + * {
     border-top: 1px solid rgba(0, 0, 0, .15);
