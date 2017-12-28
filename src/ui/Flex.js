@@ -11,7 +11,10 @@ const createFlex = (direction, additionalStyles) => {
 
         style.flex = flex
 
-        return React.cloneElement(child, { style })
+        return React.cloneElement(child, {
+          style,
+          flex: flex.toString() // Avoid writing flex=true to the DOM
+        })
       } else {
         return child
       }

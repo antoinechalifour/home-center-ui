@@ -25,7 +25,7 @@ exports[`ui/Col Should render 1`] = `
   direction="column"
 >
   <div
-    flex={true}
+    flex="1"
     style={
       Object {
         "flex": 1,
@@ -38,7 +38,7 @@ exports[`ui/Col Should render 1`] = `
     Oh
   </div>
   <div
-    flex={2}
+    flex="2"
     style={
       Object {
         "flex": 2,
@@ -75,7 +75,7 @@ exports[`ui/Col Should render 2`] = `
   direction="column"
 >
   <div
-    flex={true}
+    flex="1"
     style={
       Object {
         "flex": 1,
@@ -88,7 +88,7 @@ exports[`ui/Col Should render 2`] = `
     Oh
   </div>
   <div
-    flex={2}
+    flex="2"
     style={
       Object {
         "flex": 2,
@@ -125,7 +125,7 @@ exports[`ui/Col Should render 3`] = `
   direction="column"
 >
   <div
-    flex={true}
+    flex="1"
     style={
       Object {
         "flex": 1,
@@ -138,7 +138,7 @@ exports[`ui/Col Should render 3`] = `
     Oh
   </div>
   <div
-    flex={2}
+    flex="2"
     style={
       Object {
         "flex": 2,
