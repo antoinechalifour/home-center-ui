@@ -17,6 +17,9 @@ exports[`scenes/Rss/Rss Should render the feed otherwise 1`] = `
   <Styled(styled.div)>
     <styled.ul>
       <styled.li>
+        <Apollo(Title) />
+      </styled.li>
+      <styled.li>
         <Flex(row)
           align="flex-start"
           justify="flex-start"

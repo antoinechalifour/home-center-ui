@@ -5,10 +5,6 @@ exports[`scnees/HomeControl/Lights/Dimmer Should render correctly 1`] = `
   align="center"
   justify="flex-start"
 >
-  <StatusIcon
-    isOn={true}
-    onClick={[Function]}
-  />
   <div
     flex={true}
   >

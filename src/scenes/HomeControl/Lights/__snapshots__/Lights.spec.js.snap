@@ -19,7 +19,7 @@ exports[`scenes/HomeControl/Lights Should render the list of lights otherwise 1`
   <styled.li>
     <styled.div>
       <styled.div>
-        <Apollo(Apollo(Dimmer))
+        <Apollo(Dimmer)
           id="2"
           name="#2"
           status="on"

@@ -13,9 +13,7 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
     const props = {
       id: '2',
       name: 'My light #2',
-      status: 'on',
       bri: 33,
-      toggleLight: jest.fn(),
       updateLight: jest.fn()
     }
     const tree = renderer.render(<Dimmer {...props} />)
@@ -27,9 +25,7 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
     const props = {
       id: '3',
       name: 'My light #3',
-      status: 'on',
       bri: 12,
-      toggleLight: jest.fn(),
       updateLight: jest.fn()
     }
     const wrapper = shallow(<Dimmer {...props} />)

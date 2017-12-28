@@ -4,15 +4,12 @@ import debounce from 'debounce'
 import styled from 'styled-components'
 import InputRange from 'ui/InputRange'
 import Row from 'ui/Row'
-import StatusIcon from '../StatusIcon'
 
 export default class Dimmer extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
     bri: PropTypes.number.isRequired,
-    toggleLight: PropTypes.func.isRequired,
     updateLight: PropTypes.func.isRequired
   }
 
@@ -53,10 +50,6 @@ export default class Dimmer extends Component {
 
     return (
       <Row align='center'>
-        <StatusIcon
-          isOn={isOn}
-          onClick={() => this.props.toggleLight({ variables })}
-        />
         <div flex>
           <Name>{this.props.name}</Name>
           <InputRange value={this.state.value} onChange={this.onChange} />
