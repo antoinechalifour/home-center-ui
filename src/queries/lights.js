@@ -13,13 +13,13 @@ export const getLights = gql`
 `
 
 export const toggleLight = gql`
-  mutation ToggleLight ($lightId: String, $isOn: Boolean) {
+  mutation ToggleLight ($lightId: String!, $isOn: Boolean!) {
     toggleLight(lightId: $lightId, isOn: $isOn) { id }
   }
 `
 
 export const updateLight = gql`
-  mutation UpdateLight ($lightId: String, $bri: Int) {
+  mutation UpdateLight ($lightId: String!, $bri: Int!) {
     updateLight(lightId: $lightId, bri: $bri) { id }
   }
 `
