@@ -19,7 +19,7 @@ export const toggleLight = gql`
 `
 
 export const updateLight = gql`
-  mutation UpdateLight ($lightId: String!, $bri: Int!) {
-    updateLight(lightId: $lightId, bri: $bri) { id }
+  mutation UpdateLight ($lightId: String!, $bri: Int, $name: String) {
+    updateLight(lightId: $lightId, bri: $bri, name: $name) { id }
   }
 `
