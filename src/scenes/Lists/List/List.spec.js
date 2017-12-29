@@ -77,7 +77,9 @@ describe('scenes/Lists/List', () => {
 
     expect(props.deleteList.mock.calls.length).toEqual(1)
     expect(props.deleteList.mock.calls[0][0]).toEqual({
-      variables: { id: 6 }
+      variables: {
+        input: { id: 6 }
+      }
     })
   })
 })

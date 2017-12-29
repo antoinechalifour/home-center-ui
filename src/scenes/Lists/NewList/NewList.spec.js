@@ -28,7 +28,9 @@ describe('scenes/Lists/NewList', () => {
 
     expect(props.mutate.mock.calls.length).toBe(1)
     expect(props.mutate.mock.calls[0][0]).toEqual({
-      variables: { name: 'my #2 item' }
+      variables: {
+        input: { name: 'my #2 item' }
+      }
     })
     expect(wrapper.state()).toEqual({ value: '' })
   })

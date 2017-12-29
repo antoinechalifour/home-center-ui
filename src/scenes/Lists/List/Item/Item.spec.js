@@ -50,7 +50,7 @@ describe('scenes/Lists/List/Item', () => {
     expect(props.deleteListItem.mock.calls.length).toBe(1)
     expect(props.deleteListItem.mock.calls[0][0]).toEqual({
       variables: {
-        id: 2
+        input: { id: 2 }
       }
     })
   })
@@ -69,9 +69,11 @@ describe('scenes/Lists/List/Item', () => {
     expect(props.updateListItem.mock.calls.length).toBe(1)
     expect(props.updateListItem.mock.calls[0][0]).toEqual({
       variables: {
-        id: 2,
-        text: props.text,
-        done: false
+        input: {
+          id: 2,
+          text: props.text,
+          done: false
+        }
       }
     })
   })

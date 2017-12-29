@@ -22,49 +22,50 @@ export const getList = gql`
 `
 
 export const createList = gql`
-  mutation CreateList($name: String!) {
-    createList(name: $name) {
-      id
+  mutation CreateList($input: CreateListInput!) {
+    createList (input: $input) {
+      list { id }
     }
   }
 `
 
 export const updateList = gql`
-  mutation UpdateList ($id: Int!, $name: String!) {
-    updateList(id: $id, name: $name) {
-      id
+  mutation UpdateList ($input: UpdateListInput!) {
+    updateList (input: $input) {
+      list { id }
     }
   }
 `
 
 export const deleteList = gql`
-  mutation DeleteList($id: Int!) {
-    deleteList(id: $id) {
-      id
+  mutation DeleteList ($input: DeleteListInput!) {
+    deleteList (input: $input) {
+      list { id }
     }
   }
 `
 
 export const addListItem = gql`
-  mutation AddListItem($listId: Int!, $text: String!) {
-    addListItem(listId: $listId, text: $text) {
-      id
+  mutation AddListItem ($input: AddListItemInput!) {
+    addListItem (input: $input) {
+      list { id },
+      item { id, text, done }
     }
   }
 `
 
 export const updateListItem = gql`
-  mutation UpdateListItem ($id: Int!, $text: String!, $done: Boolean!) {
-    updateListItem(id: $id, text: $text, done: $done) {
-      id
+  mutation UpdateListItem ($input: UpdateListItemInput!) {
+    updateListItem (input: $input) {
+      item { id }
     }
   }
 `
 
 export const deleteListItem = gql`
-  mutation DeleteListItem ($id: Int!) {
-    deleteListItem(id: $id) {
-      id
+  mutation DeleteListItem ($input: DeleteListItemInput!) {
+    deleteListItem (input: $input) {
+      item { id }
     }
   }
 `

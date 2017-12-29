@@ -14,16 +14,30 @@ export default function Item ({
   deleteListItem
 }) {
   const toggleStatus = () =>
-    updateListItem({ variables: { id, text, done: !done } })
+    updateListItem({
+      variables: {
+        input: { id, text, done: !done }
+      }
+    })
   const CheckboxIcon = done ? DoneIcon : TodoIcon
   const updateText = value =>
-    updateListItem({ variables: { id, text: value, done } })
+    updateListItem({
+      variables: {
+        input: { id, text: value, done }
+      }
+    })
+  const deleteItem = () =>
+    deleteListItem({
+      variables: {
+        input: { id }
+      }
+    })
 
   return (
     <Wrapper checked={done}>
       <CheckboxIcon onClick={toggleStatus} />
       <Editable onChange={updateText}>{text}</Editable>
-      <DeleteIcon onClick={() => deleteListItem({ variables: { id } })} />
+      <DeleteIcon onClick={deleteItem} />
     </Wrapper>
   )
 }

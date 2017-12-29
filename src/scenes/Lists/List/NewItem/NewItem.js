@@ -18,7 +18,9 @@ export default class NewItem extends Component {
     e.preventDefault()
 
     this.props.mutate({
-      variables: { listId: this.props.listId, text: this.state.value }
+      variables: {
+        input: { listId: this.props.listId, text: this.state.value }
+      }
     })
     this.setState({ value: '' })
   }

@@ -33,7 +33,11 @@ export default class NewList extends Component {
   onSubmit = e => {
     e.preventDefault()
 
-    this.props.mutate({ variables: { name: this.state.value } })
+    this.props.mutate({
+      variables: {
+        input: { name: this.state.value }
+      }
+    })
     this.setState({ value: '' })
   }
 

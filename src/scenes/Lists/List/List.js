@@ -18,11 +18,23 @@ export default function List ({ id, name, data, updateList, deleteList }) {
     <Wrapper>
       <Name>
         <Editable
-          onChange={value => updateList({ variables: { id, name: value } })}
+          onChange={value =>
+            updateList({
+              variables: {
+                input: { id, name: value }
+              }
+            })}
         >
           {name}
         </Editable>
-        <DeleteIcon onClick={() => deleteList({ variables: { id } })} />
+        <DeleteIcon
+          onClick={() =>
+            deleteList({
+              variables: {
+                input: { id }
+              }
+            })}
+        />
       </Name>
       <ul>
         {data.list.items.map(x => <Item key={x.id} {...x} />)}

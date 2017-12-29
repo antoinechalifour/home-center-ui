@@ -20,8 +20,10 @@ describe('scenes/Lists/List/NewItem', () => {
     expect(preventDefault.mock.calls.length).toBe(1)
     expect(props.mutate.mock.calls[0][0]).toEqual({
       variables: {
-        listId: props.listId,
-        text: 'New item!'
+        input: {
+          listId: props.listId,
+          text: 'New item!'
+        }
       }
     })
     expect(wrapper.state()).toEqual({ value: '' })
