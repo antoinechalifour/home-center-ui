@@ -12,14 +12,35 @@ export const getLights = gql`
   }
 `
 
-export const toggleLight = gql`
-  mutation ToggleLight ($lightId: String!, $isOn: Boolean!) {
-    toggleLight(lightId: $lightId, isOn: $isOn) { id }
+export const switchLight = gql`
+  mutation SwitchLight ($input: SwitchLightInput!) {
+    switchLight (input: $input) {
+      light {
+        id,
+        status
+      }
+    }
   }
 `
 
-export const updateLight = gql`
-  mutation UpdateLight ($lightId: String!, $bri: Int, $name: String) {
-    updateLight(lightId: $lightId, bri: $bri, name: $name) { id }
+export const setBrightness = gql`
+  mutation SetLightBrightness ($input: SetLightBrightnessInput!) {
+    setLightBrightness (input: $input) {
+      light {
+        id,
+        bri
+      }
+    }
+  }
+`
+
+export const updateLightInformation = gql`
+  mutation UpdateLightInformation ($input: UpdateLightInput!) {
+    updateLightInformation (input: $input) {
+      light {
+        id,
+        name
+      }
+    }
   }
 `

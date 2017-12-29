@@ -11,7 +11,8 @@ export default class Dimmer extends Component {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     bri: PropTypes.number.isRequired,
-    updateLight: PropTypes.func.isRequired
+    setBrightness: PropTypes.func.isRequired,
+    updateLightInformation: PropTypes.func.isRequired
   }
 
   constructor (props) {
@@ -33,10 +34,12 @@ export default class Dimmer extends Component {
   }
 
   onNameChange = value => {
-    this.props.updateLight({
+    this.props.updateLightInformation({
       variables: {
-        lightId: this.props.id,
-        name: value
+        input: {
+          id: this.props.id,
+          name: value
+        }
       }
     })
   }
@@ -46,10 +49,12 @@ export default class Dimmer extends Component {
   }
 
   updateBrightness () {
-    this.props.updateLight({
+    this.props.setBrightness({
       variables: {
-        lightId: this.props.id,
-        bri: Math.round(this.state.value)
+        input: {
+          id: this.props.id,
+          bri: Math.round(this.state.value)
+        }
       }
     })
   }

@@ -1,9 +1,19 @@
-import { graphql } from 'react-apollo'
-import { updateLight } from 'queries/lights'
+import { graphql, compose } from 'react-apollo'
+import { setBrightness, updateLightInformation } from 'queries/lights'
 import Dimmer from './Dimmer'
 
-const updateLightOptions = {
-  name: 'updateLight'
+const setBrightnessOptions = {
+  name: 'setBrightness'
 }
 
-export default graphql(updateLight, updateLightOptions)(Dimmer)
+const updateLightInformationOptions = {
+  name: 'updateLightInformation',
+  options: {
+    refetchQueries: ['GetLights']
+  }
+}
+
+export default compose(
+  graphql(setBrightness, setBrightnessOptions),
+  graphql(updateLightInformation, updateLightInformationOptions)
+)(Dimmer)

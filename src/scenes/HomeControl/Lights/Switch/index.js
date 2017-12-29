@@ -1,22 +1,22 @@
 import { graphql, compose } from 'react-apollo'
-import { toggleLight, updateLight } from 'queries/lights'
+import { switchLight, updateLightInformation } from 'queries/lights'
 import Switch from './Switch'
 
-const toggleLightOptions = {
-  name: 'toggleLight',
+const switchLightOptions = {
+  name: 'switchLight',
   options: {
     refetchQueries: ['GetLights']
   }
 }
 
-const updateLightOptions = {
-  name: 'updateLight',
+const updateLightInformationOptions = {
+  name: 'updateLightInformation',
   options: {
     refetchQueries: ['GetLights']
   }
 }
 
 export default compose(
-  graphql(toggleLight, toggleLightOptions),
-  graphql(updateLight, updateLightOptions)
+  graphql(switchLight, switchLightOptions),
+  graphql(updateLightInformation, updateLightInformationOptions)
 )(Switch)

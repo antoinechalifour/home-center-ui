@@ -9,26 +9,30 @@ export default class Switch extends Component {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
-    toggleLight: PropTypes.func.isRequired,
-    updateLight: PropTypes.func.isRequired
+    switchLight: PropTypes.func.isRequired,
+    updateLightInformation: PropTypes.func.isRequired
   }
 
   switchLight = () => {
     const isOn = this.props.status === 'on'
 
-    this.props.toggleLight({
+    this.props.switchLight({
       variables: {
-        lightId: this.props.id,
-        isOn: !isOn
+        input: {
+          id: this.props.id,
+          isOn: !isOn
+        }
       }
     })
   }
 
   updateName = value =>
-    this.props.updateLight({
+    this.props.updateLightInformation({
       variables: {
-        lightId: this.props.id,
-        name: value
+        input: {
+          id: this.props.id,
+          name: value
+        }
       }
     })
 
