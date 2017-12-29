@@ -14,7 +14,8 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
       id: '2',
       name: 'My light #2',
       bri: 33,
-      updateLight: jest.fn()
+      setBrightness: jest.fn(),
+      updateLightInformation: jest.fn()
     }
     const tree = renderer.render(<Dimmer {...props} />)
 
@@ -26,17 +27,20 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
       id: '3',
       name: 'My light #3',
       bri: 12,
-      updateLight: jest.fn()
+      setBrightness: jest.fn(),
+      updateLightInformation: jest.fn()
     }
     const wrapper = shallow(<Dimmer {...props} />)
 
     wrapper.instance().onBrightnessChange(33.5)
 
-    expect(props.updateLight.mock.calls.length).toBe(1)
-    expect(props.updateLight.mock.calls[0][0]).toEqual({
+    expect(props.setBrightness.mock.calls.length).toBe(1)
+    expect(props.setBrightness.mock.calls[0][0]).toEqual({
       variables: {
-        lightId: '3',
-        bri: 34
+        input: {
+          id: '3',
+          bri: 34
+        }
       }
     })
   })
@@ -46,17 +50,20 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
       id: '4',
       name: 'My light #4',
       bri: 12,
-      updateLight: jest.fn()
+      setBrightness: jest.fn(),
+      updateLightInformation: jest.fn()
     }
     const wrapper = shallow(<Dimmer {...props} />)
 
     wrapper.instance().onNameChange('Modified name')
 
-    expect(props.updateLight.mock.calls.length).toBe(1)
-    expect(props.updateLight.mock.calls[0][0]).toEqual({
+    expect(props.updateLightInformation.mock.calls.length).toBe(1)
+    expect(props.updateLightInformation.mock.calls[0][0]).toEqual({
       variables: {
-        lightId: '4',
-        name: 'Modified name'
+        input: {
+          id: '4',
+          name: 'Modified name'
+        }
       }
     })
   })

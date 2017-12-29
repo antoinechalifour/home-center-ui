@@ -11,8 +11,8 @@ describe('scenes/HomeControl/Lights/Switch', () => {
       id: '3',
       name: 'Light #3',
       status: 'off',
-      toggleLight: jest.fn(),
-      updateLight: jest.fn()
+      switchLight: jest.fn(),
+      updateLightInformation: jest.fn()
     }
     const tree = renderer.render(<Switch {...props} />)
 
@@ -24,8 +24,8 @@ describe('scenes/HomeControl/Lights/Switch', () => {
       id: '3',
       name: 'Light #3',
       status: 'on',
-      toggleLight: jest.fn(),
-      updateLight: jest.fn()
+      switchLight: jest.fn(),
+      updateLightInformation: jest.fn()
     }
     const tree = renderer.render(<Switch {...props} />)
 
