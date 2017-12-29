@@ -37,7 +37,11 @@ export default function Rss ({ data, deleteSource }) {
                       <div>
                         <MenuItem
                           onClick={() =>
-                            deleteSource({ variables: { id: sourceId } })}
+                            deleteSource({
+                              variables: {
+                                input: { id: sourceId }
+                              }
+                            })}
                         >
                           <DeleteIcon /><span>Delete source</span>
                         </MenuItem>

@@ -19,7 +19,11 @@ export default class Title extends Component {
   onKeyUp = e => {
     if (e.keyCode === 13) {
       // ENTER
-      this.props.addSource({ variables: { url: this.state.input } })
+      this.props.addSource({
+        variables: {
+          input: { url: this.state.input }
+        }
+      })
       this.setState({ showInput: false, input: '' })
     }
   }

@@ -13,13 +13,17 @@ export const getRssFeed = gql`
 `
 
 export const addSource = gql`
-  mutation AddSource ($url: String!) {
-    addSource(url: $url) { id }
+  mutation AddRssSource ($input: AddRssSourceInput!) {
+    addRssSource(input: $input) {
+      source { id }
+    }
   }
 `
 
 export const deleteSource = gql`
-  mutation DeleteSource ($id: Int!) {
-    deleteSource (id: $id) { id }
+  mutation DeleteRssSource ($input: DeleteRssSourceInput!) {
+    deleteRssSource (input: $input) {
+      source { id }
+    }
   }
 `
