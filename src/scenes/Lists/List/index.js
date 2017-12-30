@@ -126,17 +126,11 @@ const getListOptions = {
 }
 
 const updateListOptions = {
-  name: 'updateList',
-  options: {
-    refetchQueries: ['GetLists']
-  }
+  name: 'updateList'
 }
 
 const deleteListOptions = {
-  name: 'deleteList',
-  options: {
-    refetchQueries: ['GetLists']
-  }
+  name: 'deleteList'
 }
 
 export default compose(

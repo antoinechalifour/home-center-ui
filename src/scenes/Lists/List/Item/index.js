@@ -3,17 +3,11 @@ import { updateListItem, deleteListItem } from 'queries/lists'
 import Item from './Item'
 
 const updateListItemOptions = {
-  name: 'updateListItem',
-  options: {
-    refetchQueries: ['GetList']
-  }
+  name: 'updateListItem'
 }
 
 const deleteListItemOptions = {
-  name: 'deleteListItem',
-  options: {
-    refetchQueries: ['GetList']
-  }
+  name: 'deleteListItem'
 }
 
 export default compose(
