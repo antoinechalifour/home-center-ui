@@ -1,16 +1,16 @@
 import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow'
-import Rss from './Rss'
+import Feed from './Feed'
 
 const renderer = new ShallowRenderer()
 
-describe('scenes/Rss/Rss', () => {
+describe('scenes/Rss/Feed', () => {
   it('Should render a loader when the data is loading', () => {
     const props = {
       data: { loading: true },
       deleteSource: jest.fn()
     }
-    const tree = renderer.render(<Rss {...props} />)
+    const tree = renderer.render(<Feed {...props} />)
 
     expect(tree).toMatchSnapshot()
   })
@@ -23,7 +23,7 @@ describe('scenes/Rss/Rss', () => {
       },
       deleteSource: jest.fn()
     }
-    const tree = renderer.render(<Rss {...props} />)
+    const tree = renderer.render(<Feed {...props} />)
 
     expect(tree).toMatchSnapshot()
   })
@@ -49,7 +49,7 @@ describe('scenes/Rss/Rss', () => {
       },
       deleteSource: jest.fn()
     }
-    const tree = renderer.render(<Rss {...props} />)
+    const tree = renderer.render(<Feed {...props} />)
 
     expect(tree).toMatchSnapshot()
   })

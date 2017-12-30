@@ -23,6 +23,6 @@ const IconWrapper = styled.span`
     margin-right: 12px;
 
     opacity: ${({ theme, ison }) => (ison ? 1 : 0.24)};
-    color: ${({ theme, ison }) => (ison ? theme.colors.primary : theme.colors.textInverse)};
+    color: ${({ theme, ison }) => (ison ? theme.colors.primary : theme.colors.text)};
   }
 `

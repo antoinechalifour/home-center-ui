@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import Card from 'ui/Card'
 
 const Container = styled(Card)`
-
-margin-top: 4px;
+  margin-bottom: 24px;
 `.withComponent('form')
 
 const Input = styled.input`
@@ -17,6 +16,23 @@ const Input = styled.input`
   font-family: inherit;
   padding: 8px 12px;
   outline: none;
+  background: rgba(0, 0, 0, .7);
+  color: #fff;
+  border-radius: 4px;
+  transition: all .25s ease-in;
+  box-shadow: 0 1Px 3px rgba(0, 0, 0, .13);
+
+  ::placeholder {
+    color: #fff;
+    opacity: .54;
+    text-align: center;
+  }
+
+  :focus {
+    transform: translateY(-2px);
+    padding: 12px;
+    box-shadow: 0 1Px 3px rgba(0, 0, 0, .35);
+  }
 `
 
 export default class NewList extends Component {
@@ -47,7 +63,7 @@ export default class NewList extends Component {
         <Input
           value={this.state.value}
           onChange={this.onChange}
-          placeholder='New list?'
+          placeholder='Want to add a new list?'
         />
       </Container>
     )

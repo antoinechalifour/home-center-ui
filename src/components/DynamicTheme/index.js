@@ -28,13 +28,13 @@ const Container = styled.div`
   line-height: ${({ theme }) => theme.font.lineHeight};
   background: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 `
 
 const IconContainer = styled.div`
   position: fixed;
   right: 0;
   bottom: 0;
+  z-index: 10;
   color: inherit;
   font-size: 16px;
   padding: 2px 12px;
@@ -49,6 +49,7 @@ const Modal = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;

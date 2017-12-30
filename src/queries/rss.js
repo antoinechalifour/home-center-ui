@@ -7,7 +7,17 @@ export const getRssFeed = gql`
       link,
       date,
       source,
-      sourceId
+      sourceId,
+      content
+    }
+  }
+`
+
+export const getRssSources = gql`
+  query GetRssSources {
+    sources {
+      id,
+      url
     }
   }
 `

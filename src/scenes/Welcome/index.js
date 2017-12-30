@@ -34,11 +34,7 @@ export default function Welcome ({ name, date }) {
     configuration = allConfigurations.night
   }
 
-  return (
-    <Container>
-      <Message>{configuration.message}, {name}</Message>
-    </Container>
-  )
+  return <Message>{configuration.message}, {name}</Message>
 }
 
 Welcome.proptypes = {
@@ -46,17 +42,12 @@ Welcome.proptypes = {
   date: PropTypes.instanceOf(Date).isRequired
 }
 
-const Container = styled.div`
-  text-align: center;
-  font-size: 32px;
-  padding: 39px 0;
-`
-
 const Message = styled.div`
+  text-align: center;
   position: relative;
-  padding: 12px;
+  font-size: 32px;
+  padding-bottom: 16px;
 
-  &::before,
   &::after {
     content: '';
     display: block;
@@ -66,10 +57,6 @@ const Message = styled.div`
     height: 1px;
     background: #fff;
     opacity: .15;
-  }
-
-  &::before {
-    top: 0;
   }
 
   &::after {

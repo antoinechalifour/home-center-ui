@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scenes/Rss/Feed Should render a loader when the data is loading 1`] = `
+<styled.div>
+  Fetching your feed...
+</styled.div>
+`;
+
+exports[`scenes/Rss/Feed Should render an empty message when the feed is empty 1`] = `
+<styled.div>
+  Your feed is empty. Use the "Source" tab to start adding items :)
+</styled.div>
+`;
+
+exports[`scenes/Rss/Feed Should render the feed otherwise 1`] = `
+<styled.ul>
+  <Apollo(ItemContainer)
+    date="Tue, 26 Dec 2017 09:46:38 +0100"
+    link="http://fizz.buzz"
+    source="FizzBuzz Magazine"
+    title="Fizz! Buzz!"
+  />
+  <Apollo(ItemContainer)
+    date="Tue, 26 Dec 2017 09:42:38 +0100"
+    link="http://foo.bar"
+    source="FooBar Magazine"
+    title="Foo! Bar!"
+  />
+</styled.ul>
+`;

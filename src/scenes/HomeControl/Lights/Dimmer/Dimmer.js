@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import debounce from 'debounce'
 import styled from 'styled-components'
 import InputRange from 'ui/InputRange'
-import Row from 'ui/Row'
+import Col from 'ui/Col'
 import Editable from 'components/Editable'
 
 export default class Dimmer extends Component {
@@ -61,23 +61,28 @@ export default class Dimmer extends Component {
 
   render () {
     return (
-      <Row align='center'>
-        <div flex>
-          <Name>
-            <Editable onChange={this.onNameChange}>
-              {this.props.name}
-            </Editable>
-          </Name>
+      <Col align='center'>
+        <InputWrapper>
           <InputRange
             value={this.state.value}
             onChange={this.onBrightnessChange}
           />
-        </div>
-      </Row>
+        </InputWrapper>
+        <Name>
+          <Editable onChange={this.onNameChange}>
+            {this.props.name}
+          </Editable>
+        </Name>
+      </Col>
     )
   }
 }
 
 const Name = styled.div`
-  margin-bottom: 8px;
+`
+
+const InputWrapper = styled.div`
+  flex: 1;
+  width: 80%;
+  margin: auto;
 `

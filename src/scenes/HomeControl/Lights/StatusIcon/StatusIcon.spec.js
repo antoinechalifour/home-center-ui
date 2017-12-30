@@ -5,7 +5,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import { ThemeProvider } from 'styled-components'
-import StatusIcon from './'
+import StatusIcon from '.'
 
 const theme = {
   colors: { accent: 'red', text: 'black' }

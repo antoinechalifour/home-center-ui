@@ -1,24 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`scnees/HomeControl/Lights/Dimmer Should render correctly 1`] = `
-<Flex(row)
+<Flex(column)
   align="center"
   justify="flex-start"
 >
-  <div
-    flex={true}
-  >
-    <styled.div>
-      <Editable
-        onChange={[Function]}
-      >
-        My light #2
-      </Editable>
-    </styled.div>
+  <styled.div>
     <InputRange
       onChange={[Function]}
       value={33}
     />
-  </div>
-</Flex(row)>
+  </styled.div>
+  <styled.div>
+    <Editable
+      onChange={[Function]}
+    >
+      My light #2
+    </Editable>
+  </styled.div>
+</Flex(column)>
 `;

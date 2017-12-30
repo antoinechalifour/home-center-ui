@@ -64,9 +64,6 @@ List.propTypes = {
 }
 
 const Wrapper = styled(Card)`
-  & + & {
-    margin-top: 4px;
-  }
 `
 
 const Name = styled.div`

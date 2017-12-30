@@ -2,14 +2,12 @@
 
 exports[`ui/Card Should render a card 1`] = `
 .c0 {
-  background: #f7f7f9;
-  color: #373d3f;
+  background: #ffffff;
   box-shadow: 0 1px 3px rgba(0,0,0,.13);
 }
 
 .c1 {
   padding: 12px;
-  color: #373d3f;
 }
 
 <div

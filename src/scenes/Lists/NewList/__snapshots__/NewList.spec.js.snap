@@ -2,7 +2,7 @@
 
 exports[`scenes/Lists/NewList Should render correctly 1`] = `
 .c0 {
-  margin-top: 4px;
+  margin-bottom: 24px;
 }
 
 .c1 {
@@ -14,6 +14,44 @@ exports[`scenes/Lists/NewList Should render correctly 1`] = `
   font-family: inherit;
   padding: 8px 12px;
   outline: none;
+  background: rgba(0,0,0,.7);
+  color: #fff;
+  border-radius: 4px;
+  -webkit-transition: all .25s ease-in;
+  transition: all .25s ease-in;
+  box-shadow: 0 1Px 3px rgba(0,0,0,.13);
+}
+
+.c1::-webkit-input-placeholder {
+  color: #fff;
+  opacity: .54;
+  text-align: center;
+}
+
+.c1::-moz-placeholder {
+  color: #fff;
+  opacity: .54;
+  text-align: center;
+}
+
+.c1:-ms-input-placeholder {
+  color: #fff;
+  opacity: .54;
+  text-align: center;
+}
+
+.c1::placeholder {
+  color: #fff;
+  opacity: .54;
+  text-align: center;
+}
+
+.c1:focus {
+  -webkit-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+  padding: 12px;
+  box-shadow: 0 1Px 3px rgba(0,0,0,.35);
 }
 
 <form
@@ -23,7 +61,7 @@ exports[`scenes/Lists/NewList Should render correctly 1`] = `
   <input
     className="c1"
     onChange={[Function]}
-    placeholder="New list?"
+    placeholder="Want to add a new list?"
     value="my new list!"
   />
 </form>

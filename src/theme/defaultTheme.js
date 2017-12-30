@@ -1,12 +1,12 @@
 export default {
   colors: {
-    background: '#212227',
-    backgroundInverse: '#ffffff',
-    text: '#ffffff',
-    textInverse: '#373d3f',
+    background: '#fafafa',
+    backgroundInverse: '#212227',
+    text: '#373d3f',
+    textInverse: '#ffffff',
     primary: '#ff003c',
     accent: '#ffeb3b',
-    light: 'rgba(255, 255, 255, .15)'
+    light: 'rgba(0, 0, 0, .15)'
   },
   font: {
     size: '18px',

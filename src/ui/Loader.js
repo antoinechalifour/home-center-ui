@@ -49,7 +49,7 @@ const Cube1 = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, .45);
+    background-color: rgba(0, 0, 0, .45);
     animation: ${foldCubeAngle} 2.4s infinite linear both;
     transform-origin: 100% 100%;
   }

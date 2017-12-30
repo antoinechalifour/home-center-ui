@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import GetPosition from './'
+import GetPosition from '.'
 
 describe('scenes/Weather/GetPosition', () => {
   beforeEach(() => {

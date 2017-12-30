@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Row from 'ui/Row'
 import Editable from 'components/Editable'
+import Col from 'ui/Col'
 import StatusIcon from '../StatusIcon'
 
 export default class Switch extends Component {
@@ -40,14 +40,14 @@ export default class Switch extends Component {
     const isOn = this.props.status === 'on'
 
     return (
-      <Row align='center'>
+      <Col align='center'>
         <StatusIcon isOn={isOn} onClick={this.switchLight} />
         <div flex>
           <Editable onChange={this.updateName}>
             {this.props.name}
           </Editable>
         </div>
-      </Row>
+      </Col>
     )
   }
 }

@@ -3,48 +3,44 @@
 exports[`scenes/Weather/Weather Should render a loader when the data is loading 1`] = `<Loader />`;
 
 exports[`scenes/Weather/Weather Should render the widget otherwise 1`] = `
-<styled.div>
-  <styled.div>
-    <Flex(column)
-      align="center"
-      justify="flex-start"
-    >
-      <Styled(Flex(row))
-        align="center"
-      >
-        <Icon
-          type="rain"
-        />
-        <div>
-          6
-          °
-        </div>
-      </Styled(Flex(row))>
-      <Styled(Flex(row))
-        align="center"
-      >
-        <span>
-          Limoges
-        </span>
-        <span>
-          <TiWeatherWindy />
-           
-          7.2
-           km/h
-        </span>
-        <span>
-          <TiThermometer />
-           
-          <styled.span>
-            6
-          </styled.span>
-           
-          -
-           
-          6
-        </span>
-      </Styled(Flex(row))>
-    </Flex(column)>
-  </styled.div>
-</styled.div>
+<Flex(column)
+  align="center"
+  justify="flex-start"
+>
+  <Styled(Flex(row))
+    align="center"
+  >
+    <Icon
+      type="rain"
+    />
+    <div>
+      6
+      °
+    </div>
+  </Styled(Flex(row))>
+  <Styled(Flex(row))
+    align="center"
+  >
+    <span>
+      Limoges
+    </span>
+    <span>
+      <TiWeatherWindy />
+       
+      7.2
+       km/h
+    </span>
+    <span>
+      <TiThermometer />
+       
+      <styled.span>
+        6
+      </styled.span>
+       
+      -
+       
+      6
+    </span>
+  </Styled(Flex(row))>
+</Flex(column)>
 `;

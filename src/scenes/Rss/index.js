@@ -1,15 +1,30 @@
-import { graphql, compose } from 'react-apollo'
-import { getRssFeed, deleteSource } from 'queries/rss'
-import Rss from './Rss'
+import React from 'react'
+import Tabs, * as tabs from 'ui/Tabs'
+import Card, * as card from 'ui/Card'
+import Title from 'ui/WidgetTitle'
+import Feed from './Feed'
+import Sources from './Sources'
 
-const deleteSourceOptions = {
-  name: 'deleteSource',
-  options: {
-    refetchQueries: ['GetRssQuery']
-  }
+export default function Rss () {
+  return (
+    <div>
+      <Title>Today's news</Title>
+      <Tabs
+        inititalActiveTab='feed'
+        render={({ activeTab, changeTab }) => (
+          <Card>
+            <tabs.Header>
+              <tabs.Tab onClick={() => changeTab('feed')}>News</tabs.Tab>
+              <tabs.Tab onClick={() => changeTab('sources')}>Sources</tabs.Tab>
+            </tabs.Header>
+
+            <card.Content>
+              {activeTab === 'feed' && <Feed />}
+              {activeTab === 'sources' && <Sources />}
+            </card.Content>
+          </Card>
+        )}
+      />
+    </div>
+  )
 }
-
-export default compose(
-  graphql(getRssFeed),
-  graphql(deleteSource, deleteSourceOptions)
-)(Rss)
