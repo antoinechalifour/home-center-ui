@@ -2,16 +2,14 @@ import gql from 'graphql-tag'
 
 export const getLists = gql`
   query GetLists {
-    lists {
-      id,
-      name
-    }
+    lists { id }
   }
 `
 
 export const getList = gql`
   query GetList ($id: Int!) {
     list (id: $id) {
+      name,
       items {
         id,
         text,
@@ -80,6 +78,48 @@ export const listCreated = gql`
         text,
         done
       }
+    }
+  }
+`
+
+export const listDeleted = gql`
+  subscription ListDeleted {
+    listDeleted { id }
+  }
+`
+
+export const listUpdated = gql`
+  subscription ListUpdated ($id: Int!) {
+    listUpdated (id: $id) {
+      name
+    }
+  }
+`
+
+export const listItemCreated = gql`
+  subscription ListItemCreated ($listId: Int!) {
+    listItemCreated (listId: $listId) {
+      id,
+      text,
+      done
+    }
+  }
+`
+
+export const listItemUpdated = gql`
+  subscription ListItemUpdated ($listId: Int!) {
+    listItemUpdated (listId: $listId) {
+      id,
+      text,
+      done
+    }
+  }
+`
+
+export const listItemDeleted = gql`
+  subscription ListItemDeleted ($listId: Int!) {
+    listItemDeleted (listId: $listId) {
+      id
     }
   }
 `

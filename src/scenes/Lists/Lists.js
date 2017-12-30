@@ -19,8 +19,7 @@ Lists.propTypes = {
     loading: PropTypes.bool.isRequired,
     lists: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired
+        id: PropTypes.number.isRequired
       })
     )
   }).isRequired

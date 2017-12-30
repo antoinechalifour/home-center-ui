@@ -9,10 +9,10 @@ describe('scenes/Lists/List', () => {
   it('Should render null when the data is loading', () => {
     const props = {
       id: 4,
-      name: 'My todo list',
       data: {
         loading: true,
         list: {
+          name: 'My todo list',
           items: []
         }
       },
@@ -27,10 +27,10 @@ describe('scenes/Lists/List', () => {
   it('Should render correctly', () => {
     const props = {
       id: 4,
-      name: 'My todo list',
       data: {
         loading: false,
         list: {
+          name: 'My todo list',
           items: [
             {
               id: 1,
@@ -61,10 +61,10 @@ describe('scenes/Lists/List', () => {
   it('Should call the mutation when the delete icon is clicked', () => {
     const props = {
       id: 6,
-      name: 'My todo list #2',
       data: {
         loading: false,
         list: {
+          name: 'My todo list #2',
           items: []
         }
       },

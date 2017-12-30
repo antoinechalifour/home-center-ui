@@ -7,7 +7,7 @@ import Card from 'ui/Card'
 import Item from './Item'
 import NewItem from './NewItem'
 
-export default function List ({ id, name, data, updateList, deleteList }) {
+export default function List ({ id, data, updateList, deleteList }) {
   const isLoading = data.loading
 
   if (isLoading) {
@@ -25,7 +25,7 @@ export default function List ({ id, name, data, updateList, deleteList }) {
               }
             })}
         >
-          {name}
+          {data.list.name}
         </Editable>
         <DeleteIcon
           onClick={() =>
@@ -46,10 +46,10 @@ export default function List ({ id, name, data, updateList, deleteList }) {
 
 List.propTypes = {
   id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
   data: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     list: PropTypes.shape({
+      name: PropTypes.string.isRequired,
       items: PropTypes.arrayOf(
         PropTypes.shape({
           id: PropTypes.number.isRequired,
