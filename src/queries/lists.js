@@ -69,3 +69,17 @@ export const deleteListItem = gql`
     }
   }
 `
+
+export const listCreated = gql`
+  subscription ListCreated {
+    listCreated {
+      id,
+      name,
+      items {
+        id,
+        text,
+        done
+      }
+    }
+  }
+`
