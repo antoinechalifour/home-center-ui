@@ -6,6 +6,7 @@ import ExpandableMenu, { MenuItem } from 'ui/ExpandableMenu'
 
 export default function Item ({
   title,
+  link,
   source,
   sourceId,
   deleteSource,
@@ -13,7 +14,7 @@ export default function Item ({
 }) {
   return (
     <Wrapper>
-      <Link>
+      <Link href={link} target='_blank'>
         <ItemHeader>
           <Row>
             <div flex>
