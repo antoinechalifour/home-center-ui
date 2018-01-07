@@ -1,9 +1,6 @@
-import 'jest-styled-components'
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
-import Lights from './Lights'
-
-const renderer = new ShallowRenderer()
+import { shallow } from 'enzyme'
+import { Lights } from './Lights'
 
 describe('scenes/HomeControl/Lights', () => {
   it('Should render a loader when the data is not fetched', () => {
@@ -12,9 +9,9 @@ describe('scenes/HomeControl/Lights', () => {
         loading: true
       }
     }
-    const tree = renderer.render(<Lights {...props} />)
+    const wrapper = shallow(<Lights {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should render the list of lights otherwise', () => {
@@ -28,8 +25,8 @@ describe('scenes/HomeControl/Lights', () => {
         ]
       }
     }
-    const tree = renderer.render(<Lights {...props} />)
+    const wrapper = shallow(<Lights {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

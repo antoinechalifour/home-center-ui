@@ -1,10 +1,8 @@
 jest.mock('react-icons/lib/md/lightbulb-outline', () => 'Icon')
+jest.mock('ui/ToggleSwitch', () => 'ToggleSwitch')
 
-import 'jest-styled-components'
 import React from 'react'
-import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 import Switch from '.'
 
 const theme = {
@@ -17,13 +15,9 @@ describe('ui/HomeControl/Lights/Switch', () => {
       isOn: false,
       onClick: jest.fn()
     }
-    const tree = renderer.create(
-      <ThemeProvider theme={theme}>
-        <Switch {...props} />
-      </ThemeProvider>
-    )
+    const wrapper = shallow(<Switch {...props} theme={theme} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should render correctly (on)', () => {
@@ -31,13 +25,9 @@ describe('ui/HomeControl/Lights/Switch', () => {
       isOn: true,
       onClick: jest.fn()
     }
-    const tree = renderer.create(
-      <ThemeProvider theme={theme}>
-        <Switch {...props} />
-      </ThemeProvider>
-    )
+    const wrapper = shallow(<Switch {...props} theme={theme} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should handle click events', () => {})

@@ -1,6 +1,4 @@
-import 'jest-styled-components'
 import React from 'react'
-import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import NewList from './NewList'
 
@@ -9,11 +7,11 @@ describe('scenes/Lists/NewList', () => {
     const props = {
       mutate: jest.fn()
     }
-    const tree = renderer.create(<NewList {...props} />)
+    const wrapper = shallow(<NewList {...props} />)
 
-    tree.getInstance().setState({ value: 'my new list!' })
+    wrapper.setState({ value: 'my new list!' })
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should call the mutation when the form is submitted', () => {

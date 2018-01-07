@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui/HomeControl/Lights/Switch Should render correctly (off) 1`] = `
+<ToggleSwitch
+  onChange={[Function]}
+  value={false}
+/>
+`;
+
+exports[`ui/HomeControl/Lights/Switch Should render correctly (on) 1`] = `
+<ToggleSwitch
+  onChange={[Function]}
+  value={true}
+/>
+`;

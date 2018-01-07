@@ -14,17 +14,27 @@ exports[`scenes/Rss/Feed Should render an empty message when the feed is empty 1
 
 exports[`scenes/Rss/Feed Should render the feed otherwise 1`] = `
 <styled.ul>
-  <Apollo(ItemContainer)
-    date="Tue, 26 Dec 2017 09:46:38 +0100"
-    link="http://fizz.buzz"
-    source="FizzBuzz Magazine"
-    title="Fizz! Buzz!"
-  />
-  <Apollo(ItemContainer)
-    date="Tue, 26 Dec 2017 09:42:38 +0100"
-    link="http://foo.bar"
-    source="FooBar Magazine"
-    title="Foo! Bar!"
-  />
+  <li
+    key="Fizz! Buzz!"
+  >
+    <Apollo(ItemContainer)
+      date="Tue, 26 Dec 2017 09:46:38 +0100"
+      link="http://fizz.buzz"
+      source="FizzBuzz Magazine"
+      sourceId={1}
+      title="Fizz! Buzz!"
+    />
+  </li>
+  <li
+    key="Foo! Bar!"
+  >
+    <Apollo(ItemContainer)
+      date="Tue, 26 Dec 2017 09:42:38 +0100"
+      link="http://foo.bar"
+      source="FooBar Magazine"
+      sourceId={2}
+      title="Foo! Bar!"
+    />
+  </li>
 </styled.ul>
 `;

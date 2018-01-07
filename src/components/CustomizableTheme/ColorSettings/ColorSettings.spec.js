@@ -1,11 +1,8 @@
-import 'jest-styled-components'
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
 import { shallow } from 'enzyme'
 import Button from 'ui/Button'
 import Settings from '.'
 
-const renderer = new ShallowRenderer()
 const theme = {
   colors: {
     background: '#000',
@@ -13,7 +10,7 @@ const theme = {
   }
 }
 
-describe('components/DynamicTheme/Settings', () => {
+describe('components/CustomizableTheme/Settings', () => {
   it('Should render correctly', () => {
     const props = {
       theme,
@@ -21,9 +18,9 @@ describe('components/DynamicTheme/Settings', () => {
       commit: jest.fn(),
       reset: jest.fn()
     }
-    const tree = renderer.render(<Settings {...props} />)
+    const wrapper = shallow(<Settings {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should call changeColor when the settings change', () => {

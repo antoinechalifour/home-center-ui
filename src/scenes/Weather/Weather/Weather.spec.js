@@ -1,8 +1,6 @@
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
-import Weather from './Weather'
-
-const renderer = new ShallowRenderer()
+import { shallow } from 'enzyme'
+import { Weather } from './Weather'
 
 describe('scenes/Weather/Weather', () => {
   it('Should render the widget', () => {
@@ -20,7 +18,7 @@ describe('scenes/Weather/Weather', () => {
         }
       }
     }
-    const tree = renderer.render(<Weather {...props} />)
-    expect(tree).toMatchSnapshot()
+    const wrapper = shallow(<Weather {...props} />)
+    expect(wrapper).toMatchSnapshot()
   })
 })

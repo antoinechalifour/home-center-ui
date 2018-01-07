@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scnees/HomeControl/Lights/DimmableLight Should render correctly 1`] = `
+<div>
+  <Apollo(Apollo(SwitchableLightContainer))
+    bri={33}
+    updateBrightness={[Function]}
+  />
+  <styled.div>
+    <InputRange
+      onChange={[Function]}
+      value={33}
+    />
+  </styled.div>
+</div>
+`;

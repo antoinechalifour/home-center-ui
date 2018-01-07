@@ -1,15 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`scenes/Weather/Weather Should render a loader when the data is loading 1`] = `<Loader />`;
-
-exports[`scenes/Weather/Weather Should render the widget otherwise 1`] = `
-<Flex(column)
-  align="center"
-  justify="flex-start"
->
-  <Styled(Flex(row))
-    align="center"
-  >
+exports[`scenes/Weather/Weather Should render the widget 1`] = `
+<div>
+  <styled.div>
     <Icon
       type="rain"
     />
@@ -17,10 +10,8 @@ exports[`scenes/Weather/Weather Should render the widget otherwise 1`] = `
       6
       °
     </div>
-  </Styled(Flex(row))>
-  <Styled(Flex(row))
-    align="center"
-  >
+  </styled.div>
+  <styled.div>
     <span>
       Limoges
     </span>
@@ -41,6 +32,6 @@ exports[`scenes/Weather/Weather Should render the widget otherwise 1`] = `
        
       6
     </span>
-  </Styled(Flex(row))>
-</Flex(column)>
+  </styled.div>
+</div>
 `;

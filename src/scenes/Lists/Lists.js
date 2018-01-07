@@ -6,7 +6,7 @@ import Title from 'ui/WidgetTitle'
 import List from './List'
 import NewList from './NewList'
 
-function Lists ({ className, data }) {
+export function Lists ({ className, data }) {
   return (
     <Container>
       <Title>My lists</Title>

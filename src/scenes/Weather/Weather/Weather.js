@@ -6,7 +6,7 @@ import ThermometerIcon from 'react-icons/lib/ti/thermometer'
 import gqlLoaderHoc from 'components/GqlLoader'
 import Icon from './Icon'
 
-function Weather ({ data }) {
+export function Weather ({ data }) {
   const weather = data.weather
 
   return (

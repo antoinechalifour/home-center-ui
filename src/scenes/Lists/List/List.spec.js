@@ -1,29 +1,9 @@
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
 import { shallow } from 'enzyme'
-import List from './List'
-
-const renderer = new ShallowRenderer()
+import DeleteIcon from 'react-icons/lib/md/clear'
+import { List } from './List'
 
 describe('scenes/Lists/List', () => {
-  it('Should render null when the data is loading', () => {
-    const props = {
-      id: 4,
-      data: {
-        loading: true,
-        list: {
-          name: 'My todo list',
-          items: []
-        }
-      },
-      updateList: jest.fn(),
-      deleteList: jest.fn()
-    }
-    const tree = renderer.render(<List {...props} />)
-
-    expect(tree).toMatchSnapshot()
-  })
-
   it('Should render correctly', () => {
     const props = {
       id: 4,
@@ -50,12 +30,12 @@ describe('scenes/Lists/List', () => {
           ]
         }
       },
-      updateList: jest.fn(),
+      updateName: jest.fn(),
       deleteList: jest.fn()
     }
-    const tree = renderer.render(<List {...props} />)
+    const wrapper = shallow(<List {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should call the mutation when the delete icon is clicked', () => {
@@ -68,7 +48,7 @@ describe('scenes/Lists/List', () => {
           items: []
         }
       },
-      updateList: jest.fn(),
+      updateName: jest.fn(),
       deleteList: jest.fn()
     }
     const wrapper = shallow(<List {...props} />)
@@ -76,10 +56,6 @@ describe('scenes/Lists/List', () => {
     wrapper.find('MdClear').simulate('click')
 
     expect(props.deleteList.mock.calls.length).toEqual(1)
-    expect(props.deleteList.mock.calls[0][0]).toEqual({
-      variables: {
-        input: { id: 6 }
-      }
-    })
+    expect(props.deleteList.mock.calls[0][0]).toEqual()
   })
 })

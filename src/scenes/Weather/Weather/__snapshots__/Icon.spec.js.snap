@@ -4,7 +4,7 @@ exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather 
 
 exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type clouds 1`] = `<TiWeatherCloudy />`;
 
-exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type cool 1`] = `null`;
+exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type cool 1`] = `""`;
 
 exports[`scenes/Weather/Weather/Icon Should render the correct icon for weather type fog 1`] = `<TiWaves />`;
 

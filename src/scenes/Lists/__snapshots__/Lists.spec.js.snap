@@ -1,33 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`scenes/Lists Should render a list of Lists otherwise 1`] = `
-<div>
+<styled.div>
   <styled.h2>
-    My Lists
+    My lists
   </styled.h2>
-  <Apollo(NewList) />
   <styled.ul>
-    <li>
+    <li
+      key="1"
+    >
       <Apollo(Apollo(Apollo(ListContainer)))
         id={1}
         name="List #1"
       />
     </li>
-    <li>
+    <li
+      key="2"
+    >
       <Apollo(Apollo(Apollo(ListContainer)))
         id={2}
         name="List #2"
       />
     </li>
   </styled.ul>
-</div>
+  <Apollo(NewList) />
+</styled.div>
 `;
 
 exports[`scenes/Lists Should render a loader when the data is fetching 1`] = `
-<div>
+<styled.div>
   <styled.h2>
-    My Lists
+    My lists
   </styled.h2>
-  <Loader />
-</div>
+</styled.div>
 `;

@@ -7,7 +7,7 @@ import gqlLoaderHoc from 'components/GqlLoader'
 import Item from './Item'
 import NewItem from './NewItem'
 
-function List ({ id, data, updateName, deleteList }) {
+export function List ({ id, data, updateName, deleteList }) {
   return (
     <Container>
       <Name>

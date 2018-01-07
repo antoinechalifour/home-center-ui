@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/GqlLoader Should render null when data is loader 1`] = `<Loader />`;
+
+exports[`components/GqlLoader Should render the component otherwise 1`] = `
+<Component
+  data={
+    Object {
+      "loading": false,
+      "name": "John",
+    }
+  }
+/>
+`;

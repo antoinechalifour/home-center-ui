@@ -6,7 +6,7 @@ import Title from 'ui/WidgetTitle'
 import SwitchableLight from './SwitchableLight'
 import DimmableLight from './DimmableLight'
 
-function Lights ({ data }) {
+export function Lights ({ data }) {
   const renderers = {
     switch: props => <SwitchableLight {...props} />,
     dimmer: props => <DimmableLight {...props} />

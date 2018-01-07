@@ -1,21 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/Editable Should render edition mode 1`] = `
-.c0 {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: inherit;
-  font-family: inherit;
-  border: 1px solid rgba(0,0,0,.14);
-  outline: none;
-  padding: 8px;
-  border-radius: 4px;
-}
-
 <span>
-  <input
-    className="c0"
+  <styled.input
     onChange={[Function]}
     onKeyUp={[Function]}
     value="modified text"

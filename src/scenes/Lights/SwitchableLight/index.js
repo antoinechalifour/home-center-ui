@@ -4,7 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import { switchLight, updateLightInformation } from 'queries/lights'
 import SwitchableLight from './SwitchableLight'
 
-class SwitchableLightContainer extends Component {
+export class SwitchableLightContainer extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,

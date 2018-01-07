@@ -1,8 +1,7 @@
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
+import { shallow } from 'enzyme'
 import Icon from './Icon'
 
-const renderer = new ShallowRenderer()
 const tests = [
   {
     props: { type: 'clear' }
@@ -30,8 +29,8 @@ const tests = [
 describe('scenes/Weather/Weather/Icon', () => {
   tests.forEach(({ props, expected }) =>
     it(`Should render the correct icon for weather type ${props.type}`, () => {
-      const tree = renderer.render(<Icon {...props} />)
-      expect(tree).toMatchSnapshot()
+      const wrapper = shallow(<Icon {...props} />)
+      expect(wrapper).toMatchSnapshot()
     })
   )
 })

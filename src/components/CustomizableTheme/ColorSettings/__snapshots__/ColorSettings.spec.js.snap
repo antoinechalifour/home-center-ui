@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/CustomizableTheme/Settings Should render correctly 1`] = `
+<styled.div>
+  <styled.div
+    key="background"
+  >
+    <ColorPicker
+      onChange={[Function]}
+      value="#000"
+    />
+    <span>
+      background
+    </span>
+  </styled.div>
+  <styled.div
+    key="text"
+  >
+    <ColorPicker
+      onChange={[Function]}
+      value="#fff"
+    />
+    <span>
+      text
+    </span>
+  </styled.div>
+  <styled.div>
+    <styled.button
+      onClick={[Function]}
+    >
+      Reset theme
+    </styled.button>
+    <styled.button
+      onClick={[Function]}
+      primary={true}
+    >
+      Validate
+    </styled.button>
+  </styled.div>
+</styled.div>
+`;

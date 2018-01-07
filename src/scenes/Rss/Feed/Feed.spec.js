@@ -1,8 +1,6 @@
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
+import { shallow } from 'enzyme'
 import Feed from './Feed'
-
-const renderer = new ShallowRenderer()
 
 describe('scenes/Rss/Feed', () => {
   it('Should render a loader when the data is loading', () => {
@@ -10,9 +8,9 @@ describe('scenes/Rss/Feed', () => {
       data: { loading: true },
       deleteSource: jest.fn()
     }
-    const tree = renderer.render(<Feed {...props} />)
+    const wrapper = shallow(<Feed {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should render an empty message when the feed is empty', () => {
@@ -23,9 +21,9 @@ describe('scenes/Rss/Feed', () => {
       },
       deleteSource: jest.fn()
     }
-    const tree = renderer.render(<Feed {...props} />)
+    const wrapper = shallow(<Feed {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should render the feed otherwise', () => {
@@ -37,20 +35,22 @@ describe('scenes/Rss/Feed', () => {
             date: 'Tue, 26 Dec 2017 09:46:38 +0100',
             link: 'http://fizz.buzz',
             source: 'FizzBuzz Magazine',
+            sourceId: 1,
             title: 'Fizz! Buzz!'
           },
           {
             date: 'Tue, 26 Dec 2017 09:42:38 +0100',
             link: 'http://foo.bar',
             source: 'FooBar Magazine',
+            sourceId: 2,
             title: 'Foo! Bar!'
           }
         ]
       },
       deleteSource: jest.fn()
     }
-    const tree = renderer.render(<Feed {...props} />)
+    const wrapper = shallow(<Feed {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

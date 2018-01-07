@@ -7,16 +7,16 @@ export class ListsContainer extends Component {
   componentDidMount () {
     this.props.data.subscribeToMore({
       document: listCreated,
-      updateQuery: this.onListCreated
+      updateQuery: this._onListCreated
     })
 
     this.props.data.subscribeToMore({
       document: listDeleted,
-      updateQuery: this.onListDeleted
+      updateQuery: this._onListDeleted
     })
   }
 
-  onListCreated (prev, { subscriptionData }) {
+  _onListCreated (prev, { subscriptionData }) {
     if (!subscriptionData.data) {
       return
     }
@@ -36,7 +36,7 @@ export class ListsContainer extends Component {
     }
   }
 
-  onListDeleted (prev, { subscriptionData }) {
+  _onListDeleted (prev, { subscriptionData }) {
     if (!subscriptionData.data) {
       return
     }

@@ -26,7 +26,7 @@ describe('scenes/Lists', () => {
       }
 
       const wrapper = shallow(<ListsContainer {...props} />)
-      const result = wrapper.instance().onListCreated(prev, payload)
+      const result = wrapper.instance()._onListCreated(prev, payload)
 
       expect(result).toEqual(undefined)
     })
@@ -61,7 +61,7 @@ describe('scenes/Lists', () => {
       }
 
       const wrapper = shallow(<ListsContainer {...props} />)
-      const result = wrapper.instance().onListCreated(prev, payload)
+      const result = wrapper.instance()._onListCreated(prev, payload)
 
       expect(result).not.toBe(prev)
       expect(result).toEqual({
@@ -104,7 +104,7 @@ describe('scenes/Lists', () => {
       }
 
       const wrapper = shallow(<ListsContainer {...props} />)
-      const result = wrapper.instance().onListDeleted(prev, payload)
+      const result = wrapper.instance()._onListDeleted(prev, payload)
 
       expect(result).toEqual(undefined)
     })
@@ -137,7 +137,7 @@ describe('scenes/Lists', () => {
       }
 
       const wrapper = shallow(<ListsContainer {...props} />)
-      const result = wrapper.instance().onListDeleted(prev, payload)
+      const result = wrapper.instance()._onListDeleted(prev, payload)
 
       expect(result).not.toBe(prev)
       expect(result).toEqual({

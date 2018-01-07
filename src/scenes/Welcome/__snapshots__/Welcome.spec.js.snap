@@ -1,321 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`scenes/Welcome Should render "afternoon" (Sun Jan 28 2018 13:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good afternoon
   , 
   John
-</div>
+</styled.div>
 `;
 
 exports[`scenes/Welcome Should render "afternoon" (Sun Jan 28 2018 16:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good afternoon
   , 
   John
-</div>
+</styled.div>
 `;
 
 exports[`scenes/Welcome Should render "afternoon" (Sun Jan 28 2018 17:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good afternoon
   , 
   John
-</div>
+</styled.div>
 `;
 
 exports[`scenes/Welcome Should render "evening" (Sun Jan 28 2018 18:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good evening
   , 
   John
-</div>
+</styled.div>
 `;
 
 exports[`scenes/Welcome Should render "evening" (Sun Jan 28 2018 21:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good evening
   , 
   John
-</div>
+</styled.div>
 `;
 
 exports[`scenes/Welcome Should render "evening" (Sun Jan 28 2018 22:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good evening
   , 
   John
-</div>
+</styled.div>
 `;
 
 exports[`scenes/Welcome Should render "morning" (Sun Jan 28 2018 04:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good morning
   , 
   John
-</div>
+</styled.div>
 `;
 
 exports[`scenes/Welcome Should render "morning" (Sun Jan 28 2018 12:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good morning
   , 
   John
-</div>
+</styled.div>
 `;
 
 exports[`scenes/Welcome Should render "night" (Sun Jan 28 2018 03:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good night
   , 
   John
-</div>
+</styled.div>
 `;
 
 exports[`scenes/Welcome Should render "night" (Sun Jan 28 2018 23:00:00 GMT+0100 (CET)) 1`] = `
-.c0 {
-  text-align: center;
-  position: relative;
-  font-size: 32px;
-  padding-bottom: 16px;
-}
-
-.c0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 1px;
-  background: #fff;
-  opacity: .15;
-}
-
-.c0::after {
-  bottom: 0;
-}
-
-<div
-  className="c0"
->
+<styled.div>
   Good night
   , 
   John
-</div>
+</styled.div>
 `;

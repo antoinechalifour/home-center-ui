@@ -1,22 +1,19 @@
-import 'jest-styled-components'
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
-import Switch from './Switch'
+import { shallow } from 'enzyme'
+import SwitchableLight from './SwitchableLight'
 
-const renderer = new ShallowRenderer()
-
-describe('scenes/HomeControl/Lights/Switch', () => {
+describe('scenes/HomeControl/Lights/SwitchableLight', () => {
   it('Should render correctly (off)', () => {
     const props = {
       id: '3',
       name: 'Light #3',
       status: 'off',
-      switchLight: jest.fn(),
-      updateLightInformation: jest.fn()
+      toggleLight: jest.fn(),
+      updateName: jest.fn()
     }
-    const tree = renderer.render(<Switch {...props} />)
+    const wrapper = shallow(<SwitchableLight {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should render correctly (on)', () => {
@@ -24,11 +21,11 @@ describe('scenes/HomeControl/Lights/Switch', () => {
       id: '3',
       name: 'Light #3',
       status: 'on',
-      switchLight: jest.fn(),
-      updateLightInformation: jest.fn()
+      toggleLight: jest.fn(),
+      updateName: jest.fn()
     }
-    const tree = renderer.render(<Switch {...props} />)
+    const wrapper = shallow(<SwitchableLight {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

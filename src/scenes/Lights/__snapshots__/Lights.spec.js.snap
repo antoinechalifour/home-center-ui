@@ -1,37 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`scenes/HomeControl/Lights Should render a loader when the data is not fetched 1`] = `<Loader />`;
+exports[`scenes/HomeControl/Lights Should render a loader when the data is not fetched 1`] = `
+<div>
+  <styled.h2>
+    My devices
+  </styled.h2>
+  <ul />
+</div>
+`;
 
 exports[`scenes/HomeControl/Lights Should render the list of lights otherwise 1`] = `
 <div>
   <styled.h2>
-    My lights
+    My devices
   </styled.h2>
-  <styled.ul>
-    <styled.li>
-      <Apollo(Apollo(Switch))
+  <ul>
+    <styled.li
+      key="1"
+    >
+      <Apollo(Apollo(SwitchableLightContainer))
         id="1"
         name="#1"
         status="on"
         type="switch"
       />
     </styled.li>
-    <styled.li>
-      <Apollo(Apollo(Dimmer))
+    <styled.li
+      key="2"
+    >
+      <Apollo(Apollo(DimmableLightContainer))
         id="2"
         name="#2"
         status="on"
         type="dimmer"
       />
     </styled.li>
-    <styled.li>
-      <Apollo(Apollo(Switch))
+    <styled.li
+      key="3"
+    >
+      <Apollo(Apollo(SwitchableLightContainer))
         id="3"
         name="#3"
         status="off"
         type="switch"
       />
     </styled.li>
-  </styled.ul>
+  </ul>
 </div>
 `;

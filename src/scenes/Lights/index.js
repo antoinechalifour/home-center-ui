@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 import { getLights } from 'queries/lights'
 import Lights from './Lights'
 
-class LightsContainer extends Component {
+export class LightsContainer extends Component {
   static propTypes = {
     data: PropTypes.shape({
       startPolling: PropTypes.func.isRequired,

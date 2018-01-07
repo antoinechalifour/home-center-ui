@@ -1,17 +1,15 @@
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
-import Lists from './Lists'
-
-const renderer = new ShallowRenderer()
+import { shallow } from 'enzyme'
+import { Lists } from './Lists'
 
 describe('scenes/Lists', () => {
   it('Should render a loader when the data is fetching', () => {
     const props = {
       data: { loading: true }
     }
-    const tree = renderer.render(<Lists {...props} />)
+    const wrapper = shallow(<Lists {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should render a list of Lists otherwise', () => {
@@ -30,8 +28,8 @@ describe('scenes/Lists', () => {
         ]
       }
     }
-    const tree = renderer.render(<Lists {...props} />)
+    const wrapper = shallow(<Lists {...props} />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

@@ -10,7 +10,9 @@ describe('scenes/Lists/ListsContainer', () => {
         id: 1,
         data: {
           subscribeToMore: jest.fn()
-        }
+        },
+        updateList: jest.fn(),
+        deleteList: jest.fn()
       }
       const prev = {
         foo: 'bar',
@@ -24,7 +26,7 @@ describe('scenes/Lists/ListsContainer', () => {
       }
 
       const wrapper = shallow(<ListContainer {...props} />)
-      const result = wrapper.instance().onListUpdated(prev, payload)
+      const result = wrapper.instance()._onListUpdated(prev, payload)
 
       expect(result).toEqual(undefined)
     })
@@ -34,7 +36,9 @@ describe('scenes/Lists/ListsContainer', () => {
         id: 1,
         data: {
           subscribeToMore: jest.fn()
-        }
+        },
+        updateList: jest.fn(),
+        deleteList: jest.fn()
       }
       const prev = {
         foo: 'bar',
@@ -55,7 +59,7 @@ describe('scenes/Lists/ListsContainer', () => {
       }
 
       const wrapper = shallow(<ListContainer {...props} />)
-      const result = wrapper.instance().onListUpdated(prev, payload)
+      const result = wrapper.instance()._onListUpdated(prev, payload)
 
       expect(result).not.toBe(prev)
       expect(result).toEqual({
@@ -75,7 +79,9 @@ describe('scenes/Lists/ListsContainer', () => {
         id: 1,
         data: {
           subscribeToMore: jest.fn()
-        }
+        },
+        updateList: jest.fn(),
+        deleteList: jest.fn()
       }
       const prev = {
         foo: 'bar',
@@ -90,7 +96,7 @@ describe('scenes/Lists/ListsContainer', () => {
       }
 
       const wrapper = shallow(<ListContainer {...props} />)
-      const result = wrapper.instance().onListItemCreated(prev, payload)
+      const result = wrapper.instance()._onListItemCreated(prev, payload)
 
       expect(result).toEqual(undefined)
     })
@@ -100,7 +106,9 @@ describe('scenes/Lists/ListsContainer', () => {
         id: 1,
         data: {
           subscribeToMore: jest.fn()
-        }
+        },
+        updateList: jest.fn(),
+        deleteList: jest.fn()
       }
       const prev = {
         foo: 'bar',
@@ -129,7 +137,7 @@ describe('scenes/Lists/ListsContainer', () => {
       }
 
       const wrapper = shallow(<ListContainer {...props} />)
-      const result = wrapper.instance().onListItemCreated(prev, payload)
+      const result = wrapper.instance()._onListItemCreated(prev, payload)
 
       expect(result).not.toBe(prev)
       expect(result).toEqual({
@@ -160,7 +168,9 @@ describe('scenes/Lists/ListsContainer', () => {
         id: 1,
         data: {
           subscribeToMore: jest.fn()
-        }
+        },
+        updateList: jest.fn(),
+        deleteList: jest.fn()
       }
       const prev = {
         foo: 'bar',
@@ -175,7 +185,7 @@ describe('scenes/Lists/ListsContainer', () => {
       }
 
       const wrapper = shallow(<ListContainer {...props} />)
-      const result = wrapper.instance().onListItemUpdated(prev, payload)
+      const result = wrapper.instance()._onListItemUpdated(prev, payload)
 
       expect(result).toEqual(undefined)
     })
@@ -185,7 +195,9 @@ describe('scenes/Lists/ListsContainer', () => {
         id: 1,
         data: {
           subscribeToMore: jest.fn()
-        }
+        },
+        updateList: jest.fn(),
+        deleteList: jest.fn()
       }
       const prev = {
         foo: 'bar',
@@ -214,7 +226,7 @@ describe('scenes/Lists/ListsContainer', () => {
       }
 
       const wrapper = shallow(<ListContainer {...props} />)
-      const result = wrapper.instance().onListItemUpdated(prev, payload)
+      const result = wrapper.instance()._onListItemUpdated(prev, payload)
 
       expect(result).not.toBe(prev)
       expect(result).toEqual({
@@ -240,7 +252,9 @@ describe('scenes/Lists/ListsContainer', () => {
         id: 1,
         data: {
           subscribeToMore: jest.fn()
-        }
+        },
+        updateList: jest.fn(),
+        deleteList: jest.fn()
       }
       const prev = {
         foo: 'bar',
@@ -255,7 +269,7 @@ describe('scenes/Lists/ListsContainer', () => {
       }
 
       const wrapper = shallow(<ListContainer {...props} />)
-      const result = wrapper.instance().onListItemDeleted(prev, payload)
+      const result = wrapper.instance()._onListItemDeleted(prev, payload)
 
       expect(result).toEqual(undefined)
     })
@@ -265,7 +279,9 @@ describe('scenes/Lists/ListsContainer', () => {
         id: 1,
         data: {
           subscribeToMore: jest.fn()
-        }
+        },
+        updateList: jest.fn(),
+        deleteList: jest.fn()
       }
       const prev = {
         foo: 'bar',
@@ -297,7 +313,7 @@ describe('scenes/Lists/ListsContainer', () => {
       }
 
       const wrapper = shallow(<ListContainer {...props} />)
-      const result = wrapper.instance().onListItemDeleted(prev, payload)
+      const result = wrapper.instance()._onListItemDeleted(prev, payload)
 
       expect(result).not.toBe(prev)
       expect(result).toEqual({

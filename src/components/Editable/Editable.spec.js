@@ -1,6 +1,4 @@
-import 'jest-styled-components'
 import React from 'react'
-import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import Editable from '.'
 
@@ -9,27 +7,23 @@ describe('components/Editable', () => {
     const props = {
       onChange: jest.fn()
     }
-    const tree = renderer.create(
-      <Editable {...props}>this is editable</Editable>
-    )
+    const wrapper = shallow(<Editable {...props}>this is editable</Editable>)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should render edition mode', () => {
     const props = {
       onChange: jest.fn()
     }
-    const tree = renderer.create(
-      <Editable {...props}>this is editable</Editable>
-    )
+    const wrapper = shallow(<Editable {...props}>this is editable</Editable>)
 
-    tree.getInstance().setState({
+    wrapper.setState({
       isEditionMode: true,
       input: 'modified text'
     })
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('Should switch to edition mode on click', () => {

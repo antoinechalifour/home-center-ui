@@ -1,6 +1,5 @@
-import 'jest-styled-components'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { mount } from 'enzyme'
 import Row from './Row'
 
 const tests = [
@@ -12,7 +11,7 @@ const tests = [
 describe('ui/Row', () => {
   tests.forEach(props =>
     it(`Should render`, () => {
-      const tree = renderer.create(
+      const wrapper = mount(
         <Row {...props}>
           <div>Hey</div>
           <div>Oh</div>
@@ -20,7 +19,7 @@ describe('ui/Row', () => {
         </Row>
       )
 
-      expect(tree).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   )
 })

@@ -19,20 +19,37 @@ exports[`ui/Row Should render 1`] = `
   justify-content: center;
 }
 
-<div
-  className="c0"
-  direction="row"
+<Flex(row)
+  align="flex-start"
+  justify="center"
 >
-  <div>
-    Hey
-  </div>
-  <div>
-    Oh
-  </div>
-  <div>
-    Lets go!
-  </div>
-</div>
+  <styled.div
+    align="flex-start"
+    direction="row"
+    justify="center"
+  >
+    <div
+      className="c0"
+      direction="row"
+    >
+      <div
+        key=".0"
+      >
+        Hey
+      </div>
+      <div
+        key=".1"
+      >
+        Oh
+      </div>
+      <div
+        key=".2"
+      >
+        Lets go!
+      </div>
+    </div>
+  </styled.div>
+</Flex(row)>
 `;
 
 exports[`ui/Row Should render 2`] = `
@@ -54,20 +71,37 @@ exports[`ui/Row Should render 2`] = `
   justify-content: flex-start;
 }
 
-<div
-  className="c0"
-  direction="row"
+<Flex(row)
+  align="flex-end"
+  justify="flex-start"
 >
-  <div>
-    Hey
-  </div>
-  <div>
-    Oh
-  </div>
-  <div>
-    Lets go!
-  </div>
-</div>
+  <styled.div
+    align="flex-end"
+    direction="row"
+    justify="flex-start"
+  >
+    <div
+      className="c0"
+      direction="row"
+    >
+      <div
+        key=".0"
+      >
+        Hey
+      </div>
+      <div
+        key=".1"
+      >
+        Oh
+      </div>
+      <div
+        key=".2"
+      >
+        Lets go!
+      </div>
+    </div>
+  </styled.div>
+</Flex(row)>
 `;
 
 exports[`ui/Row Should render 3`] = `
@@ -89,18 +123,35 @@ exports[`ui/Row Should render 3`] = `
   justify-content: space-around;
 }
 
-<div
-  className="c0"
-  direction="row"
+<Flex(row)
+  align="flex-start"
+  justify="space-around"
 >
-  <div>
-    Hey
-  </div>
-  <div>
-    Oh
-  </div>
-  <div>
-    Lets go!
-  </div>
-</div>
+  <styled.div
+    align="flex-start"
+    direction="row"
+    justify="space-around"
+  >
+    <div
+      className="c0"
+      direction="row"
+    >
+      <div
+        key=".0"
+      >
+        Hey
+      </div>
+      <div
+        key=".1"
+      >
+        Oh
+      </div>
+      <div
+        key=".2"
+      >
+        Lets go!
+      </div>
+    </div>
+  </styled.div>
+</Flex(row)>
 `;

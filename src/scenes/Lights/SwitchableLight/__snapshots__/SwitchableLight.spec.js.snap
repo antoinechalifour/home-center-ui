@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scenes/HomeControl/Lights/SwitchableLight Should render correctly (off) 1`] = `
+<styled.div>
+  <MdLightbulbOutline />
+  <styled.div>
+    <Editable
+      onChange={[Function]}
+    >
+      Light #3
+    </Editable>
+  </styled.div>
+  <Switch
+    isOn={false}
+    onClick={[Function]}
+  />
+</styled.div>
+`;
+
+exports[`scenes/HomeControl/Lights/SwitchableLight Should render correctly (on) 1`] = `
+<styled.div>
+  <MdLightbulbOutline />
+  <styled.div>
+    <Editable
+      onChange={[Function]}
+    >
+      Light #3
+    </Editable>
+  </styled.div>
+  <Switch
+    isOn={true}
+    onClick={[Function]}
+  />
+</styled.div>
+`;

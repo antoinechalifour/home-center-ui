@@ -1,12 +1,11 @@
-import 'jest-styled-components'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { mount } from 'enzyme'
 import Loader from './Loader'
 
 describe('ui/Loader', () => {
   it('Should render', () => {
-    const tree = renderer.create(<Loader />)
+    const wrapper = mount(<Loader />)
 
-    expect(tree).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

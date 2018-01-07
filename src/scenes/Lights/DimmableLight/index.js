@@ -5,7 +5,7 @@ import debounce from 'debounce'
 import { setBrightness, updateLightInformation } from 'queries/lights'
 import DimmableLight from './DimmableLight'
 
-class DimmableLightContainer extends Component {
+export class DimmableLightContainer extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     bri: PropTypes.number.isRequired,

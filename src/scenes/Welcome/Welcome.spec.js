@@ -1,7 +1,6 @@
-import 'jest-styled-components'
 import React from 'react'
-import renderer from 'react-test-renderer'
-import Welcome from '.'
+import { shallow } from 'enzyme'
+import Welcome from './Welcome'
 
 const tests = [
   // année, mois[, jour[, heures[, minutes[, secondes[, millisecondes]]]]]
@@ -54,9 +53,9 @@ describe('scenes/Welcome', () => {
         name: 'John',
         date
       }
-      const tree = renderer.create(<Welcome {...props} />)
+      const wrapper = shallow(<Welcome {...props} />)
 
-      expect(tree).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   )
 })
