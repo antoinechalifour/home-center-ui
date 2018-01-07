@@ -3,51 +3,30 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import DeleteIcon from 'react-icons/lib/md/clear'
 import Editable from 'components/Editable'
-import Card from 'ui/Card'
+import gqlLoaderHoc from 'components/GqlLoader'
 import Item from './Item'
 import NewItem from './NewItem'
 
-export default function List ({ id, data, updateList, deleteList }) {
-  const isLoading = data.loading
-
-  if (isLoading) {
-    return null
-  }
-
+function List ({ id, data, updateName, deleteList }) {
   return (
-    <Wrapper>
+    <Container>
       <Name>
-        <Editable
-          onChange={value =>
-            updateList({
-              variables: {
-                input: { id, name: value }
-              }
-            })}
-        >
+        <Editable onChange={updateName}>
           {data.list.name}
         </Editable>
-        <DeleteIcon
-          onClick={() =>
-            deleteList({
-              variables: {
-                input: { id }
-              }
-            })}
-        />
+        <DeleteIcon onClick={deleteList} />
       </Name>
       <ul>
         {data.list.items.map(x => <Item key={x.id} {...x} />)}
       </ul>
       <NewItem listId={id} />
-    </Wrapper>
+    </Container>
   )
 }
 
 List.propTypes = {
   id: PropTypes.number.isRequired,
   data: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
     list: PropTypes.shape({
       name: PropTypes.string.isRequired,
       items: PropTypes.arrayOf(
@@ -59,11 +38,14 @@ List.propTypes = {
       ).isRequired
     })
   }).isRequired,
-  updateList: PropTypes.func.isRequired,
+  updateName: PropTypes.func.isRequired,
   deleteList: PropTypes.func.isRequired
 }
 
-const Wrapper = styled(Card)`
+export default gqlLoaderHoc(List)
+
+const Container = styled.div`
+  background: rgba(0, 0, 0, .15);
 `
 
 const Name = styled.div`

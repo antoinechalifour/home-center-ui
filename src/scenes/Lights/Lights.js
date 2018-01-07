@@ -1,25 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Loader from 'ui/Loader'
+import gqlLoaderHoc from 'components/GqlLoader'
 import Title from 'ui/WidgetTitle'
-import Switch from './Switch'
-import Dimmer from './Dimmer'
+import SwitchableLight from './SwitchableLight'
+import DimmableLight from './DimmableLight'
 
-export default function Lights ({ data }) {
+function Lights ({ data }) {
   const renderers = {
-    switch: props => <Switch {...props} />,
-    dimmer: props => <Dimmer {...props} />
-  }
-
-  if (data.loading) {
-    return <Loader />
+    switch: props => <SwitchableLight {...props} />,
+    dimmer: props => <DimmableLight {...props} />
   }
 
   return (
     <div>
-      <Title>My lights</Title>
-      <List>
+      <Title>My devices</Title>
+      <ul>
         {data.lights &&
           data.lights.map(x => {
             const renderLight = renderers[x.type]
@@ -29,14 +25,13 @@ export default function Lights ({ data }) {
               </Li>
             )
           })}
-      </List>
+      </ul>
     </div>
   )
 }
 
 Lights.propTypes = {
   data: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
     lights: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -49,32 +44,12 @@ Lights.propTypes = {
   }).isRequired
 }
 
-const List = styled.ul`
-  padding: 12px;
-  box-sizing: border-box;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
-  background: #fff;
-
-  @media (min-width: 800px) {
-    display: flex;
-    overflow-x: auto;
-  }
-`
+export default gqlLoaderHoc(Lights)
 
 const Li = styled.li`
-  padding: 12px;
+  padding: 24px 12px;
   
   + li {
-    border-top: 1px solid rgba(0, 0, 0, .15);
-  }
-
-  @media (min-width: 800px) {
-    padding: 0;
-    flex: 0 0 33%;
-
-    +li {
-      border-top: none;
-      border-left: 1px solid rgba(0, 0, 0, .15);
-    }
+    border-top: 1px solid rgba(255, 255, 255, .15);
   }
 `

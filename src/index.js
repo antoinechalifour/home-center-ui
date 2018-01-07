@@ -8,7 +8,7 @@ import { WebSocketLink } from 'apollo-link-ws'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { getMainDefinition } from 'apollo-utilities'
 import { ApolloProvider } from 'react-apollo'
-import DynamicTheme from 'components/DynamicTheme'
+import CustomizableTheme from 'components/CustomizableTheme'
 import Main from 'scenes/Main'
 import theme from 'theme/defaultTheme'
 import registerServiceWorker from 'registerServiceWorker'
@@ -38,9 +38,9 @@ const apolloClient = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={apolloClient}>
-    <DynamicTheme baseTheme={theme}>
-      <Main />
-    </DynamicTheme>
+    <CustomizableTheme baseTheme={theme}>
+      <Main name='Antoine' />
+    </CustomizableTheme>
   </ApolloProvider>,
   document.getElementById('root')
 )

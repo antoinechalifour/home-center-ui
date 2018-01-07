@@ -1,49 +1,46 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Row from 'ui/Row'
 import DeleteIcon from 'react-icons/lib/md/delete'
 import ExpandableMenu, { MenuItem } from 'ui/ExpandableMenu'
 
-export default function Item ({
-  title,
-  link,
-  source,
-  sourceId,
-  deleteSource,
-  content
-}) {
+export default function Item ({ title, link, source, sourceId, deleteSource }) {
   return (
-    <Wrapper>
-      <Link href={link} target='_blank'>
-        <ItemHeader>
-          <Row>
-            <div flex>
-              <span>{title}</span>
-              <ItemMeta>{source}</ItemMeta>
-            </div>
-            <Menu
-              renderItems={() => (
-                <div>
-                  <MenuItem onClick={deleteSource}>
-                    <DeleteIcon /><span>Delete source</span>
-                  </MenuItem>
-                </div>
-              )}
-            />
-          </Row>
-        </ItemHeader>
-        <ItemPreview dangerouslySetInnerHTML={{ __html: content }} />
-      </Link>
-    </Wrapper>
+    <Container>
+      <div flex>
+        <Link href={link} target='_blank'>
+          <span>{title}</span>
+          <ItemMeta>{source}</ItemMeta>
+        </Link>
+      </div>
+      <Menu
+        renderItems={() => (
+          <div>
+            <MenuItem onClick={deleteSource}>
+              <DeleteIcon /><span>Delete source</span>
+            </MenuItem>
+          </div>
+        )}
+      />
+    </Container>
   )
 }
 
-const Wrapper = styled.li`
-  box-sizing: border-box;
-  padding: 12px;
+Item.propTypes = {
+  title: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  source: PropTypes.string.isRequired,
+  sourceId: PropTypes.number.isRequired,
+  deleteSource: PropTypes.func.isRequired
+}
+
+const Container = styled.div`
+  display: flex;
 `
 
 const Link = styled.a`
+  box-sizing: border-box;
+  padding: 12px;
   display: block;
   height: 100%;
   overflow: hidden;
@@ -52,18 +49,6 @@ const Link = styled.a`
 
   span {
     display: block;
-  }
-`
-
-const ItemHeader = styled.span`
-  margin-bottom: 16px;
-`
-
-const ItemPreview = styled.span`
-  img {
-    width: 100%;
-    display: block;
-    margin: auto;
   }
 `
 

@@ -4,11 +4,11 @@ import 'jest-styled-components'
 import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow'
 import { shallow } from 'enzyme'
-import Dimmer from './Dimmer'
+import DimmableLight from './DimmableLight'
 
 const renderer = new ShallowRenderer()
 
-describe('scnees/HomeControl/Lights/Dimmer', () => {
+describe('scnees/HomeControl/Lights/DimmableLight', () => {
   it('Should render correctly', () => {
     const props = {
       id: '2',
@@ -17,7 +17,7 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
       setBrightness: jest.fn(),
       updateLightInformation: jest.fn()
     }
-    const tree = renderer.render(<Dimmer {...props} />)
+    const tree = renderer.render(<DimmableLight {...props} />)
 
     expect(tree).toMatchSnapshot()
   })
@@ -30,7 +30,7 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
       setBrightness: jest.fn(),
       updateLightInformation: jest.fn()
     }
-    const wrapper = shallow(<Dimmer {...props} />)
+    const wrapper = shallow(<DimmableLight {...props} />)
 
     wrapper.instance().onBrightnessChange(33.5)
 
@@ -53,7 +53,7 @@ describe('scnees/HomeControl/Lights/Dimmer', () => {
       setBrightness: jest.fn(),
       updateLightInformation: jest.fn()
     }
-    const wrapper = shallow(<Dimmer {...props} />)
+    const wrapper = shallow(<DimmableLight {...props} />)
 
     wrapper.instance().onNameChange('Modified name')
 

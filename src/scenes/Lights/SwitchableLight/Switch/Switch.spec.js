@@ -5,13 +5,13 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import { ThemeProvider } from 'styled-components'
-import StatusIcon from '.'
+import Switch from '.'
 
 const theme = {
   colors: { accent: 'red', text: 'black' }
 }
 
-describe('ui/HomeControl/Lights/StatusIcon', () => {
+describe('ui/HomeControl/Lights/Switch', () => {
   it('Should render correctly (off)', () => {
     const props = {
       isOn: false,
@@ -19,7 +19,7 @@ describe('ui/HomeControl/Lights/StatusIcon', () => {
     }
     const tree = renderer.create(
       <ThemeProvider theme={theme}>
-        <StatusIcon {...props} />
+        <Switch {...props} />
       </ThemeProvider>
     )
 
@@ -33,7 +33,7 @@ describe('ui/HomeControl/Lights/StatusIcon', () => {
     }
     const tree = renderer.create(
       <ThemeProvider theme={theme}>
-        <StatusIcon {...props} />
+        <Switch {...props} />
       </ThemeProvider>
     )
 

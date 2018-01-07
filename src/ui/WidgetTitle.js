@@ -3,8 +3,7 @@ import styled from 'styled-components'
 const WidgetTitle = styled.h2`
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 32px;
-  font-size: 32px;
+  padding: 12px;
   letter-spacing: 0.1rem;
   position: relative;
 
@@ -18,7 +17,7 @@ const WidgetTitle = styled.h2`
     width: 95%;
     max-width: 350px;
     height: 1px;
-    background: rgba(0, 0, 0, .15);
+    background: rgba(255, 255, 255, .15);
   }
 `
 

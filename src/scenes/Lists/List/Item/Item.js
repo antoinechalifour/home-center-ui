@@ -7,31 +7,13 @@ import DeleteIcon from 'react-icons/lib/md/clear'
 import Editable from 'components/Editable'
 
 export default function Item ({
-  id,
   text,
   done,
-  updateListItem,
-  deleteListItem
+  updateText,
+  toggleStatus,
+  deleteItem
 }) {
-  const toggleStatus = () =>
-    updateListItem({
-      variables: {
-        input: { id, text, done: !done }
-      }
-    })
   const CheckboxIcon = done ? DoneIcon : TodoIcon
-  const updateText = value =>
-    updateListItem({
-      variables: {
-        input: { id, text: value, done }
-      }
-    })
-  const deleteItem = () =>
-    deleteListItem({
-      variables: {
-        input: { id }
-      }
-    })
 
   return (
     <Wrapper checked={done}>
@@ -40,6 +22,14 @@ export default function Item ({
       <DeleteIcon onClick={deleteItem} />
     </Wrapper>
   )
+}
+
+Item.propTypes = {
+  text: PropTypes.string.isRequired,
+  done: PropTypes.bool.isRequired,
+  updateText: PropTypes.func.isRequired,
+  toggleStatus: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func.isRequired
 }
 
 const Wrapper = styled.li`
@@ -54,8 +44,7 @@ const Wrapper = styled.li`
 
   svg:first-child {
     margin-right: 12px;
-    opacity: .24;
-    color: ${({ theme }) => theme.colors.primary};
+    opacity: .33;
   }
 
   span {
@@ -70,14 +59,6 @@ const Wrapper = styled.li`
   }
 
   + li {
-    border-top: 1px solid rgba(0, 0, 0, .05);
+    border-top: 1px solid rgba(255, 255, 255, .05);
   }
 `
-
-Item.propTypes = {
-  id: PropTypes.number.isRequired,
-  text: PropTypes.string.isRequired,
-  done: PropTypes.bool.isRequired,
-  updateListItem: PropTypes.func.isRequired,
-  deleteListItem: PropTypes.func.isRequired
-}

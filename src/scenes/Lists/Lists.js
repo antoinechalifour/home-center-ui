@@ -1,17 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Loader from 'ui/Loader'
+import gqlLoaderHoc from 'components/GqlLoader'
 import Title from 'ui/WidgetTitle'
 import List from './List'
 import NewList from './NewList'
 
-export default function Lists ({ className, data }) {
+function Lists ({ className, data }) {
   return (
-    <div>
-      <Title>My Lists</Title>
-      {data.loading && <Loader />}
-      {data.lists && <NewList />}
+    <Container>
+      <Title>My lists</Title>
       {data.lists &&
         <ListsWrapper>
           {data.lists.map(x => (
@@ -20,13 +18,13 @@ export default function Lists ({ className, data }) {
             </li>
           ))}
         </ListsWrapper>}
-    </div>
+      {data.lists && <NewList />}
+    </Container>
   )
 }
 
 Lists.propTypes = {
   data: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
     lists: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired
@@ -35,33 +33,20 @@ Lists.propTypes = {
   }).isRequired
 }
 
-const ListsWrapper = styled.ul`
+export default gqlLoaderHoc(Lists)
+
+const Container = styled.div`
+  height: 100%;
   display: flex;
-  padding: 12px 0;
-  margin: auto;
-  overflow-x: auto;
+  flex-direction: column;
+`
 
-  > li {
-    flex: 0 0 100%;
-
-    + li {
-      margin-left: 12px;
-    }
-
-    @media (min-width: 860px) {
-      flex: 0 0 400px;
-    }
-  }
-
-  > :first-child {
-    margin-left: auto;
-  }
-
-  > :last-child {
-    margin-right: auto;
-  }
+const ListsWrapper = styled.ul`
+  margin-top: 12px;
+  flex: 1;
+  overflow-y: auto;
 
   > li + li {
-    margin-left: 12px;
+    margin-top: 6px;
   }
 `

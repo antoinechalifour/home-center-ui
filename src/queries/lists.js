@@ -2,7 +2,15 @@ import gql from 'graphql-tag'
 
 export const getLists = gql`
   query GetLists {
-    lists { id }
+    lists {
+      id,
+      name,
+      items {
+        id,
+        text,
+        done
+      }
+    }
   }
 `
 

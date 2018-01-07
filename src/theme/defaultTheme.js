@@ -4,13 +4,13 @@ export default {
     backgroundInverse: '#212227',
     text: '#373d3f',
     textInverse: '#ffffff',
-    primary: '#ff003c',
+    primary: '#FFC107',
     accent: '#ffeb3b',
     light: 'rgba(0, 0, 0, .15)'
   },
   font: {
     size: '18px',
-    family: "'Nunito', sans-serif",
+    family: 'Montserrat, sans-serif',
     lineHeight: '1.6'
   }
 }

@@ -4,8 +4,7 @@ import styled from 'styled-components'
 
 export default class NewItem extends Component {
   static ppropTypes = {
-    listId: PropTypes.number.isRequired,
-    mutate: PropTypes.func.isRequired
+    addItem: PropTypes.func.isRequired
   }
 
   state = {
@@ -17,11 +16,7 @@ export default class NewItem extends Component {
   onSubmit = e => {
     e.preventDefault()
 
-    this.props.mutate({
-      variables: {
-        input: { listId: this.props.listId, text: this.state.value }
-      }
-    })
+    this.props.addItem(this.state.value)
     this.setState({ value: '' })
   }
 
@@ -31,7 +26,7 @@ export default class NewItem extends Component {
         <Input
           value={this.state.value}
           onChange={this.onChange}
-          placeholder='What needs to be done?'
+          placeholder='Add something interesting...'
         />
         <button type='submit'>Add</button>
       </Form>
@@ -41,13 +36,14 @@ export default class NewItem extends Component {
 
 const Form = styled.form`
   display: flex;
-  background: #fff;
-  border-top: 1px solid rgba(0, 0, 0, .15);
+  background: rgba(0, 0, 0, .15);
 
   button {
     border: none;
     text-transform: uppercase;
     padding: 12px;
+    background: transparent;
+    color: #fff;
   }
 `
 
@@ -62,4 +58,9 @@ const Input = styled.input`
   border: none;
   background: none;
   padding: 12px 16px;
+  color: inherit;
+
+  :placeholder {
+    color: #fff;
+  }
 `

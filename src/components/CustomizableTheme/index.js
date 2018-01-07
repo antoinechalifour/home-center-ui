@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
 import deepMerge from 'deepmerge'
 import ColorsIcon from 'react-icons/lib/md/invert-colors-on'
-import Settings from './Settings'
+import ColorSettings from './ColorSettings'
 
 const LOCAL_STORAGE_KEY = 'theme:colors'
 const emptyThemeState = {
@@ -22,42 +22,7 @@ try {
   // Ignore
 }
 
-const Container = styled.div`
-  font-family: ${({ theme }) => theme.font.family};
-  font-size: ${({ theme }) => theme.font.size};
-  line-height: ${({ theme }) => theme.font.lineHeight};
-  background: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.text};
-`
-
-const IconContainer = styled.div`
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
-  color: inherit;
-  font-size: 16px;
-  padding: 2px 12px;
-  background: rgba(255, 255, 255, .65);
-  color: #373d3f;
-  border-top-left-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .24);
-`
-
-const Modal = styled.div`
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .2s ease-in;
-  transform: ${({ isVisible }) => (isVisible ? 'translateY(0)' : 'translateY(100%)')};
-`
-
-class DynamicTheme extends Component {
+export default class CustomizableTheme extends Component {
   static propTypes = {
     baseTheme: PropTypes.shape({
       colors: PropTypes.shape({
@@ -82,12 +47,12 @@ class DynamicTheme extends Component {
     showSettings: false
   }
 
-  toggleModal = () =>
+  _toggleSettings = () =>
     this.setState({
       showSettings: !this.state.showSettings
     })
 
-  onColorChange = (setting, color) =>
+  _onColorChange = (setting, color) =>
     this.setState(lastState => {
       return {
         theme: {
@@ -100,9 +65,10 @@ class DynamicTheme extends Component {
       }
     })
 
-  onReset = () => this.setState({ theme: emptyThemeState, showSettings: false })
+  _onReset = () =>
+    this.setState({ theme: emptyThemeState, showSettings: false })
 
-  onCommit = () => {
+  _onCommit = () => {
     window.localStorage.setItem(
       LOCAL_STORAGE_KEY,
       JSON.stringify(this.state.theme)
@@ -119,15 +85,15 @@ class DynamicTheme extends Component {
           {this.props.children}
 
           <IconContainer>
-            <ColorsIcon onClick={this.toggleModal} />
+            <ColorsIcon onClick={this._toggleSettings} />
           </IconContainer>
 
           <Modal isVisible={this.state.showSettings}>
-            <Settings
+            <ColorSettings
               theme={theme}
-              onColorChange={this.onColorChange}
-              onReset={this.onReset}
-              onCommit={this.onCommit}
+              changeColor={this._onColorChange}
+              reset={this._onReset}
+              commit={this._onCommit}
             />
           </Modal>
         </Container>
@@ -136,4 +102,38 @@ class DynamicTheme extends Component {
   }
 }
 
-export default DynamicTheme
+const Container = styled.div`
+  font-family: ${({ theme }) => theme.font.family};
+  font-size: ${({ theme }) => theme.font.size};
+  line-height: ${({ theme }) => theme.font.lineHeight};
+  background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
+  letter-spacing: 0.04rem;
+`
+
+const IconContainer = styled.div`
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  color: inherit;
+  font-size: 16px;
+  padding: 2px 12px;
+  background: rgba(255, 255, 255, .65);
+  color: #373d3f;
+  border-top-right-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .24);
+`
+
+const Modal = styled.div`
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease-in;
+  transform: ${({ isVisible }) => (isVisible ? 'translateY(0)' : 'translateY(100%)')};
+`

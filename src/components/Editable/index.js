@@ -13,7 +13,7 @@ export default class Editable extends Component {
     input: ''
   }
 
-  onKeyUp = e => {
+  _onKeyUp = e => {
     if (e.keyCode === 27) {
       // ESCAPE
       this.setState({
@@ -30,9 +30,9 @@ export default class Editable extends Component {
     }
   }
 
-  onChange = e => this.setState({ input: e.target.value })
+  _onChange = e => this.setState({ input: e.target.value })
 
-  switchToEditionMode = () => {
+  _switchToEditionMode = () => {
     this.setState({
       isEditionMode: true,
       input: this.props.children
@@ -44,11 +44,11 @@ export default class Editable extends Component {
       ? <span>
         <Input
           value={this.state.input}
-          onChange={this.onChange}
-          onKeyUp={this.onKeyUp}
+          onChange={this._onChange}
+          onKeyUp={this._onKeyUp}
           />
       </span>
-      : <span onClick={this.switchToEditionMode}>
+      : <span onClick={this._switchToEditionMode}>
         {this.props.children}
       </span>
   }

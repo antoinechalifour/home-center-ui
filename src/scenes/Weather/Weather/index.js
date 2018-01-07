@@ -15,8 +15,7 @@ class WeatherContainer extends Component {
   }
 
   componentDidMount () {
-    console.log('Starting polling...')
-    this.props.data.startPolling(300000)
+    this.props.data.startPolling(60000)
   }
 
   componentWillUnmount () {

@@ -17,7 +17,11 @@ export default function Feed ({ data }) {
 
   return (
     <Items>
-      {data.feed.map(item => <Item key={item.title} {...item} />)}
+      {data.feed.map(item => (
+        <li key={item.title}>
+          <Item {...item} />
+        </li>
+      ))}
     </Items>
   )
 }
@@ -39,19 +43,7 @@ Feed.propTypes = {
 }
 
 const Items = styled.ul`
-  max-height: 60vh;
-  display: flex;
-  overflow-y: auto;
-
-  > li {
-    flex: 0 0 95%;
-
-    @media (min-width: 860px) {
-      flex: 0 0 50%;
-    }
-  }
-
   > li + li {
-    border-left: 1px solid rgba(0, 0, 0, .05);
+    border-top: 1px solid rgba(255, 255, 255, .15);
   }
 `

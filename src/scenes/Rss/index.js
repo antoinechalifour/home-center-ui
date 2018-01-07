@@ -1,30 +1,38 @@
 import React from 'react'
+import styled from 'styled-components'
 import Tabs, * as tabs from 'ui/Tabs'
-import Card, * as card from 'ui/Card'
-import Title from 'ui/WidgetTitle'
 import Feed from './Feed'
 import Sources from './Sources'
 
 export default function Rss () {
   return (
-    <div>
-      <Title>Today's news</Title>
-      <Tabs
-        inititalActiveTab='feed'
-        render={({ activeTab, changeTab }) => (
-          <Card>
-            <tabs.Header>
-              <tabs.Tab onClick={() => changeTab('feed')}>News</tabs.Tab>
-              <tabs.Tab onClick={() => changeTab('sources')}>Sources</tabs.Tab>
-            </tabs.Header>
+    <Tabs
+      inititalActiveTab='feed'
+      render={({ activeTab, changeTab }) => (
+        <Container>
+          <tabs.Header>
+            <tabs.Tab onClick={() => changeTab('feed')}>News</tabs.Tab>
+            <tabs.Tab onClick={() => changeTab('sources')}>Sources</tabs.Tab>
+          </tabs.Header>
 
-            <card.Content>
-              {activeTab === 'feed' && <Feed />}
-              {activeTab === 'sources' && <Sources />}
-            </card.Content>
-          </Card>
-        )}
-      />
-    </div>
+          <Content>
+            {activeTab === 'feed' && <Feed />}
+            {activeTab === 'sources' && <Sources />}
+          </Content>
+        </Container>
+      )}
+    />
   )
 }
+
+const Container = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`
+
+const Content = styled.div`
+  flex: 1;
+  padding: 0 12px;
+  overflow-y: auto;
+`

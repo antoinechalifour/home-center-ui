@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { graphql, compose } from 'react-apollo'
 import {
   getList,
@@ -12,13 +13,22 @@ import {
 import List from './List'
 
 export class ListContainer extends Component {
+  static propTypes = {
+    id: PropTypes.number.isRequired,
+    data: PropTypes.shape({
+      subscribeToMore: PropTypes.func.isRequired
+    }).isRequired,
+    updateList: PropTypes.func.isRequired,
+    deleteList: PropTypes.func.isRequired
+  }
+
   componentDidMount () {
     this.props.data.subscribeToMore({
       document: listUpdated,
       variables: {
         id: this.props.id
       },
-      updateQuery: this.onListUpdated
+      updateQuery: this._onListUpdated
     })
 
     this.props.data.subscribeToMore({
@@ -26,7 +36,7 @@ export class ListContainer extends Component {
       variables: {
         listId: this.props.id
       },
-      updateQuery: this.onListItemCreated
+      updateQuery: this._onListItemCreated
     })
 
     this.props.data.subscribeToMore({
@@ -34,7 +44,7 @@ export class ListContainer extends Component {
       variables: {
         listId: this.props.id
       },
-      updateQuery: this.onListItemUpdated
+      updateQuery: this._onListItemUpdated
     })
 
     this.props.data.subscribeToMore({
@@ -42,11 +52,11 @@ export class ListContainer extends Component {
       variables: {
         listId: this.props.id
       },
-      updateQuery: this.onListItemDeleted
+      updateQuery: this._onListItemDeleted
     })
   }
 
-  onListUpdated (prev, { subscriptionData }) {
+  _onListUpdated (prev, { subscriptionData }) {
     if (!subscriptionData.data) {
       return
     }
@@ -63,7 +73,7 @@ export class ListContainer extends Component {
     }
   }
 
-  onListItemCreated (prev, { subscriptionData }) {
+  _onListItemCreated (prev, { subscriptionData }) {
     if (!subscriptionData.data) {
       return
     }
@@ -80,7 +90,7 @@ export class ListContainer extends Component {
     }
   }
 
-  onListItemUpdated (prev, { subscriptionData }) {
+  _onListItemUpdated (prev, { subscriptionData }) {
     if (!subscriptionData.data) {
       return
     }
@@ -97,7 +107,7 @@ export class ListContainer extends Component {
     }
   }
 
-  onListItemDeleted (prev, { subscriptionData }) {
+  _onListItemDeleted (prev, { subscriptionData }) {
     if (!subscriptionData.data) {
       return
     }
@@ -114,8 +124,33 @@ export class ListContainer extends Component {
     }
   }
 
+  _onUpdateName = name => {
+    this.props.updateList({
+      variables: {
+        input: {
+          id: this.props.id,
+          name
+        }
+      }
+    })
+  }
+
+  _onDeleteList = () => {
+    this.props.deleteList({
+      variables: {
+        input: { id: this.props.id }
+      }
+    })
+  }
+
   render () {
-    return <List {...this.props} />
+    return (
+      <List
+        {...this.props}
+        updateName={this._onUpdateName}
+        deleteList={this._onDeleteList}
+      />
+    )
   }
 }
 

@@ -19,7 +19,6 @@ export default function Icon ({ type }) {
   const WeatherIcon = typeToIcon[type]
 
   if (!WeatherIcon) {
-    console.warn(`Missing icon for weather type "${type}"`)
     return null
   }
 

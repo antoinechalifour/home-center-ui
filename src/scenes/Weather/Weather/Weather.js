@@ -3,25 +3,19 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import WindSpeedIcon from 'react-icons/lib/ti/weather-windy'
 import ThermometerIcon from 'react-icons/lib/ti/thermometer'
-import Loader from 'ui/Loader'
-import Col from 'ui/Col'
-import Row from 'ui/Row'
+import gqlLoaderHoc from 'components/GqlLoader'
 import Icon from './Icon'
 
-export default function Weather ({ data }) {
-  if (data.loading) {
-    return <Loader />
-  }
-
+function Weather ({ data }) {
   const weather = data.weather
 
   return (
-    <Col align='center'>
-      <MainRow align='center'>
+    <div>
+      <Main>
         <Icon type={weather.kind} />
-        <div>{weather.temp}°</div>
-      </MainRow>
-      <DetailRow align='center'>
+        <div>{Math.round(weather.temp)}°</div>
+      </Main>
+      <Detail>
         <span>
           {weather.city}
         </span>
@@ -37,14 +31,13 @@ export default function Weather ({ data }) {
           {' '}
           {weather.temp_max}
         </span>
-      </DetailRow>
-    </Col>
+      </Detail>
+    </div>
   )
 }
 
 Weather.propTypes = {
   data: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
     weather: PropTypes.shape({
       city: PropTypes.string.isRequired,
       kind: PropTypes.string.isRequired,
@@ -57,22 +50,31 @@ Weather.propTypes = {
   }).isRequired
 }
 
-const MainRow = styled(Row)`
-  font-size: 48px;
+export default gqlLoaderHoc(Weather)
+
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const Main = Row.extend`
+  font-size: 64px;
+  text-align: center;
 
   > div:last-child {
     margin-left: 24px;
   }
 `
 
-const DetailRow = styled(Row)`
+const Detail = Row.extend`
   opacity: .54;
   
   span + span::before {
     content: '•';
     margin-left: 12px;
     margin-right: 12px;
-    opacity: .5;
+    opacity: .33;
   }
 `
 

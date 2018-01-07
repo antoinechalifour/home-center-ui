@@ -1,56 +1,67 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Weather from 'scenes/Weather'
-import HomeControl from 'scenes/HomeControl'
+import Lights from 'scenes/Lights'
 import Lists from 'scenes/Lists'
 import Rss from 'scenes/Rss'
 import Welcome from 'scenes/Welcome'
+import Calendar from 'scenes/Calendar'
+import Forecast from 'scenes/Forecast'
+import Area from './Area'
 
-export default function Home ({ name }) {
+export default function Main ({ name }) {
   return (
-    <div>
-      <HeaderWrapper>
-        <Welcome name='Antoine' date={new Date()} />
-        <Weather />
-      </HeaderWrapper>
+    <Grid>
+      <Area area='hello' background={false} vAlign='center'>
+        <Welcome name={name} date={new Date()} />
+      </Area>
 
-      <Main>
-        <Section>
-          <HomeControl />
-        </Section>
-        <Section>
-          <Lists />
-        </Section>
-        <Section>
-          <Rss />
-        </Section>
-      </Main>
-    </div>
+      <Area area='weather' vAlign='center'>
+        <Weather />
+      </Area>
+
+      <Area area='forecast' vAlign='center'>
+        <Forecast />
+      </Area>
+
+      <Area area='calendar' vAlign='center'>
+        <Calendar />
+      </Area>
+
+      <Area area='headlines'>
+        <Rss />
+      </Area>
+
+      <Area area='lists' background={false}>
+        <Lists />
+      </Area>
+
+      <Area area='home'>
+        <Lights />
+      </Area>
+    </Grid>
   )
 }
 
-const HeaderWrapper = styled.header`
-  background: ${({ theme }) => theme.colors.backgroundInverse};
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-  color: ${({ theme }) => theme.colors.textInverse};
-  padding: 16px;
-  position: sticky;
-  top: 0;
-`
+Main.propTypes = {
+  name: PropTypes.string.isRequired
+}
 
-const Main = styled.main`
-  position: relative;
-  z-index: 1;
-  background: ${({ theme }) => theme.colors.background};
-  padding: 48px 0;
-`
+const Grid = styled.main`
+  height: 100vh;
+  width: 100vw;
+  overflow-x: auto;
 
-const Section = styled.section`
-  width: 95%;
-  max-width: 900px;
-  margin: auto;
+  display: grid;
+  grid-gap: 6px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+   "hello calendar calendar lists"
+   "weather headlines home lists"
+   "forecast headlines home lists";
 
-  + section {
-    margin-top: 48px;
-  }
+  background: #2b2b2b;
+  color: #fff;
 `

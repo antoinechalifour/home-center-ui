@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import MenuIcon from 'react-icons/lib/md/more-vert'
-import Card from 'ui/Card'
 import Row from 'ui/Row'
 
 export default class ExpandableMenu extends Component {
@@ -55,7 +54,8 @@ const Menu = styled.div`
   }
 `
 
-const Items = styled(Card)`
+const Items = styled.div`
+  background: #fff;
   min-width: 200px;
   position: absolute;
   right: 30px;
