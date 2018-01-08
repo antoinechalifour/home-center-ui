@@ -1,6 +1,6 @@
 import React from 'react'
 import Loader from 'ui/Loader'
-import GetPosition from './GetPosition'
+import GetPosition from 'components/GetPosition'
 import Weather from './Weather'
 
 export default function WeatherWidget () {

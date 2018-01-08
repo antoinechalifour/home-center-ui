@@ -1,10 +1,22 @@
 import React from 'react'
-import WIPIcon from 'react-icons/lib/md/report-problem'
+import Loader from 'ui/Loader'
+import GetPosition from 'components/GetPosition'
+import Forecast from './Forecast'
 
-export default function Forecast () {
+export default function ForecastWidget () {
   return (
-    <div style={{ textAlign: 'center', padding: '12px' }}>
-      <WIPIcon /> WIP: Widget not implemented yet.
-    </div>
+    <GetPosition
+      render={({ err, position }) => {
+        const isLoading = !err && !position
+
+        if (isLoading) {
+          return <Loader />
+        } else if (err) {
+          return <div>Error!</div>
+        } else {
+          return <Forecast {...position} />
+        }
+      }}
+    />
   )
 }
