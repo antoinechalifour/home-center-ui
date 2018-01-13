@@ -11,7 +11,6 @@ import { ApolloProvider } from 'react-apollo'
 import CustomizableTheme from 'components/CustomizableTheme'
 import Main from 'scenes/Main'
 import theme from 'theme/defaultTheme'
-import registerServiceWorker from 'registerServiceWorker'
 
 // Apollo setup
 const GRAPHQL_API_URL = `${process.env.REACT_APP_API_URI}/graphql`
@@ -36,12 +35,23 @@ const apolloClient = new ApolloClient({
   cache: new InMemoryCache()
 })
 
-ReactDOM.render(
-  <ApolloProvider client={apolloClient}>
-    <CustomizableTheme baseTheme={theme}>
-      <Main name='Antoine' />
-    </CustomizableTheme>
-  </ApolloProvider>,
-  document.getElementById('root')
-)
-registerServiceWorker()
+const render = App => {
+  ReactDOM.render(
+    <ApolloProvider client={apolloClient}>
+      <CustomizableTheme baseTheme={theme}>
+        <App name='Antoine' />
+      </CustomizableTheme>
+    </ApolloProvider>,
+    document.getElementById('root')
+  )
+}
+
+render(Main)
+
+if (module.hot) {
+  module.hot.accept('scenes/Main', () => {
+    const Next = require('scenes/Main').default
+
+    render(Next)
+  })
+}
