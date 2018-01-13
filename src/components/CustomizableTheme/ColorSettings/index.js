@@ -42,6 +42,7 @@ ColorSettings.propTypes = {
 
 const Wrapper = styled.div`
   background: #fff;
+  color: #373d3f;
   position: relative;
   width: 100%;
   font-size: 75%;

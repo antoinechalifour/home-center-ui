@@ -1,9 +1,9 @@
 export default {
   colors: {
-    background: '#fafafa',
-    backgroundInverse: '#212227',
-    text: '#373d3f',
-    textInverse: '#ffffff',
+    background: '#2b2b2b',
+    backgroundInverse: '#fafafa',
+    text: '#fff',
+    textInverse: '#373d3f',
     primary: '#FFC107',
     accent: '#ffeb3b',
     light: 'rgba(0, 0, 0, .15)'

@@ -62,6 +62,6 @@ const Grid = styled.main`
    "weather headlines home lists"
    "forecast headlines home lists";
 
-  background: #2b2b2b;
-  color: #fff;
+  background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
 `
