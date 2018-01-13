@@ -51,7 +51,7 @@ export function Forecast ({ data }) {
               <ThermometerIcon />
               <span>{Math.round(forecast.min)}°</span>
               {' '}
-              -
+              /
               {' '}
               <span>{Math.round(forecast.max)}°</span>
             </Temperatures>

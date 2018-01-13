@@ -27,7 +27,7 @@ export function Weather ({ data }) {
           {' '}
           <MinTemperature>{weather.temp_min}</MinTemperature>
           {' '}
-          -
+          /
           {' '}
           {weather.temp_max}
         </span>
