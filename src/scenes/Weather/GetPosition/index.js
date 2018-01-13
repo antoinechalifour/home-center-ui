@@ -6,7 +6,7 @@ export default class GetPosition extends Component {
     render: PropTypes.func.isRequired
   }
 
-  state = { position: null, err: null }
+  state = { position: null }
 
   onPosition = position => {
     const { latitude, longitude } = position.coords
@@ -14,8 +14,13 @@ export default class GetPosition extends Component {
     this.setState({ position: { latitude, longitude } })
   }
 
-  onError = err => {
-    this.setState({ err })
+  onError = () => {
+    this.setState({
+      position: {
+        latitude: null,
+        longitude: null
+      }
+    })
   }
 
   componentDidMount () {
@@ -24,7 +29,6 @@ export default class GetPosition extends Component {
 
   render () {
     return this.props.render({
-      err: this.state.err,
       position: this.state.position
     })
   }

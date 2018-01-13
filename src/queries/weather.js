@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export const getWeather = gql`
-  query GetWeather ($lon: Float!, $lat: Float!) {
+  query GetWeather ($lon: Float, $lat: Float) {
     weather (lon: $lon, lat: $lat) {
       city,
       kind
