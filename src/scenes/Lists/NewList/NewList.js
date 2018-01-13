@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Container = styled.form`
+  margin-top: 12px;
 `
 
 const Input = styled.input`

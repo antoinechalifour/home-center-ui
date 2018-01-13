@@ -45,6 +45,9 @@ List.propTypes = {
 export default gqlLoaderHoc(List)
 
 const Container = styled.div`
+  ul {
+    border-left: 2px solid rgba(255, 255, 255, .33);
+  }
 `
 
 const Name = styled.div`

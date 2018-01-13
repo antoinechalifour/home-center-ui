@@ -58,7 +58,7 @@ const Grid = styled.main`
   grid-template-rows: repeat(3, 33%);
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-   "hello calendar calendar calendar"
+   "hello calendar calendar lists"
    "weather headlines home lists"
    "forecast headlines home lists";
 
