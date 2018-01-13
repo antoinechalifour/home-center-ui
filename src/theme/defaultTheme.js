@@ -9,7 +9,7 @@ export default {
     light: 'rgba(0, 0, 0, .15)'
   },
   font: {
-    size: '18px',
+    size: '14px',
     family: 'Montserrat, sans-serif',
     lineHeight: '1.6'
   }

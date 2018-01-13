@@ -6,8 +6,8 @@ import Forecast from './Forecast'
 
 class ForecastContainer extends Component {
   static propTypes = {
-    longitude: PropTypes.number.isRequired,
-    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number,
+    latitude: PropTypes.number,
     data: PropTypes.shape({
       startPolling: PropTypes.func.isRequired,
       stopPolling: PropTypes.func.isRequired

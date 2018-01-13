@@ -45,7 +45,7 @@ export function Forecast ({ data }) {
     <div>
       <ul>
         {forecastByDay.map(({ day, forecast }) => (
-          <DailyForecast>
+          <DailyForecast key={day.day}>
             <Day>{day.day} / {day.month} </Day>
             <Temperatures>
               <ThermometerIcon />

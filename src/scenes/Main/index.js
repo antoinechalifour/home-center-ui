@@ -56,12 +56,16 @@ const Grid = styled.main`
   display: grid;
   grid-gap: 6px;
   grid-template-rows: repeat(3, 33%);
-  grid-template-columns: repeat(4, 25%);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-   "hello calendar calendar lists"
+   "hello calendar calendar calendar"
    "weather headlines home lists"
    "forecast headlines home lists";
 
   background: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};
+
+  * {
+    box-sizing: border-box;
+  }
 `

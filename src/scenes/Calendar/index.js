@@ -1,10 +1,5 @@
-import React from 'react'
-import WIPIcon from 'react-icons/lib/md/report-problem'
+import { graphql } from 'react-apollo'
+import { getCalendar } from 'queries/calendar'
+import Calendar from './Calendar'
 
-export default function Calendar () {
-  return (
-    <div style={{ textAlign: 'center' }}>
-      <WIPIcon /> WIP: Widget not implemented yet.
-    </div>
-  )
-}
+export default graphql(getCalendar)(Calendar)

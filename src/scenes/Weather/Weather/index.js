@@ -6,8 +6,8 @@ import Weather from './Weather'
 
 class WeatherContainer extends Component {
   static propTypes = {
-    latitude: PropTypes.number.isRequired,
-    longitude: PropTypes.number.isRequired,
+    latitude: PropTypes.number,
+    longitude: PropTypes.number,
     data: PropTypes.shape({
       startPolling: PropTypes.func.isRequired,
       stopPolling: PropTypes.func.isRequired
