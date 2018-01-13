@@ -45,6 +45,9 @@ export class Calendar extends Component {
     const date = new Date(day)
 
     date.setHours(hour)
+    date.setMinutes(30)
+    date.setSeconds(0)
+    date.setMilliseconds(0)
 
     const events = this.props.data.calendar.events.filter(event => {
       const startDate = new Date(event.start)
