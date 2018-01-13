@@ -22,10 +22,10 @@ describe('scenes/Weather/GetPosition', () => {
     const wrapper = shallow(<GetPosition render={render} />)
 
     expect(render.mock.calls.length).toBe(1)
-    expect(render.mock.calls[0][0]).toEqual({ err: null, position: null })
+    expect(render.mock.calls[0][0]).toEqual({ position: null })
   })
 
-  it('Should call render prop with an error when the location is not available', () => {
+  it('Should call render prop with null arguments when the location is not available', () => {
     const render = jest.fn()
     const err = new Error('Location not available')
     const getCurrentPosition = jest.fn((onSuccess, onError) => onError(err))
@@ -35,8 +35,13 @@ describe('scenes/Weather/GetPosition', () => {
     const wrapper = shallow(<GetPosition render={render} />)
 
     expect(render.mock.calls.length).toBe(2)
-    expect(render.mock.calls[0][0]).toEqual({ position: null, err: null })
-    expect(render.mock.calls[1][0]).toEqual({ position: null, err })
+    expect(render.mock.calls[0][0]).toEqual({ position: null })
+    expect(render.mock.calls[1][0]).toEqual({
+      position: {
+        latitude: null,
+        longitude: null
+      }
+    })
   })
 
   it('Should call render prop with the position when available', () => {
@@ -49,10 +54,9 @@ describe('scenes/Weather/GetPosition', () => {
     const wrapper = shallow(<GetPosition render={render} />)
 
     expect(render.mock.calls.length).toBe(2)
-    expect(render.mock.calls[0][0]).toEqual({ position: null, err: null })
+    expect(render.mock.calls[0][0]).toEqual({ position: null })
     expect(render.mock.calls[1][0]).toEqual({
-      position: { latitude: 1, longitude: 2 },
-      err: null
+      position: { latitude: 1, longitude: 2 }
     })
   })
 })
