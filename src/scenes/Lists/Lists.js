@@ -39,14 +39,15 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 `
 
 const ListsWrapper = styled.ul`
-  margin-top: 12px;
-  flex: 1;
-  overflow-y: auto;
+  margin: 12px 0;
 
-  > li + li {
-    margin-top: 6px;
+  > li {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 4px double rgba(255, 255, 255, .15);
   }
 `

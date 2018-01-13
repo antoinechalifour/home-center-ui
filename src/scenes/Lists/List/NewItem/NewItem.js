@@ -36,7 +36,6 @@ export default class NewItem extends Component {
 
 const Form = styled.form`
   display: flex;
-  background: rgba(0, 0, 0, .15);
 
   button {
     border: none;
@@ -60,7 +59,8 @@ const Input = styled.input`
   padding: 12px 16px;
   color: inherit;
 
-  :placeholder {
+  ::placeholder {
     color: #fff;
+    opacity: .33;
   }
 `

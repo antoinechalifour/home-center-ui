@@ -14,7 +14,7 @@ const Input = styled.input`
   font-family: inherit;
   padding: 8px 12px;
   outline: none;
-  background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, .15);
   color: #fff;
   transition: all .25s ease-in;
   box-shadow: 0 1Px 3px rgba(0, 0, 0, .13);
@@ -22,12 +22,6 @@ const Input = styled.input`
   ::placeholder {
     color: #fff;
     opacity: .54;
-    text-align: center;
-  }
-
-  :focus {
-    padding: 12px;
-    box-shadow: 0 1Px 3px rgba(0, 0, 0, .35);
   }
 `
 

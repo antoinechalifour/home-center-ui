@@ -45,14 +45,11 @@ List.propTypes = {
 export default gqlLoaderHoc(List)
 
 const Container = styled.div`
-  background: rgba(0, 0, 0, .15);
 `
 
 const Name = styled.div`
   text-transform: uppercase;
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid rgba(0, 0, 0, .15);
+  padding: 8px 12px;
   position: relative;
 
   svg {

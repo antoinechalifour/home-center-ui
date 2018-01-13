@@ -35,16 +35,16 @@ Item.propTypes = {
 const Wrapper = styled.li`
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 10px 12px;
 
   svg {
-    font-size: 20px;
     cursor: pointer;
   }
 
   svg:first-child {
     margin-right: 12px;
     opacity: .33;
+    font-size: 125%;
   }
 
   span {
@@ -56,9 +56,5 @@ const Wrapper = styled.li`
   svg:last-child {
     margin-left: 12px;
     opacity: .24;
-  }
-
-  + li {
-    border-top: 1px solid rgba(255, 255, 255, .05);
   }
 `

@@ -33,7 +33,7 @@ export default function Main ({ name }) {
         <Rss />
       </Area>
 
-      <Area area='lists' background={false}>
+      <Area area='lists'>
         <Lists />
       </Area>
 
