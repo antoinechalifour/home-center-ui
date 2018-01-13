@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import LeftArrow from 'react-icons/lib/md/chevron-left'
+import RightArrow from 'react-icons/lib/md/chevron-right'
 import gqlLoaderHoc from 'components/GqlLoader'
 
 export class Calendar extends Component {
@@ -36,7 +38,7 @@ export class Calendar extends Component {
 
   _addDays (date, no) {
     const newDate = new Date()
-    newDate.setDate(date.getDate() + no)
+    newDate.setTime(date.getTime() + no * 24 * 60 * 60 * 1000)
 
     return newDate
   }
@@ -88,30 +90,42 @@ export class Calendar extends Component {
 
     return (
       <Container>
-        <Table>
-          <Thead>
-            <Tr>
-              <Td />
-              {days.map(day => (
-                <Td active={this._isToday(day)}>
-                  {day.getDate()} / {day.getMonth() + 1}
-                </Td>
-              ))}
-            </Tr>
-          </Thead>
-          <Tbody>
-            {hours.map(hour => (
+        <CalendarWrapper>
+          <button
+            onClick={() => this.setState({ offset: this.state.offset - 1 })}
+          >
+            <LeftArrow />
+          </button>
+          <Table>
+            <Thead>
               <Tr>
-                <Td>{hour}h</Td>
+                <Th first />
                 {days.map(day => (
-                  <Td active={this._isNow(day, hour)}>
-                    {this._getEvents(day, hour)}
-                  </Td>
+                  <Th active={this._isToday(day)}>
+                    {day.getDate()}/{day.getMonth() + 1}/{day.getFullYear()}
+                  </Th>
                 ))}
               </Tr>
-            ))}
-          </Tbody>
-        </Table>
+            </Thead>
+            <Tbody>
+              {hours.map(hour => (
+                <Tr>
+                  <Td first>{hour}h</Td>
+                  {days.map(day => (
+                    <Td active={this._isNow(day, hour)}>
+                      {this._getEvents(day, hour)}
+                    </Td>
+                  ))}
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+          <button
+            onClick={() => this.setState({ offset: this.state.offset + 1 })}
+          >
+            <RightArrow />
+          </button>
+        </CalendarWrapper>
       </Container>
     )
   }
@@ -124,14 +138,28 @@ const Container = styled.div`
   height: 100%;
 `
 
-const Table = styled.div`
+const CalendarWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   position: absolute;
   top: 12px;
   right: 12px;
   bottom: 12px;
   left: 12px;
+
+  button {
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+  }
+`
+
+const Table = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 `
 
 const Thead = styled.div`
@@ -153,9 +181,7 @@ const Tr = styled.div`
 `
 
 const Td = styled.div`
-  flex: 1;
   border: 1px solid rgba(255, 255, 255, .15);
-  padding: 6px 12px;
   min-height: 24px;
   font-size: 10px;
   word-break: break-all;
@@ -163,6 +189,18 @@ const Td = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
+  ${({ first }) => (first ? `
+    width: 40px;
+    padding: 6px;
+  ` : `
+    padding: 6px 12px;
+    flex: 1;
+  `)}
   ${({ active }) => active && 'background: rgba(255, 255, 255, .24);'}
+`
+
+const Th = Td.extend`
+  font-size: 9px;
 `
