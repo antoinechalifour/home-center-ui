@@ -1,71 +1,115 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import Welcome from 'scenes/Welcome'
 import Weather from 'scenes/Weather'
-import Lights from 'scenes/Lights'
+import Calendar from 'scenes/Calendar'
 import Lists from 'scenes/Lists'
 import Rss from 'scenes/Rss'
-import Welcome from 'scenes/Welcome'
-import Calendar from 'scenes/Calendar'
-import Forecast from 'scenes/Forecast'
-import Area from './Area'
+import Lights from 'scenes/Lights'
 
-export default function Main ({ name }) {
-  return (
-    <Grid>
-      <Area area='hello' background={false} vAlign='center'>
-        <Welcome name={name} date={new Date()} />
-      </Area>
+export default class Main extends Component {
+  static defaultProps = {
+    widgets: [['weather', 'calendar'], ['lights', 'rss'], ['lists']]
+  }
 
-      <Area area='weather' vAlign='center'>
-        <Weather />
-      </Area>
+  static widgetTypeToComponent = {
+    notes: () => <div>This is the note widget</div>,
+    weather: () => <Weather />,
+    calendar: () => <Calendar />,
+    lists: () => <Lists />,
+    rss: () => <Rss />,
+    lights: () => <Lights />
+  }
 
-      <Area area='forecast' vAlign='center'>
-        <Forecast />
-      </Area>
+  _renderWidgets (widgets) {
+    const colNumber = widgets[0].length
 
-      <Area area='calendar' vAlign='center'>
-        <Calendar />
-      </Area>
+    return (
+      <Widgets>
+        {Array(colNumber).fill(' ').map((_, col) => {
+          return (
+            <WidgetCol>
+              {widgets.map(row => {
+                const widget = row[col]
 
-      <Area area='headlines'>
-        <Rss />
-      </Area>
+                return Main.widgetTypeToComponent[widget]
+                  ? <Widget>{Main.widgetTypeToComponent[widget]()}</Widget>
+                  : null
+              })}
+            </WidgetCol>
+          )
+        })}
+      </Widgets>
+    )
+  }
 
-      <Area area='lists'>
-        <Lists />
-      </Area>
-
-      <Area area='home'>
-        <Lights />
-      </Area>
-    </Grid>
-  )
+  render () {
+    return (
+      <Container>
+        <Nav />
+        <Body>
+          <Header>Home</Header>
+          <Content>
+            <Welcome name='Antoine' />
+            {this._renderWidgets(this.props.widgets)}
+          </Content>
+        </Body>
+      </Container>
+    )
+  }
 }
 
-Main.propTypes = {
-  name: PropTypes.string.isRequired
-}
-
-const Grid = styled.main`
+const Container = styled.div`
   height: 100vh;
-  width: 100vw;
-  overflow-x: auto;
+  background: #f7f7f9;
+  display: flex;
+  color: ${({ theme }) => theme.colors.textInverse};
+`
 
-  display: grid;
-  grid-gap: 6px;
-  grid-template-rows: repeat(3, 33%);
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-   "hello calendar calendar lists"
-   "weather headlines home lists"
-   "forecast headlines home lists";
-
-  background: ${({ theme }) => theme.colors.background};
+const Header = styled.header`
+  padding: 12px;
   color: ${({ theme }) => theme.colors.text};
+  background: ${({ theme }) => theme.colors.primary};
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+`
 
-  * {
-    box-sizing: border-box;
+const Body = styled.main`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`
+
+const Nav = styled.nav`
+  width: 256px;
+  background: #fff;
+`
+
+const Content = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+`
+
+const Widgets = styled.div`
+  display: flex;
+
+  > * {
+    flex: 1;
+  }
+`
+
+const WidgetCol = styled.div`
+  padding: 0 4px;
+`
+
+const Widget = styled.div`
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
+  max-height: 450px;
+  overflow-y: auto;
+
+  + div {
+    margin-top: 8px;
   }
 `
