@@ -44,3 +44,15 @@ export const updateLightInformation = gql`
     }
   }
 `
+
+export const lightUpdated = gql`
+  subscription LightUpdated {
+    lightUpdated {
+      id,
+      name,
+      type,
+      status,
+      bri
+    }
+  }
+`

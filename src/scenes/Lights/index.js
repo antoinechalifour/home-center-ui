@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
-import { getLights } from 'queries/lights'
+import { getLights, lightUpdated } from 'queries/lights'
 import Lights from './Lights'
 
 export class LightsContainer extends Component {
@@ -13,11 +13,29 @@ export class LightsContainer extends Component {
   }
 
   componentDidMount () {
-    this.props.data.startPolling(1000)
+    this.props.data.subscribeToMore({
+      document: lightUpdated,
+      updateQuery: this._onLightUpdated
+    })
   }
 
-  componentWillUnmount () {
-    this.props.data.stopPolling()
+  _onLightUpdated = (prev, { subscriptionData }) => {
+    if (!subscriptionData.data) {
+      return
+    }
+
+    const updatedLight = subscriptionData.data.lightUpdated
+
+    return {
+      ...prev,
+      lights: prev.lights.map(light => {
+        if (light.id === updatedLight.id) {
+          return updatedLight
+        }
+
+        return light
+      })
+    }
   }
 
   render () {
