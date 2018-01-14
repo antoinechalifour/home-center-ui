@@ -18,7 +18,8 @@ export const getForecast = gql`
   query GetForecast ($lon: Float, $lat: Float) {
     weatherForecast (lon: $lon, lat: $lat) {
       temp,
-      date
+      date,
+      kind
     }
   }
 `

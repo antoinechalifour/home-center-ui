@@ -4,7 +4,7 @@ export default {
     backgroundInverse: '#fafafa',
     text: '#fff',
     textInverse: '#373d3f',
-    primary: '#FFC107',
+    primary: '#1689b9',
     accent: '#ffeb3b',
     light: 'rgba(0, 0, 0, .15)'
   },

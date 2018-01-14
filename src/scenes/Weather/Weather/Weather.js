@@ -1,39 +1,99 @@
-import React from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import WindSpeedIcon from 'react-icons/lib/ti/weather-windy'
 import ThermometerIcon from 'react-icons/lib/ti/thermometer'
+import { getDayName } from 'util/dates'
+import { getWeatherName } from 'util/weather'
 import gqlLoaderHoc from 'components/GqlLoader'
 import Icon from './Icon'
+import Forecast from './Forecast'
 
-export function Weather ({ data }) {
-  const weather = data.weather
+class Clock extends Component {
+  state = {
+    date: new Date()
+  }
 
-  return (
-    <div>
-      <Main>
+  componentDidMount () {
+    this._interval = window.setInterval(this._updateClock, 1000)
+  }
+
+  componentWillUnmount () {
+    window.clearInterval(this._interval)
+  }
+
+  _updateClock = () => {
+    this.setState({ date: new Date() })
+  }
+
+  render () {
+    let hours = this.state.date.getHours()
+    let minutes = this.state.date.getMinutes()
+
+    hours = hours < 10 ? `0${hours}` : hours
+    minutes = minutes < 10 ? `0${minutes}` : minutes
+
+    return <div>{hours}:{minutes}</div>
+  }
+}
+
+export class Weather extends Component {
+  _renderTop () {
+    const weather = this.props.data.weather
+
+    return (
+      <Fragment>
         <Icon type={weather.kind} />
-        <div>{Math.round(weather.temp)}°</div>
-      </Main>
+        <Title>Current weather</Title>
+        <WeatherType>{getWeatherName(weather.kind)}</WeatherType>
+        <Geolocation>
+          <div>{weather.city}</div>
+          <Clock />
+        </Geolocation>
+      </Fragment>
+    )
+  }
+
+  _renderDetail () {
+    return (
       <Detail>
-        <span>
-          {weather.city}
-        </span>
-        <span>
-          <WindSpeedIcon /> {weather.wind_speed} km/h
-        </span>
-        <span>
-          <ThermometerIcon />
-          {' '}
-          <MinTemperature>{weather.temp_min}</MinTemperature>
-          {' '}
-          /
-          {' '}
-          {weather.temp_max}
-        </span>
+        <Temperature>
+          <div>
+            {Math.round(this.props.data.weather.temp)}<TempSign>°</TempSign>
+          </div>
+          <div>{getDayName(new Date())}</div>
+        </Temperature>
+        <WindInformation>
+          <div>
+            <WindSpeedIcon />
+          </div>
+          <div>{this.props.data.weather.wind_speed}km/h</div>
+        </WindInformation>
       </Detail>
-    </div>
-  )
+    )
+  }
+
+  _renderForecast () {
+    return (
+      <ForecastContainer>
+        <Forecast />
+      </ForecastContainer>
+    )
+  }
+
+  render () {
+    return (
+      <div>
+        <Top>
+          {this._renderTop()}
+        </Top>
+        <Bottom>
+          {this._renderDetail()}
+          {this._renderForecast()}
+        </Bottom>
+      </div>
+    )
+  }
 }
 
 Weather.propTypes = {
@@ -52,32 +112,93 @@ Weather.propTypes = {
 
 export default gqlLoaderHoc(Weather)
 
-const Row = styled.div`
+const Top = styled.div`
+  padding: 32px 12px;
+  position: relative;
+  text-align: center;
+  background: ${({ theme }) => theme.colors.primary};
+  color: #fff;
+
+  svg {
+    font-size: 80px;
+  }
+`
+
+const Title = styled.div`
+  position: absolute;
+  top: 12px;
+  left: 12px;
+`
+
+const WeatherType = styled.div`
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+`
+
+const Geolocation = styled.div`
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  text-align: right;
+`
+
+const Bottom = styled.div`
+  display: flex;
+`
+
+const Detail = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
 `
 
-const Main = Row.extend`
-  font-size: 64px;
+const Temperature = styled.div`
+  flex: 1 0 55px;
+  padding: 12px;
   text-align: center;
 
+  > div:first-child {
+    font-size: 32px;
+  }
+
   > div:last-child {
-    margin-left: 24px;
+    opacity: .54;
   }
 `
 
-const Detail = Row.extend`
-  opacity: .54;
-  
-  span + span::before {
-    content: '•';
-    margin-left: 12px;
-    margin-right: 12px;
-    opacity: .33;
+const WindInformation = styled.div`
+  flex: 1 0 55px;
+  padding: 12px;
+  text-align: center;
+  position: relative;
+  top: 6px;
+
+  svg {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  > div:last-child {
+    opacity: .54;
+    font-size: 12px;
   }
 `
 
-const MinTemperature = styled.span`
+const ForecastContainer = styled.div`
+  flex: 1;
+  border-left: 1px solid rgba(0, 0, 0, .15);
+  overflow-x: auto;
+
+  li {
+    flex: 1 0 55px;
+  }
+`
+
+const TempSign = styled.span`
+  font-size: 65%;
   opacity: .54;
+  vertical-align: top;
+  position: relative;
+  top: 4px;
+  left: 2px;
 `
