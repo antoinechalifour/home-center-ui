@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Icon from 'react-icons/lib/md/lightbulb-outline'
 import styled from 'styled-components'
 import Editable from 'components/Editable'
 import Switch from './Switch'
@@ -19,7 +18,6 @@ export default class SwitchableLight extends Component {
 
     return (
       <Container>
-        <Icon />
         <Name>
           <Editable onChange={this.props.updateName}>
             {this.props.name}
@@ -34,14 +32,9 @@ export default class SwitchableLight extends Component {
 const Container = styled.div`
   display: flex;
   align-items: center;
-
-  svg {
-    font-size: 32px;
-    opacity: .24;
-  }
+  box-sizing: border-box;
 `
 
 const Name = styled.div`
   flex: 1;
-  margin: 0 12px;
 `

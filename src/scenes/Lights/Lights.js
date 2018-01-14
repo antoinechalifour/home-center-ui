@@ -14,7 +14,6 @@ export function Lights ({ data }) {
 
   return (
     <div>
-      <Title>My devices</Title>
       <ul>
         {data.lights &&
           data.lights.map(x => {
@@ -47,9 +46,9 @@ Lights.propTypes = {
 export default gqlLoaderHoc(Lights)
 
 const Li = styled.li`
-  padding: 24px 12px;
+  padding: 12px 12px 14px 12px;
   
   + li {
-    border-top: 1px solid rgba(255, 255, 255, .15);
+    border-top: 1px solid rgba(0, 0, 0, .15);
   }
 `

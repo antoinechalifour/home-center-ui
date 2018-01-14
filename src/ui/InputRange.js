@@ -132,6 +132,7 @@ const Slider = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
+  border-radius: 2px;
   transform: translateX(-50%) scale(1.3);
   width: 1rem;
   background: ${({ theme }) => theme.colors.primary};

@@ -20,7 +20,7 @@ const Switch = styled.div`
   position: relative;
   height: 1.1rem;
   width: 2.2rem;
-  border: 1px solid rgba(255, 255, 255, .15);
+  border: 1px solid rgba(0, 0, 0, .25);
 
   &::before,
   &::after {
@@ -29,11 +29,10 @@ const Switch = styled.div`
     position: absolute;
     top: 50%;
     height: 50%;
-    opacity: .24;
   }
 
   &::before {
-    background: #fff;
+    background: rgba(0, 0, 0, .65);
     width: 1px;
     left: 25%;
     transform: translateY(-50%);
@@ -44,7 +43,7 @@ const Switch = styled.div`
     height: 0.5rem;
     border-radius: 50%;
     background: transparent;
-    border: 1px solid #fff;
+    border: 1px solid rgba(0, 0, 0, .65);
     right: 25%;
     transform: translateX(50%) translateY(-50%);
   }
@@ -56,7 +55,7 @@ const Toggle = styled.div`
   top: 50%;
   width: 1rem;
   height: 1rem;
-  background: #fff;
+  background: #373d3f;
   transition: transform .1s ease-in;
   cursor: pointer;
   z-index: 1;
