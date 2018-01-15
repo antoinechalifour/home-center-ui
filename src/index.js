@@ -8,8 +8,9 @@ import { WebSocketLink } from 'apollo-link-ws'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { getMainDefinition } from 'apollo-utilities'
 import { ApolloProvider } from 'react-apollo'
-import CustomizableTheme from 'components/CustomizableTheme'
-import Main from 'scenes/Main'
+import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import Main from 'scenes'
 import theme from 'theme/defaultTheme'
 
 // Apollo setup
@@ -37,11 +38,13 @@ const apolloClient = new ApolloClient({
 
 const render = App => {
   ReactDOM.render(
-    <ApolloProvider client={apolloClient}>
-      <CustomizableTheme baseTheme={theme}>
-        <App name='Antoine' />
-      </CustomizableTheme>
-    </ApolloProvider>,
+    <BrowserRouter>
+      <ApolloProvider client={apolloClient}>
+        <ThemeProvider theme={theme}>
+          <App name='Antoine' />
+        </ThemeProvider>
+      </ApolloProvider>
+    </BrowserRouter>,
     document.getElementById('root')
   )
 }
@@ -49,8 +52,8 @@ const render = App => {
 render(Main)
 
 if (module.hot) {
-  module.hot.accept('scenes/Main', () => {
-    const Next = require('scenes/Main').default
+  module.hot.accept('scenes', () => {
+    const Next = require('scenes').default
 
     render(Next)
   })
