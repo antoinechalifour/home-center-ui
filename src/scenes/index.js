@@ -5,6 +5,7 @@ import Home from './Home'
 import Rooms from './Rooms'
 import Settings from './Settings'
 import NotFound from './NotFound'
+import History from './History'
 
 export default class Main extends Component {
   render () {
@@ -18,17 +19,17 @@ export default class Main extends Component {
                 <NavLink exact to='/'>Dashboard</NavLink>
                 <NavLink to='/rooms'>Rooms</NavLink>
                 <NavLink to='/settings'>Settings</NavLink>
+                <NavLink to='/history'>History</NavLink>
               </Nav>
             </div>
           </Header>
-          <Content>
-            <Switch>
-              <Route path='/' exact component={Home} />
-              <Route path='/rooms' component={Rooms} />
-              <Route path='/settings' component={Settings} />
-              <Route component={NotFound} />
-            </Switch>
-          </Content>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/rooms' component={Rooms} />
+            <Route path='/settings' component={Settings} />
+            <Route path='/history' component={History} />
+            <Route component={NotFound} />
+          </Switch>
         </Body>
       </Container>
     )
@@ -50,6 +51,7 @@ const Header = styled.header`
   color: ${({ theme }) => theme.colors.text};
   background: ${({ theme }) => theme.colors.primary};
   box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+  position: relative;
 
   > div {
     width: 95%;
@@ -88,11 +90,4 @@ const Nav = styled.nav`
     opacity: 1;
     border-bottom: 2px solid #fff;
   }
-`
-
-const Content = styled.div`
-  width: 95%;
-  margin: auto;
-  flex: 1;
-  overflow-y: auto;
 `

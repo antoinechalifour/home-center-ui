@@ -10,7 +10,7 @@ import Lights from 'components/widgets/Lights'
 
 export default class Home extends Component {
   static defaultProps = {
-    widgets: [['weather', 'calendar'], ['lights', 'rss'], ['lists']]
+    widgets: [['weather', 'lights'], ['calendar', 'rss'], ['lists']]
   }
 
   static widgetTypeToComponent = {
@@ -45,13 +45,23 @@ export default class Home extends Component {
   }
   render () {
     return (
-      <Fragment>
+      <Container>
         <Welcome name='Antoine' />
         {this._renderWidgets(this.props.widgets)}
-      </Fragment>
+      </Container>
     )
   }
 }
+
+const Container = styled.div`
+  height: 100%;
+  overflow-y: scroll;
+
+  > div {
+    width: 95%;
+    margin: auto;
+  }
+`
 
 const Widgets = styled.div`
   display: flex;
@@ -69,8 +79,6 @@ const Widget = styled.div`
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
-  max-height: 450px;
-  overflow-y: auto;
 
   + div {
     margin-top: 8px;

@@ -66,7 +66,6 @@ const Input = styled.input`
   color: inherit;
 
   ::placeholder {
-    color: #fff;
     opacity: .33;
   }
 `
