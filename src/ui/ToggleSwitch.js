@@ -55,7 +55,7 @@ const Toggle = styled.div`
   top: 50%;
   width: 1rem;
   height: 1rem;
-  background: #373d3f;
+  background: ${({ theme }) => theme.colors.primary};
   transition: transform .1s ease-in;
   cursor: pointer;
   z-index: 1;

@@ -9,8 +9,6 @@ import NewList from './NewList'
 export function Lists ({ className, data }) {
   return (
     <Container>
-      <Title>My lists</Title>
-      {data.lists && <NewList />}
       {data.lists &&
         <ListsWrapper>
           {data.lists.map(x => (
@@ -19,6 +17,7 @@ export function Lists ({ className, data }) {
             </li>
           ))}
         </ListsWrapper>}
+      {data.lists && <NewList />}
     </Container>
   )
 }
@@ -43,11 +42,4 @@ const Container = styled.div`
 `
 
 const ListsWrapper = styled.ul`
-  margin: 12px 0;
-
-  > li + li {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 4px double rgba(255, 255, 255, .15);
-  }
 `

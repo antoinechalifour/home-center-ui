@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Container = styled.form`
-  margin-top: 12px;
 `
 
 const Input = styled.input`
@@ -15,7 +14,7 @@ const Input = styled.input`
   font-family: inherit;
   padding: 8px 12px;
   outline: none;
-  background: rgba(0, 0, 0, .15);
+  background: ${({ theme }) => theme.colors.primary};
   color: #fff;
   transition: all .25s ease-in;
   box-shadow: 0 1Px 3px rgba(0, 0, 0, .13);

@@ -45,18 +45,17 @@ List.propTypes = {
 export default gqlLoaderHoc(List)
 
 const Container = styled.div`
-  ul {
-    border-left: 2px solid rgba(255, 255, 255, .33);
-  }
+  border-left: 2px solid ${({ theme }) => theme.colors.primary};
 `
 
 const Name = styled.div`
   text-transform: uppercase;
   padding: 8px 12px;
   position: relative;
+  background: ${({ theme }) => theme.colors.primary};
+  color: #fff;
 
   svg {
-    opacity: .24;
     cursor: pointer;
     position: absolute;
     right: 12px;

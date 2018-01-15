@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import MdAdd from 'react-icons/lib/md/add'
 
 export default class NewItem extends Component {
   static ppropTypes = {
@@ -28,7 +29,7 @@ export default class NewItem extends Component {
           onChange={this.onChange}
           placeholder='Add something interesting...'
         />
-        <button type='submit'>Add</button>
+        <button type='submit'><MdAdd /></button>
       </Form>
     )
   }
@@ -41,8 +42,13 @@ const Form = styled.form`
     border: none;
     text-transform: uppercase;
     padding: 12px;
-    background: transparent;
+    background: none;
     color: #fff;
+    cursor: pointer;
+
+    svg {
+      font-size: 18px;
+    }
   }
 `
 
