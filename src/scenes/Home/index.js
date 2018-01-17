@@ -10,7 +10,7 @@ import Lights from 'components/widgets/Lights'
 
 export default class Home extends Component {
   static defaultProps = {
-    widgets: [['weather', 'lights'], ['calendar', 'rss'], ['lists']]
+    widgets: [['weather', 'rss', 'lists'], ['lights'], ['calendar']]
   }
 
   static widgetTypeToComponent = {
@@ -72,15 +72,16 @@ const Widgets = styled.div`
 `
 
 const WidgetCol = styled.div`
-  padding: 0 4px;
+  padding: 0 8px;
 `
 
 const Widget = styled.div`
   background: #fff;
   border-radius: 2px;
+  overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .13);
 
   + div {
-    margin-top: 8px;
+    margin-top: 16px;
   }
 `
