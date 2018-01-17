@@ -2,9 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import gqlLoaderHoc from 'components/GqlLoader'
-import Title from 'ui/WidgetTitle'
 import List from './List'
-import NewList from './NewList'
 
 export function Lists ({ className, data }) {
   return (
@@ -17,7 +15,6 @@ export function Lists ({ className, data }) {
             </li>
           ))}
         </ListsWrapper>}
-      {data.lists && <NewList />}
     </Container>
   )
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, Switch, Route } from 'react-router-dom'
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import Home from './Home'
 import Rooms from './Rooms'
@@ -16,7 +16,7 @@ export default class Main extends Component {
             <div>
               <Title>Home Center</Title>
               <Nav>
-                <NavLink exact to='/'>Dashboard</NavLink>
+                <NavLink to='/home'>Dashboard</NavLink>
                 <NavLink to='/rooms'>Rooms</NavLink>
                 <NavLink to='/settings'>Settings</NavLink>
                 <NavLink to='/history'>History</NavLink>
@@ -24,10 +24,11 @@ export default class Main extends Component {
             </div>
           </Header>
           <Switch>
-            <Route path='/' exact component={Home} />
+            <Route path='/home' component={Home} />
             <Route path='/rooms' component={Rooms} />
             <Route path='/settings' component={Settings} />
             <Route path='/history' component={History} />
+            <Redirect exact from='/' to='/home' />
             <Route component={NotFound} />
           </Switch>
         </Body>

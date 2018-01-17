@@ -1,12 +1,15 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Route } from 'react-router-dom'
 import Welcome from 'components/widgets/Welcome'
 import Weather from 'components/widgets/Weather'
 import Calendar from 'components/widgets/Calendar'
 import Lists from 'components/widgets/Lists'
 import Rss from 'components/widgets/Rss'
 import Lights from 'components/widgets/Lights'
+import FabGroup from './FabGroup'
+import AddList from './AddList'
 
 export default class Home extends Component {
   static defaultProps = {
@@ -48,6 +51,8 @@ export default class Home extends Component {
       <Container>
         <Welcome name='Antoine' />
         {this._renderWidgets(this.props.widgets)}
+        <FabGroup />
+        <Route path='/home/lists/new' component={AddList} />
       </Container>
     )
   }

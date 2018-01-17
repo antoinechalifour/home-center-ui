@@ -5,10 +5,15 @@ const Button = styled.button`
   font-family: inherit;
   background: none;
   border: none;
+  cursor: pointer;
   text-transform: uppercase;
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 90%;
+  transition: letter-spacing .25s ease-in;
+
+  :hover {
+    letter-spacing: 1px;
+  }
 
   ${({ theme, primary }) => primary && `
     background: ${theme.colors.primary};

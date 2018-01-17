@@ -5,7 +5,7 @@ export default {
     text: '#fff',
     textInverse: '#373d3f',
     primary: '#1689b9',
-    accent: '#ffeb3b',
+    accent: '#F50057',
     light: 'rgba(0, 0, 0, .15)'
   },
   font: {
