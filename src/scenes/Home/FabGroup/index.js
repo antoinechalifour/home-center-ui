@@ -20,10 +20,7 @@ export default class FabGroup extends Component {
         {this.state.isOpen && <Overlay />}
 
         <ButtonGroup>
-          <TranslateFab
-            translate={this.state.isOpen ? 0 : getTranslate(2)}
-            onClick={this._toggleOpen}
-          >
+          <TranslateFab translate={this.state.isOpen ? 0 : getTranslate(2)}>
             <Link to='/home/lists/new'><ListIcon /></Link>
           </TranslateFab>
           <TranslateFab translate={this.state.isOpen ? 0 : getTranslate(1)}>
