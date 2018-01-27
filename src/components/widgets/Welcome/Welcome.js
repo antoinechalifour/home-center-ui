@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Conversation from './Conversation'
 
 // From: http://www.english-test.net/forum/sutra289476.html
 const allConfigurations = {
@@ -34,7 +35,12 @@ export default function Welcome ({ name, date }) {
     configuration = allConfigurations.night
   }
 
-  return <Message>{configuration.message}, {name}</Message>
+  return (
+    <Message>
+      <span>{configuration.message}, {name}</span>
+      <Conversation />
+    </Message>
+  )
 }
 
 Welcome.proptypes = {
@@ -43,7 +49,13 @@ Welcome.proptypes = {
 }
 
 const Message = styled.div`
-  text-align: center;
-  font-size: 32px;
   padding: 24px 0;
+  display: flex;
+  align-items: center;
+
+  > :first-child {
+    text-align: center;
+    font-size: 32px;
+    flex: 1;
+  }
 `
