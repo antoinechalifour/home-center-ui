@@ -12,52 +12,42 @@ export default class FabGroup extends Component {
 
   _toggleOpen = () => this.setState({ isOpen: !this.state.isOpen })
 
-  _renderOpen () {
-    return (
-      <Overlay>
-        <Group>
-          <LabelAndFab>
-            <span>List</span>
-            <Fab onClick={this._toggleOpen}>
-              <Link to='/home/lists/new'><ListIcon /></Link>
-            </Fab>
-          </LabelAndFab>
-          <LabelAndFab>
-            <span>RSS source</span>
-            <Fab>
-              <Link to='/home/rss/new'><SourceIcon /></Link>
-            </Fab>
-          </LabelAndFab>
-          <CloseFab onClick={this._toggleOpen}>
-            <MdClose />
-          </CloseFab>
-        </Group>
-      </Overlay>
-    )
-  }
-
-  _renderClosed () {
-    return (
-      <OpenFab onClick={this._toggleOpen}>
-        <MdAdd />
-      </OpenFab>
-    )
-  }
-
   render () {
-    return this.state.isOpen ? this._renderOpen() : this._renderClosed()
+    const getTranslate = index => 56 * index + 12 * index
+
+    return (
+      <React.Fragment>
+        {this.state.isOpen && <Overlay />}
+
+        <ButtonGroup>
+          <TranslateFab
+            translate={this.state.isOpen ? 0 : getTranslate(2)}
+            onClick={this._toggleOpen}
+          >
+            <Link to='/home/lists/new'><ListIcon /></Link>
+          </TranslateFab>
+          <TranslateFab translate={this.state.isOpen ? 0 : getTranslate(1)}>
+            <Link to='/home/rss/new'><SourceIcon /></Link>
+          </TranslateFab>
+          <OpenFab open={this.state.isOpen} onClick={this._toggleOpen}>
+            <MdAdd />
+          </OpenFab>
+        </ButtonGroup>
+      </React.Fragment>
+    )
   }
 }
 
-const enterAnimation = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
+const ButtonGroup = styled.div`
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  margin: 0 !important;
+  width: auto !important;
 
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+  > * {
+    margin: 12px 0;
   }
 `
 
@@ -85,54 +75,27 @@ const Fab = styled.button`
 `
 
 const OpenFab = styled(Fab)`
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-`
-
-const Group = styled.div`
-  position: absolute;
-  right: 24px;
-  bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`
-
-const CloseFab = styled(Fab)`
-  background: #373d3f;
+  transition: background .2s ease-in, color .2s ease-in;
+  color: #fff;
   position: relative;
+
+  svg {
+    transform: rotate(0deg);
+    transition: transform .2s ease-in;
+  }
+
+  ${({ open, theme }) => open && `
+    background: #373d3f;
+    
+    svg {
+      transform: rotate(45deg);
+    }
+  `}
 `
 
-const LabelAndFab = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-left: 24px;
-  margin: 12px 0;
-  animation: ${enterAnimation} .2s ease-in;
+const TranslateFab = styled(Fab)`
+  transition: transform .2s ease, box-shadow .2s ease-in;
+  transform: translateY(${({ translate }) => translate}px);
 
-  span {
-    margin-right: 12px;
-    position: relative;
-    color: #fff;
-  }
-
-  button {
-    position: relative;
-  }
-
-  &::before {
-    position: absolute;
-    content: '';
-    top: 50%;
-    height: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    left: 0;
-    border-radius: 50px;
-    background: ${({ theme }) => theme.colors.accent};
-    opacity: .65;
-  }
+  ${({ translate }) => translate !== 0 && 'box-shadow: none;'}
 `
