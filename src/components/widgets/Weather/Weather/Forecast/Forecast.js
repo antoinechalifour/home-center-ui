@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ThermometerIcon from 'react-icons/lib/ti/thermometer'
@@ -65,41 +65,35 @@ class Forecast extends Component {
     )
 
     return (
-      <Container>
+      <Fragment>
         {dailyForecast.map(({ date, temp, weather }) => (
-          <li>
+          <Item key={getDayName(date).substr(0, 3)}>
             <div>{getDayName(date).substr(0, 3)}</div>
             <div><WeatherIcon type={weather} /></div>
             <div>{Math.round(temp)}°</div>
-          </li>
+          </Item>
         ))}
-      </Container>
+      </Fragment>
     )
   }
 }
 
-const Container = styled.ul`
-  display: flex;
-  align-items: flex-end;
+const Item = styled.div`
+  padding: 12px;
+  text-align: center;
 
-  li {
-    flex: 1;
-    padding: 12px;
-    text-align: center;
+  > div:first-child {
+    opacity: .54;
+  }
 
-    > div:first-child {
-      opacity: .54;
-    }
+  svg {
+    font-size: 24px;
+    margin: 4px 0;
+    opacity: .33;
+  }
 
-    svg {
-      font-size: 24px;
-      margin: 4px 0;
-      opacity: .33;
-    }
-
-    + li {
-      border-left: 1px solid rgba(0, 0, 0, .15);
-    }
+  + li {
+    border-left: 1px solid rgba(0, 0, 0, .15);
   }
 `
 

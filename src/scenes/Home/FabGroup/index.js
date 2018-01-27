@@ -25,7 +25,7 @@ export default class FabGroup extends Component {
           <LabelAndFab>
             <span>RSS source</span>
             <Fab>
-              <SourceIcon />
+              <Link to='/home/rss/new'><SourceIcon /></Link>
             </Fab>
           </LabelAndFab>
           <CloseFab onClick={this._toggleOpen}>

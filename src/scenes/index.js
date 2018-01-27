@@ -11,18 +11,18 @@ export default class Main extends Component {
   render () {
     return (
       <Container>
+        <Header>
+          <div>
+            <Title>Home Center</Title>
+            <Nav>
+              <NavLink to='/home'>Dashboard</NavLink>
+              <NavLink to='/rooms'>Rooms</NavLink>
+              <NavLink to='/settings'>Settings</NavLink>
+              <NavLink to='/history'>History</NavLink>
+            </Nav>
+          </div>
+        </Header>
         <Body>
-          <Header>
-            <div>
-              <Title>Home Center</Title>
-              <Nav>
-                <NavLink to='/home'>Dashboard</NavLink>
-                <NavLink to='/rooms'>Rooms</NavLink>
-                <NavLink to='/settings'>Settings</NavLink>
-                <NavLink to='/history'>History</NavLink>
-              </Nav>
-            </div>
-          </Header>
           <Switch>
             <Route path='/home' component={Home} />
             <Route path='/rooms' component={Rooms} />
@@ -44,6 +44,7 @@ const Container = styled.div`
   line-height: ${({ theme }) => theme.font.lineHeight};
   letter-spacing: 0.04rem;
   display: flex;
+  flex-direction: column;
   color: ${({ theme }) => theme.colors.textInverse};
   background: #f7f7f9;
 `
@@ -53,11 +54,6 @@ const Header = styled.header`
   background: ${({ theme }) => theme.colors.primary};
   box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
   position: relative;
-
-  > div {
-    width: 95%;
-    margin: auto;
-  }
 `
 
 const Body = styled.main`
@@ -74,11 +70,14 @@ const Title = styled.div`
 
 const Nav = styled.nav`
   display: flex;
+  justify-content: center;
   text-transform: uppercase;
+  width: 100%;
+  overflow-x: auto;
 
   a {
     padding: 12px;
-    flex: 1;
+    flex: 150px 0 0;
     text-align: center;
     text-decoration: none;
     color: inherit;

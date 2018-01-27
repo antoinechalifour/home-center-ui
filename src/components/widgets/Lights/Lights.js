@@ -14,6 +14,7 @@ export function Lights ({ data }) {
 
   return (
     <div>
+      <Title>My devices</Title>
       <ul>
         {data.lights &&
           data.lights.map(x => {

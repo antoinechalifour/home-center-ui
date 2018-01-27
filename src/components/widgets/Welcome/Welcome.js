@@ -45,5 +45,5 @@ Welcome.proptypes = {
 const Message = styled.div`
   text-align: center;
   font-size: 32px;
-  padding: 24px;
+  padding: 24px 0;
 `

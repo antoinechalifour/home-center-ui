@@ -73,25 +73,17 @@ export class Weather extends Component {
     )
   }
 
-  _renderForecast () {
-    return (
-      <ForecastContainer>
-        <Forecast />
-      </ForecastContainer>
-    )
-  }
-
   render () {
     return (
-      <div>
+      <Container>
         <Top>
           {this._renderTop()}
         </Top>
         <Bottom>
           {this._renderDetail()}
-          {this._renderForecast()}
+          <Forecast />
         </Bottom>
-      </div>
+      </Container>
     )
   }
 }
@@ -111,6 +103,10 @@ Weather.propTypes = {
 }
 
 export default gqlLoaderHoc(Weather)
+
+const Container = styled.div`
+  clear: both;
+`
 
 const Top = styled.div`
   padding: 32px 12px;
@@ -144,7 +140,10 @@ const Geolocation = styled.div`
 `
 
 const Bottom = styled.div`
+  width: 100%;
+  float: left;
   display: flex;
+  overflow-x: auto;
 `
 
 const Detail = styled.div`
@@ -184,15 +183,15 @@ const WindInformation = styled.div`
   }
 `
 
-const ForecastContainer = styled.div`
-  flex: 1;
-  border-left: 1px solid rgba(0, 0, 0, .15);
-  overflow-x: auto;
+// const ForecastContainer = styled.div`
+//   flex: 1;
+//   border-left: 1px solid rgba(0, 0, 0, .15);
+//   overflow-x: auto;
 
-  li {
-    flex: 1 0 55px;
-  }
-`
+//   li {
+//     flex: 1 0 55px;
+//   }
+// `
 
 const TempSign = styled.span`
   font-size: 65%;

@@ -14,7 +14,7 @@ import List from './List'
 
 export class ListContainer extends Component {
   static propTypes = {
-    id: PropTypes.number.isRequired,
+    listId: PropTypes.number.isRequired,
     data: PropTypes.shape({
       subscribeToMore: PropTypes.func.isRequired
     }).isRequired,
@@ -26,7 +26,7 @@ export class ListContainer extends Component {
     this.props.data.subscribeToMore({
       document: listUpdated,
       variables: {
-        id: this.props.id
+        id: this.props.listId
       },
       updateQuery: this._onListUpdated
     })
@@ -34,7 +34,7 @@ export class ListContainer extends Component {
     this.props.data.subscribeToMore({
       document: listItemCreated,
       variables: {
-        listId: this.props.id
+        listId: this.props.listId
       },
       updateQuery: this._onListItemCreated
     })
@@ -42,7 +42,7 @@ export class ListContainer extends Component {
     this.props.data.subscribeToMore({
       document: listItemUpdated,
       variables: {
-        listId: this.props.id
+        listId: this.props.listId
       },
       updateQuery: this._onListItemUpdated
     })
@@ -50,7 +50,7 @@ export class ListContainer extends Component {
     this.props.data.subscribeToMore({
       document: listItemDeleted,
       variables: {
-        listId: this.props.id
+        listId: this.props.listId
       },
       updateQuery: this._onListItemDeleted
     })
@@ -128,7 +128,7 @@ export class ListContainer extends Component {
     this.props.updateList({
       variables: {
         input: {
-          id: this.props.id,
+          id: this.props.listId,
           name
         }
       }
@@ -138,7 +138,7 @@ export class ListContainer extends Component {
   _onDeleteList = () => {
     this.props.deleteList({
       variables: {
-        input: { id: this.props.id }
+        input: { id: this.props.listId }
       }
     })
   }
@@ -155,8 +155,8 @@ export class ListContainer extends Component {
 }
 
 const getListOptions = {
-  options: ({ id }) => ({
-    variables: { id }
+  options: ({ listId }) => ({
+    variables: { id: listId }
   })
 }
 
