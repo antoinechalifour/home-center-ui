@@ -20,45 +20,38 @@ const Switch = styled.div`
   position: relative;
   height: 1.1rem;
   width: 2.2rem;
-  border: 1px solid rgba(0, 0, 0, .25);
 
-  &::before,
-  &::after {
+  &::before {
     content: '';
     display: block;
     position: absolute;
     top: 50%;
     height: 50%;
-  }
-
-  &::before {
-    background: rgba(0, 0, 0, .65);
-    width: 1px;
-    left: 25%;
+    background: #ddd;
+    opacity: .23;
+    width: 100%;
     transform: translateY(-50%);
-  }
-
-  &::after {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, .65);
-    right: 25%;
-    transform: translateX(50%) translateY(-50%);
+    border-radius: 4px;
   }
 `
 
 const Toggle = styled.div`
   position: absolute;
-  border-radius: 2px;
+  border-radius: 50%;
   top: 50%;
   width: 1rem;
   height: 1rem;
   background: ${({ theme }) => theme.colors.primary};
-  transition: transform .1s ease-in;
+  transition: transform .1s ease, background .1s ease;
   cursor: pointer;
   z-index: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .23);
 
-  transform: translateY(-50%) translateX(${({ value }) => (value ? 115 : 0)}%);
+  ${({ value }) => (value ? `
+    transform: translateY(-50%) translateX(115%);
+  ` : `
+    transform: translateY(-50%) translateX(5%);
+    background: #ddd;
+  `)}
+  
 `
