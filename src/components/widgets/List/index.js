@@ -165,7 +165,10 @@ const updateListOptions = {
 }
 
 const deleteListOptions = {
-  name: 'deleteList'
+  name: 'deleteList',
+  options: {
+    refetchQueries: ['GetWidgets']
+  }
 }
 
 export default compose(
